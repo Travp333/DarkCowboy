@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<COLLADA version="1.4.1" xmlns="http://www.collada.org/2005/11/COLLADASchema">
+  <asset>
+    <created>2016-05-22T03:55:24Z</created>
+    <modified>2016-05-22T03:55:24Z</modified>
+  </asset>
+  <library_images>
+    <image id="Foods_Wet_id" name="Foods_Wet">
+      <init_from>./Foods_Wet.png</init_from>
+    </image>
+    <image id="Foods_Wet_NRM_id" name="Foods_Wet_NRM">
+      <init_from>./Foods_Wet_NRM.png</init_from>
+    </image>
+    <image id="Foods_Wet_ENV_id" name="Foods_Wet_ENV">
+      <init_from>./Foods_Wet_ENV.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="mt_Wet_mat_id" name="mt_Wet_mat">
+      <instance_effect url="#eff_mt_Wet_id" />
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="eff_mt_Wet_id" name="eff_mt_Wet">
+      <profile_COMMON>
+        <newparam sid="img_surface">
+          <surface type="2D">
+            <init_from>Foods_Wet_id</init_from>
+            <format>PNG</format>
+          </surface>
+        </newparam>
+        <newparam sid="img_sampler">
+          <sampler2D>
+            <source>img_surface</source>
+            <wrap_s>WRAP</wrap_s>
+            <wrap_t>WRAP</wrap_t>
+            <minfilter>NEAREST_MIPMAP_NEAREST</minfilter>
+            <magfilter>LINEAR</magfilter>
+            <mipfilter>LINEAR</mipfilter>
+          </sampler2D>
+        </newparam>
+        <technique sid="img_technique">
+          <phong>
+            <emission>
+              <color>0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color>0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="img_sampler" texcoord="uv" />
+            </diffuse>
+            <specular>
+              <color>1 1 1 1</color>
+            </specular>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="mesh_0__id" name="mesh_0_">
+      <mesh>
+        <source id="mesh_0__position_id" name="mesh_0__position">
+          <float_array id="mesh_0__position_array_id" count="138">-0.183804 0.470769 0.261657 -0.267929 0.0770966 0.367697 0.17008 0.405146 0.265458 -0.260741 0.503301 0.193959 -0.388049 0.0770966 0.271064 0.280359 0.0770966 0.360421 0.355401 0.0770966 0.274278 0.241737 0.449303 0.190246 0.241737 0.449303 0.190246 -0.260741 0.503301 0.193959 -0.0289024 0.552859 -0.026953 0.195708 0.498007 -0.265502 0.262952 0.432547 -0.193827 0.355401 0.0770966 0.274278 0.345108 0.0770966 -0.280251 -0.267825 0.451887 -0.20396 -0.19395 0.491089 -0.260741 -0.361677 0.0770966 -0.288234 -0.315756 0.0770966 -0.344674 0.280073 0.0770966 -0.351954 -0.267825 0.451887 -0.20396 -0.388049 0.0770966 0.271064 -0.361677 0.0770966 -0.288234 0.262952 0.432547 -0.193827 0.345108 0.0770966 -0.280251 -0.5024 0.179191 -0.021383 -0.307768 0.179191 0.146683 -0.265264 0.418819 0.0566478 -0.389657 0.404133 -0.14938 -0.246892 0.466455 -0.11091 -0.277259 0.179191 -0.24452 0.0217099 0.174603 0.439508 0.102872 0.179374 0.416374 -0.00332508 0.373902 0.264798 -0.327685 0.162278 0.221582 0.251652 0.176855 0.272066 0.341807 0.460228 -0.126326 0.211565 0.409469 -0.27844 0.242965 0.430576 0.0204814 0.561859 0.0770966 -0.155382 0.215945 0.0770966 -0.347348 0.312584 0.0770966 0.130011 0.184999 0.0770965 -0.294905 -0.0804537 0.0770965 -0.44757 -0.0425138 0.210058 -0.257346 -0.159951 0.0770965 -0.332503</float_array>
+          <technique_common>
+            <accessor source="#mesh_0__position_array_id" count="46" stride="3">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_0__normal_id" name="mesh_0__normal">
+          <float_array id="mesh_0__normal_array_id" count="138">-0.087728 0.655505 0.750078 -0.291551 0.309011 0.905268 0.286788 0.516968 0.806534 -0.432069 0.867766 0.245559 -0.856816 0.324585 0.400639 0.348632 0.342692 0.872364 0.863418 0.343255 0.369711 0.481217 0.812634 0.328718 0.481217 0.812634 0.328718 -0.432069 0.867766 0.245559 0.0320224 0.99925 0.0217632 0.436421 0.788905 -0.432626 0.867651 0.455066 -0.200243 0.863418 0.343255 0.369711 0.909604 0.289854 -0.297666 -0.802638 0.526662 -0.279998 -0.3675 0.793715 -0.484727 -0.881903 0.313863 -0.351763 -0.389534 0.28661 -0.875282 0.419284 0.274412 -0.865389 -0.802638 0.526662 -0.279998 -0.856816 0.324585 0.400639 -0.881903 0.313863 -0.351763 0.867651 0.455066 -0.200243 0.909604 0.289854 -0.297666 -0.900279 0.40051 0.170555 -0.606755 0.371634 0.702664 -0.617454 0.642068 0.454421 -0.650848 0.661572 -0.372451 -0.246033 0.85053 -0.464829 -0.360158 0.204964 -0.910096 -0.15034 0.640956 0.752711 0.348819 0.687073 0.637382 0.0837883 0.696177 0.712964 -0.454497 0.55421 0.69734 0.513833 0.683991 0.517814 0.510164 0.858649 -0.0495431 0.33123 0.661956 -0.672384 0.264884 0.882067 0.389609 0.809134 0.418848 -0.41215 0.476916 0.184453 -0.859377 0.718225 0.348251 0.602389 0.335702 0.73931 -0.583716 -0.130947 0.824642 -0.550289 -0.130947 0.824642 -0.550289 -0.567982 0.723473 -0.392407</float_array>
+          <technique_common>
+            <accessor source="#mesh_0__normal_array_id" count="46" stride="3">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_0__uv0_id" name="mesh_0__uv0">
+          <float_array id="mesh_0__uv0_array_id" count="92">-0.202483 -0.336925 -0.21941 -0.994419 0.248933 -0.336925 -0.375469 -0.224044 -0.410921 -0.993877 0.265861 -0.994419 0.402665 -0.994419 0.402665 -0.336925 0.317999 -0.267859 -0.310175 -0.265138 -0.0425176 0.0420039 0.248933 0.313477 0.317999 0.244411 0.992248 -0.284787 0.992248 0.261338 -0.320009 0.357534 -0.233627 0.313477 -0.344821 0.988472 -0.280264 0.988472 0.265861 0.988472 -0.332403 0.230183 -1.00246 -0.312663 -1.00246 0.24711 0.365761 0.313477 0.365761 0.988472 0.342828 0.490885 0.819992 0.206075 0.819992 0.51575 0.600066 0.704893 0.961973 0.644338 0.379674 0.991246 0.267496 0.0495288 0.654021 0.0444947 0.466142 0.46033 0.0235294 0.349376 0.905714 0.337886 0.114055 -0.123121 -0.000673622 0.0510339 0.055465 -0.344551 0.576257 -0.0680693 0.192311 0.400271 0.412637 -0.555442 0.0871709 -0.0720306 0.834346 -0.0817618 0.238942 0.303392 0.60132 0.441381</float_array>
+          <technique_common>
+            <accessor source="#mesh_0__uv0_array_id" count="46" stride="2">
+              <param name="S" type="float" />
+              <param name="T" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="mesh_0__vertices_id">
+          <input semantic="POSITION" source="#mesh_0__position_id" />
+        </vertices>
+        <triangles material="mt_Wet" count="39">
+          <input semantic="VERTEX" source="#mesh_0__vertices_id" offset="0" />
+          <input semantic="NORMAL" source="#mesh_0__normal_id" offset="0" />
+          <input semantic="TEXCOORD" source="#mesh_0__uv0_id" offset="0" set="0" />
+          <p>0 1 2 1 0 3 4 1 3 1 5 2 5 6 2 6 7 2 8 0 2 8 9 0 8 10 9 8 11 10 12 11 8 12 8 13 14 12 13 15 16 17 16 18 17 18 16 19 16 11 19 10 11 16 9 10 16 20 9 16 9 20 21 20 22 21 11 23 19 23 24 19 25 26 27 28 25 27 28 27 29 28 29 30 30 25 28 31 32 33 34 31 33 32 35 33 36 37 38 39 37 36 40 37 39 41 39 38 39 36 38 42 43 44 43 45 44</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="vs_F2_Item_Foods_Wet_id" name="vs_F2_Item_Foods_Wet">
+      <node id="vsn_mesh_0__id" name="vsn_mesh_0_" type="NODE">
+        <matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#mesh_0__id">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="mt_Wet" target="#mt_Wet_mat_id" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#vs_F2_Item_Foods_Wet_id" />
+  </scene>
+</COLLADA>
