@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TV
-  m_Shader: {fileID: 4800000, guid: 9bcee77be8a196642bcb84feddb83d5b, type: 3}
+  m_Shader: {fileID: 4800000, guid: dc25eb15e3425bc4885a16121989e5d2, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A _SPECGLOSSMAP
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2451
   stringTagMap:
-    OptimizedShaderFolder: TV-463b829f
+    OptimizedShaderFolder: TV-3e701cea
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: TransparentCutout
   disabledShaderPasses: []
@@ -1038,7 +1038,7 @@ Material:
     - _MainAlphaToCoverage: 0
     - _MainAlphaToCoverageAnimated: 0
     - _MainDistanceFadeAnimated: 0
-    - _MainEmissionStrength: 0.4
+    - _MainEmissionStrength: 0.1
     - _MainEmissionStrengthAnimated: 0
     - _MainFadeTextureAnimated: 0
     - _MainFadeTexturePanAnimated: 0

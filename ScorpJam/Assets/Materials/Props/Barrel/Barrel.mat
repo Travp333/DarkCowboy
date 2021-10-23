@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Barrel
-  m_Shader: {fileID: 4800000, guid: f5612c6fa99a7c64e9f0ee449c72b714, type: 3}
+  m_Shader: {fileID: 4800000, guid: 04dd6eb63e7d83846b7dd3f96f19307e, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A _SPECGLOSSMAP
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: Barrel-960f9070
+    OptimizedShaderFolder: Barrel-5bceec53
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []
@@ -1038,7 +1038,7 @@ Material:
     - _MainAlphaToCoverage: 0
     - _MainAlphaToCoverageAnimated: 0
     - _MainDistanceFadeAnimated: 0
-    - _MainEmissionStrength: 0.5
+    - _MainEmissionStrength: 0.1
     - _MainEmissionStrengthAnimated: 0
     - _MainFadeTextureAnimated: 0
     - _MainFadeTexturePanAnimated: 0
@@ -1062,11 +1062,11 @@ Material:
     - _MainMipScaleAnimated: 0
     - _MainShadowClipMod: 0
     - _MainShadowClipModAnimated: 0
-    - _MainTexAnimated: 0
-    - _MainTexPanAnimated: 0
+    - _MainTexAnimated: 1
+    - _MainTexPanAnimated: 1
     - _MainTex_STAnimated: 0
     - _MainTextureUV: 0
-    - _MainTextureUVAnimated: 0
+    - _MainTextureUVAnimated: 1
     - _MainUseVertexColorAlpha: 0
     - _MainUseVertexColorAlphaAnimated: 0
     - _MainVertexColoring: 0
