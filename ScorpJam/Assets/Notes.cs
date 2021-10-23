@@ -4,6 +4,8 @@
 SCORPY NOTES 
 Change climbing system to be dependent on overlapping with a volume attached to a climbable surface. this way, climbing will never activate accidentally. 
 
+EMISSION MAPS FOR KAWAII FRIDGE AND TV
+
 
 
 
