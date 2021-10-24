@@ -8,11 +8,11 @@ public class Shop : MonoBehaviour
     [Tooltip("True = treatee, false = trader")]
     bool treateeOrTrader;
     [SerializeField]
-    public enum coinType{coinA, coinB, coinC, coinD, coinE};
+    public enum coinType{coinA, coinB, coinC, coinD, coinE, coinF, coinG, coinH};
     public coinType selling;
 
     [SerializeField]
-    public enum tradeType{coinA, coinB, coinC, coinD, coinE};
+    public enum tradeType{coinA, coinB, coinC, coinD, coinE, coinF, coinG, coinH};
     public coinType buying;
     [HideInInspector]
     public float cooldown;

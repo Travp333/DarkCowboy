@@ -156,7 +156,35 @@ public class Grab : MonoBehaviour
                     else{
                         debugOOM();
                     }                    
-                }         
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinF){
+                    if(stats.coinF - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinF = stats.coinF - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinA = stats.coinA +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinG){
+                    if(stats.coinG - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinG = stats.coinG - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinA = stats.coinA +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinH){
+                    if(stats.coinH - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinH = stats.coinH - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinA = stats.coinA +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                        
                     
     }
 
@@ -196,7 +224,34 @@ public class Grab : MonoBehaviour
                     else{
                         debugOOM();
                     }                    
-                }         
+                }   
+                    else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinF){
+                    if(stats.coinF - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinF = stats.coinF - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinB = stats.coinB +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinG){
+                    if(stats.coinG - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinG = stats.coinG - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinB = stats.coinB +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinH){
+                    if(stats.coinH - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinH = stats.coinH - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinB = stats.coinB +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }      
                     
     }
 
@@ -236,7 +291,34 @@ public class Grab : MonoBehaviour
                     else{
                         debugOOM();
                     }                    
-                }         
+                } 
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinF){
+                    if(stats.coinF - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinF = stats.coinF - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinC = stats.coinC +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinG){
+                    if(stats.coinG - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinG = stats.coinG - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinC = stats.coinC +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinH){
+                    if(stats.coinH - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinH = stats.coinH - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinC = stats.coinC +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }        
                     
     }
     void Dseller(RaycastHit hit){
@@ -275,7 +357,34 @@ public class Grab : MonoBehaviour
                     else{
                         debugOOM();
                     }                    
-                }         
+                }  
+                    else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinF){
+                    if(stats.coinF - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinF = stats.coinF - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinD = stats.coinD +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinG){
+                    if(stats.coinG - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinG = stats.coinG - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinD = stats.coinD +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinH){
+                    if(stats.coinH - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinH = stats.coinH - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinD = stats.coinD +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }       
                     
     }
     void Eseller(RaycastHit hit){
@@ -314,14 +423,237 @@ public class Grab : MonoBehaviour
                     else{
                         debugOOM();
                     }                    
-                }         
-                    
+                }  
+                    else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinF){
+                    if(stats.coinF - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinF = stats.coinF - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinE = stats.coinE +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinG){
+                    if(stats.coinG - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinG = stats.coinG - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinE = stats.coinE +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinH){
+                    if(stats.coinH - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinH = stats.coinH - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinE = stats.coinE +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }                  
     }
+
+    void Fseller(RaycastHit hit){
+        if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinB){
+                if(stats.coinB - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                    stats.coinB = stats.coinB - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                    stats.coinF = stats.coinF +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                }
+                else{
+                    debugOOM();
+                    }
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinA){
+                    if(stats.coinA - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinA = stats.coinA - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinF = stats.coinF +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }
+                }       
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinC){
+                    if(stats.coinC - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinC = stats.coinC - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinF = stats.coinF +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                      
+                }   
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinD){
+                    if(stats.coinD - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinD = stats.coinD - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinF = stats.coinF +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }  
+                    else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinE){
+                    if(stats.coinE - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinE = stats.coinE - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinF = stats.coinF +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinG){
+                    if(stats.coinG - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinG = stats.coinG - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinF = stats.coinF +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinH){
+                    if(stats.coinH - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinH = stats.coinH - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinF = stats.coinF +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }                  
+    }
+    void Gseller(RaycastHit hit){
+        if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinB){
+                if(stats.coinB - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                    stats.coinB = stats.coinB - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                    stats.coinG = stats.coinG +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                }
+                else{
+                    debugOOM();
+                    }
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinA){
+                    if(stats.coinA - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinA = stats.coinA - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinG = stats.coinG +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }
+                }       
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinC){
+                    if(stats.coinC - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinC = stats.coinC - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinG = stats.coinG +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                      
+                }   
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinD){
+                    if(stats.coinD - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinD = stats.coinD - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinG = stats.coinG +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }  
+                    else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinF){
+                    if(stats.coinF - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinF = stats.coinF - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinG = stats.coinG +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinE){
+                    if(stats.coinE - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinE = stats.coinE - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinG = stats.coinG +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinH){
+                    if(stats.coinH - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinH = stats.coinH - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinG = stats.coinG +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }                  
+    }
+    void Hseller(RaycastHit hit){
+        if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinB){
+                if(stats.coinB - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                    stats.coinB = stats.coinB - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                    stats.coinH = stats.coinH +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                }
+                else{
+                    debugOOM();
+                    }
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinA){
+                    if(stats.coinA - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinA = stats.coinA - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinH = stats.coinH +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }
+                }       
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinC){
+                    if(stats.coinC - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinC = stats.coinC - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinH = stats.coinH +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                      
+                }   
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinD){
+                    if(stats.coinD - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinD = stats.coinD - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinH = stats.coinH +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }  
+                    else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinF){
+                    if(stats.coinF - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinF = stats.coinF - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinH = stats.coinH +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinE){
+                    if(stats.coinE - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinE = stats.coinE - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinH = stats.coinH +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinG){
+                    if(stats.coinG - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
+                        stats.coinG = stats.coinG - hit.transform.gameObject.GetComponent<Shop>().takeAmount;
+                        stats.coinH = stats.coinH +  hit.transform.gameObject.GetComponent<Shop>().giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }                  
+    }
+
 
     void currencyInteraction(RaycastHit hit){
         //TREATORS ===============================================================================================================
         if(hit.transform.gameObject.GetComponent<Shop>().getTreatOrTrater()){
-            int range = Random.Range(1,6);
+            int range = Random.Range(1,9);
             int range2 = Random.Range(1, 50);
             if(range == 1){
                 if(hit.transform.gameObject.GetComponent<Shop>().cooldown == 0){
@@ -332,21 +664,21 @@ public class Grab : MonoBehaviour
             }
             else if(range == 2){
                 if(hit.transform.gameObject.GetComponent<Shop>().cooldown == 0){
-                    //Debug.Log("got" + range2 + " coin A");
+                    //Debug.Log("got" + range2 + " coin B");
                     stats.coinB = stats.coinB + range2;
                     hit.transform.gameObject.GetComponent<Shop>().cooldown = 5;
                 }
             }
             else if(range == 3){
                 if(hit.transform.gameObject.GetComponent<Shop>().cooldown == 0){
-                    //Debug.Log("got" + range2 + " coin A");
+                    //Debug.Log("got" + range2 + " coin C");
                     stats.coinC = stats.coinC + range2;
                     hit.transform.gameObject.GetComponent<Shop>().cooldown = 5;
                 }
             }
             else if(range == 4){
                 if(hit.transform.gameObject.GetComponent<Shop>().cooldown == 0){
-                    //Debug.Log("got" + range2 + " coin A");
+                    //Debug.Log("got" + range2 + " coin D");
                     stats.coinD = stats.coinD + range2;
                     hit.transform.gameObject.GetComponent<Shop>().cooldown = 5;
                 }
@@ -354,8 +686,29 @@ public class Grab : MonoBehaviour
             }
             else if(range == 5){
                 if(hit.transform.gameObject.GetComponent<Shop>().cooldown == 0){
-                    //Debug.Log("got" + range2 + " coin A");
+                    //Debug.Log("got" + range2 + " coin E");
                     stats.coinE = stats.coinE + range2;
+                    hit.transform.gameObject.GetComponent<Shop>().cooldown = 5;
+                }
+            }
+            else if(range == 6){
+                if(hit.transform.gameObject.GetComponent<Shop>().cooldown == 0){
+                    //Debug.Log("got" + range2 + " coin F");
+                    stats.coinF = stats.coinF + range2;
+                    hit.transform.gameObject.GetComponent<Shop>().cooldown = 5;
+                }
+            }
+            else if(range == 7){
+                if(hit.transform.gameObject.GetComponent<Shop>().cooldown == 0){
+                    //Debug.Log("got" + range2 + " coin G");
+                    stats.coinG = stats.coinG + range2;
+                    hit.transform.gameObject.GetComponent<Shop>().cooldown = 5;
+                }
+            }
+            else if(range == 8){
+                if(hit.transform.gameObject.GetComponent<Shop>().cooldown == 0){
+                    //Debug.Log("got" + range2 + " coin H");
+                    stats.coinH = stats.coinH + range2;
                     hit.transform.gameObject.GetComponent<Shop>().cooldown = 5;
                 }
             }
@@ -382,6 +735,15 @@ public class Grab : MonoBehaviour
              //SELLING E =============================================================================================
              if(hit.transform.gameObject.GetComponent<Shop>().selling == Shop.coinType.coinE){
                  Eseller(hit);
+             }
+            if(hit.transform.gameObject.GetComponent<Shop>().selling == Shop.coinType.coinF){
+                 Fseller(hit);
+             }
+             if(hit.transform.gameObject.GetComponent<Shop>().selling == Shop.coinType.coinG){
+                 Gseller(hit);
+             }
+             if(hit.transform.gameObject.GetComponent<Shop>().selling == Shop.coinType.coinH){
+                 Hseller(hit);
              }
         }
     }
