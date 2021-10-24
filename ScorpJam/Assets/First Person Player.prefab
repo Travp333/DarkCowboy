@@ -2813,7 +2813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1342074272398385128
 Transform:
   m_ObjectHideFlags: 0
@@ -2821,11 +2821,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3103393168302949881}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.066000804, y: -0.27599382, z: -1.6729969}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: -0.0000029047344}
+  m_LocalPosition: {x: 0.030033903, y: 1.1521689, z: 0.6124851}
+  m_LocalScale: {x: 0.4550419, y: 0.4550419, z: 0.4550419}
   m_Children: []
-  m_Father: {fileID: 7197834582348623818}
+  m_Father: {fileID: 3826078189385188004}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &897326370835611758
@@ -2840,7 +2840,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 15
+  m_Intensity: 5
   m_Range: 27.2
   m_SpotAngle: 49.5
   m_InnerSpotAngle: 21.80208
@@ -4404,6 +4404,7 @@ Transform:
   - {fileID: 4876673095503265459}
   - {fileID: 3067842739458459665}
   - {fileID: 3513314060577604652}
+  - {fileID: 1342074272398385128}
   m_Father: {fileID: 7197834582348623818}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7648,7 +7649,6 @@ Transform:
   - {fileID: 7197834582480664842}
   - {fileID: 7197834581547388005}
   - {fileID: 3826078189385188004}
-  - {fileID: 1342074272398385128}
   m_Father: {fileID: 7462822281776335614}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7888,7 +7888,6 @@ GameObject:
   - component: {fileID: 8481454172899552393}
   - component: {fileID: 130062652677496377}
   - component: {fileID: 8997915682440978713}
-  - component: {fileID: 2230072923298899475}
   m_Layer: 8
   m_Name: First Person Player
   m_TagString: Player
@@ -8051,26 +8050,6 @@ MonoBehaviour:
   walkSpeed: 5
   currentSpeed: 0
   factor: 1
---- !u!114 &2230072923298899475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7197834583306505045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38eb4d6bc6375f04c92bc375a1188074, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dummy: {fileID: 894502808651625331, guid: ee41a6aca025c8f45b0b82bc7c79318a, type: 3}
-  dummies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  warpOffset: 182.3
 --- !u!1 &7220754860421535275
 GameObject:
   m_ObjectHideFlags: 0

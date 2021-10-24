@@ -71,6 +71,8 @@ public class FPSMovingSphere : MonoBehaviour {
 
 	[HideInInspector]
 
+	public bool canClimb;
+
 	public bool OnGround {
 		get {
 			return groundContactCount > 0;
@@ -126,6 +128,10 @@ public class FPSMovingSphere : MonoBehaviour {
 
 	bool diveGate;
 
+	public void setCanClimb(bool plug){
+		canClimb = plug;
+	}
+
 	void Awake () {
 		grab = transform.GetChild(0).GetChild(0).GetChild(2).GetComponent<Grab>();
 		speedController = GetComponent<MovementSpeedController>();
@@ -148,6 +154,7 @@ public class FPSMovingSphere : MonoBehaviour {
 		OnValidate();
 	}
 	void Update () {
+		Debug.Log(canClimb);
 		if(OnGround || ClimbingADJ){
 			if (!diveGate){
 				Diving = false;
@@ -162,10 +169,10 @@ public class FPSMovingSphere : MonoBehaviour {
 			divingPrep = false;
         }
 		// this is so i can prevent the player from entering a climbing state while standing on the ground
-		if(Climbing && !OnGround){
+		if(Climbing && !OnGround && canClimb){
 			ClimbingADJ = true;
 		}
-		else if (OnGround){
+		else if (OnGround || !canClimb){
 			ClimbingADJ = false;
 		}
 		if (Swimming) {
