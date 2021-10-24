@@ -124,55 +124,60 @@ public class Grab : MonoBehaviour
                 // send a raycast
                 if (Physics.SphereCast(origin.transform.position, 1, (dummy.position - origin.transform.position), out hit, distance, mask))
                 {
-                    if(hit.transform.gameObject.GetComponent<Rigidbody>().mass <= strength){
-                        if(hit.transform.gameObject.GetComponent<objectSize>().isLarge && !hit.transform.gameObject.GetComponent<objectSize>().isMedium && !hit.transform.gameObject.GetComponent<objectSize>().isSmall){
-                            SmallMediumLarge = "LARGE";
-                            speedController.setFactor(0.2f);
-                        }
-                        if(hit.transform.gameObject.GetComponent<objectSize>().isMedium && !hit.transform.gameObject.GetComponent<objectSize>().isLarge && !hit.transform.gameObject.GetComponent<objectSize>().isSmall){
-                            SmallMediumLarge = "MEDIUM";
-                            speedController.setFactor(0.5f);
-                        }
-                        if(hit.transform.gameObject.GetComponent<objectSize>().isSmall && !hit.transform.gameObject.GetComponent<objectSize>().isLarge && !hit.transform.gameObject.GetComponent<objectSize>().isMedium){
-                            SmallMediumLarge = "SMALL";
-                            
-                        }                        
-                        //disable dynamic bones
-                        bone.toggle(true);
-                        //trigger animation
-                        hand.setisHolding(true);
-                        // create temp refrences
-                        prop = hit.transform;
-                        propRB = hit.rigidbody;
-                        // move the hit object to the grab point
-                        hit.transform.position = dummy.transform.position;
-                        // set the hit object to be a child of the grab point
-                        hit.transform.SetParent(dummy);
-                        // get a reference to the custom gravity rigidbody to disable gravity and sleeping
-
-                        //body = hit.transform.gameObject.GetComponent<CustomGravityRigidbody>();
-
-                        //get a reference to the material, obsolete for now but this should be used to make held objects transparent
-                        renda = prop.gameObject.GetComponent<Renderer>();
-                        //body.enabled = false;
-
-                        propRB.isKinematic=(true);
-                        isHolding = true;
-                        // set the held object to the "nocollidewithplayer" layer to prevent clipping with the player
-                        prop.transform.gameObject.layer = 16;
-                        // do the same for all children and childrens children 
-                        foreach ( Transform child in prop.transform){
-                            child.transform.gameObject.layer = 16;
-                            foreach ( Transform child2 in child.transform){
-                                child2.transform.gameObject.layer = 16;
+                    if(hit.transform.gameObject.GetComponent<Shop>() != null){
+                        Debug.Log("CLICKED A SHOOPKEEP");
+                    }
+                    if(hit.transform.gameObject.GetComponent<Rigidbody>() != null){
+                        if(hit.transform.gameObject.GetComponent<Rigidbody>().mass <= strength){
+                            if(hit.transform.gameObject.GetComponent<objectSize>().isLarge && !hit.transform.gameObject.GetComponent<objectSize>().isMedium && !hit.transform.gameObject.GetComponent<objectSize>().isSmall){
+                                SmallMediumLarge = "LARGE";
+                                speedController.setFactor(0.2f);
                             }
-                        // find if you grabbed a basketball. If so, disable it's "thruHoop" status
-                        }
-                        foreach(GameObject b in balls){
-                            if (b.gameObject == hit.transform.gameObject){
-                                b.gameObject.GetComponent<BBall>().setThruHoop(false);
-                                break;
+                            if(hit.transform.gameObject.GetComponent<objectSize>().isMedium && !hit.transform.gameObject.GetComponent<objectSize>().isLarge && !hit.transform.gameObject.GetComponent<objectSize>().isSmall){
+                                SmallMediumLarge = "MEDIUM";
+                                speedController.setFactor(0.5f);
                             }
+                            if(hit.transform.gameObject.GetComponent<objectSize>().isSmall && !hit.transform.gameObject.GetComponent<objectSize>().isLarge && !hit.transform.gameObject.GetComponent<objectSize>().isMedium){
+                                SmallMediumLarge = "SMALL";
+                                
+                            }                        
+                            //disable dynamic bones
+                            bone.toggle(true);
+                            //trigger animation
+                            hand.setisHolding(true);
+                            // create temp refrences
+                            prop = hit.transform;
+                            propRB = hit.rigidbody;
+                            // move the hit object to the grab point
+                            hit.transform.position = dummy.transform.position;
+                            // set the hit object to be a child of the grab point
+                            hit.transform.SetParent(dummy);
+                            // get a reference to the custom gravity rigidbody to disable gravity and sleeping
+
+                            //body = hit.transform.gameObject.GetComponent<CustomGravityRigidbody>();
+
+                            //get a reference to the material, obsolete for now but this should be used to make held objects transparent
+                            renda = prop.gameObject.GetComponent<Renderer>();
+                            //body.enabled = false;
+
+                            propRB.isKinematic=(true);
+                            isHolding = true;
+                            // set the held object to the "nocollidewithplayer" layer to prevent clipping with the player
+                            prop.transform.gameObject.layer = 16;
+                            // do the same for all children and childrens children 
+                            foreach ( Transform child in prop.transform){
+                                child.transform.gameObject.layer = 16;
+                                foreach ( Transform child2 in child.transform){
+                                    child2.transform.gameObject.layer = 16;
+                                }
+                            // find if you grabbed a basketball. If so, disable it's "thruHoop" status
+                            }
+                            foreach(GameObject b in balls){
+                                if (b.gameObject == hit.transform.gameObject){
+                                    b.gameObject.GetComponent<BBall>().setThruHoop(false);
+                                    break;
+                            }
+                        }
                     }
                 }
             }
