@@ -7886,7 +7886,6 @@ GameObject:
   - component: {fileID: 7197834583306505050}
   - component: {fileID: 7197834583306505053}
   - component: {fileID: 8481454172899552393}
-  - component: {fileID: 130062652677496377}
   - component: {fileID: 8997915682440978713}
   m_Layer: 8
   m_Name: First Person Player
@@ -7961,6 +7960,7 @@ MonoBehaviour:
   groundContactCount: 0
   steepContactCount: 0
   climbContactCount: 0
+  canClimb: 0
   submergence: 0
   waterDrag: 1
   climbNormal: {x: 0, y: 0, z: 0}
@@ -8018,19 +8018,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hunger: 100
   hp: 100
---- !u!114 &130062652677496377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7197834583306505045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24523dcc2d7e83144b2935ea904d200f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hungerRate: 1
+  coinA: 0
+  coinB: 0
+  coinC: 0
+  coinD: 0
+  coinE: 0
 --- !u!114 &8997915682440978713
 MonoBehaviour:
   m_ObjectHideFlags: 0
