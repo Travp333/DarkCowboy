@@ -13,6 +13,7 @@ public class LevelController : MonoBehaviour
     public AudioMixer mixer;
     public Slider slider;
     
+    
     void Start()
     {
         pause = false;
@@ -29,12 +30,13 @@ public class LevelController : MonoBehaviour
 
             if (!pause)
             {
-                Time.timeScale = 0;
+                
                 pauseMenu.SetActive(true);
                 player.SetActive(false);
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.Confined;
-
+                Time.timeScale = 0;
+                Debug.Log("paused");
             }
             if (pause)
             {
@@ -43,6 +45,7 @@ public class LevelController : MonoBehaviour
                 player.SetActive(true);
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
+                Debug.Log("unpaused");
             }
             pause = !pause;
         }
