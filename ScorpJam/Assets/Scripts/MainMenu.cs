@@ -2,15 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
     public GameObject Menu, OptionsMenu;
+    public Slider slider;
+    public AudioMixer mixer;
+    
 
 	private void Start()
 	{
         Menu.SetActive(true);
         OptionsMenu.SetActive(false);
+        
     }
 	public void Play(int index = 1) {
         SceneManager.LoadScene(index);
@@ -28,9 +34,16 @@ public class MainMenu : MonoBehaviour
     public void Options() {
         Menu.SetActive(false);
         OptionsMenu.SetActive(true);
+        slider.value = PlayerPrefs.GetFloat("Volume", 0.75f);
     }
     public void BackToMainMenu() {
         Menu.SetActive(true);
         OptionsMenu.SetActive(false);
+    }
+    public void SetLevel(float sliderValue)
+    {
+        float adjVol = Mathf.Log10(sliderValue) * 20;
+        mixer.SetFloat("Volume", adjVol);
+        PlayerPrefs.SetFloat("Volume", adjVol);
     }
 }

@@ -62,6 +62,9 @@ public class Grab : MonoBehaviour
 
     PlayerStats stats;
 
+    DialogueNPC NPC =null;
+    public DialogueManager dialogueManager;
+
     void Start() {
         stats = transform.root.GetComponent<PlayerStats>();
         throwingTemp = throwingforce;
@@ -762,13 +765,32 @@ public class Grab : MonoBehaviour
         {
             // if you are not holding anything, and you are not preparing to barrage, and you are not barraging
             if(!isHolding && !hand.barragePrep && !player.isBarraging){
+                if (NPC)
+                {
+                    if (dialogueManager.NPCisTalking)
+                    {
+                        dialogueManager.DisplayNextSentence();
+                        return;
+                    }
+                    if (!dialogueManager.NPCisTalking) {
+                        NPC = null;
+                    }
+                }
                 // send a raycast
                 if (Physics.SphereCast(origin.transform.position, 1, (dummy.position - origin.transform.position), out hit, distance, mask))
                 {
                     if(hit.transform.gameObject.GetComponent<Shop>() != null){
                         currencyInteraction(hit);
                     }
-                    if(hit.transform.gameObject.GetComponent<Rigidbody>() != null){
+                    
+                    if (hit.transform.gameObject.GetComponent<DialogueNPC>() != null)
+                    {
+                        NPC = hit.transform.gameObject.GetComponent<DialogueNPC>();
+                        NPC.TriggerDialogue();
+                        return;
+                    }
+                    
+                    if (hit.transform.gameObject.GetComponent<Rigidbody>() != null){
                         if(hit.transform.gameObject.GetComponent<Rigidbody>().mass <= strength){
                             if(hit.transform.gameObject.GetComponent<objectSize>().isLarge && !hit.transform.gameObject.GetComponent<objectSize>().isMedium && !hit.transform.gameObject.GetComponent<objectSize>().isSmall){
                                 SmallMediumLarge = "LARGE";

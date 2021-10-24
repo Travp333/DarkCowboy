@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject player;
     bool pause = false;
+    public AudioMixer mixer;
+    public Slider slider;
+    
     void Start()
     {
         pause = false;
         pauseMenu.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -41,5 +48,9 @@ public class LevelController : MonoBehaviour
         }
     }
 
-    public void Options() { }
+    public void SetLevel(float sliderValue) {
+        float adjVol = Mathf.Log10(sliderValue) * 20;
+        mixer.SetFloat("Volume", adjVol);
+        PlayerPrefs.SetFloat("Volume", adjVol); 
+    }
 }
