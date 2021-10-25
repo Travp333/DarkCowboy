@@ -64,6 +64,7 @@ public class Grab : MonoBehaviour
 
     DialogueNPC NPC =null;
     public DialogueManager dialogueManager;
+    bool polGate;
 
     void Start() {
         stats = transform.root.GetComponent<PlayerStats>();
@@ -83,8 +84,39 @@ public class Grab : MonoBehaviour
         hand.setisThrowing(false);
     }
 
+    public void fullDetach(){
+        if( SmallMediumLarge == "MEDIUM"){
+            speedController.setFactor(2f);
+        }
+        else if (SmallMediumLarge == "LARGE"){
+            speedController.setFactor(5f);
+        }
+        SmallMediumLarge = "NULL";
+    
+        //opposite of the pick up section, just undoing all of that back to its default state
+        isgrabCharging = false;
+        bone.toggle(false);
+        hand.setisHolding(false);
+        dummy.GetChild(5).SetParent(null);
+        // body = prop.gameObject.GetComponent<CustomGravityRigidbody>();
+        // body.enabled = true;
+        propRB.isKinematic=(false);
+        isHolding = false;
+        //this may not be super smart, but i am assuming everything you pick up is labeled as a rigid body. If that changes, this should be updated
+        prop.transform.gameObject.layer = 13;
+        foreach ( Transform child in prop.transform){
+            child.transform.gameObject.layer = 13;
+            foreach ( Transform child2 in child.transform){
+                child2.transform.gameObject.layer = 13;
+            }
+        }
+        prop = null;
+        propRB = null;
+        throwingforce = throwingTemp;
+        polGate = false;
+    }
 
-    public void detach(){
+    void detach(){
         
         if( SmallMediumLarge == "MEDIUM"){
             speedController.setFactor(2f);
@@ -99,8 +131,8 @@ public class Grab : MonoBehaviour
         bone.toggle(false);
         hand.setisHolding(false);
         dummy.GetChild(5).SetParent(null);
-       // body = prop.gameObject.GetComponent<CustomGravityRigidbody>();
-       // body.enabled = true;
+        // body = prop.gameObject.GetComponent<CustomGravityRigidbody>();
+        // body.enabled = true;
         propRB.isKinematic=(false);
         isHolding = false;
         //this may not be super smart, but i am assuming everything you pick up is labeled as a rigid body. If that changes, this should be updated
@@ -111,6 +143,7 @@ public class Grab : MonoBehaviour
                 child2.transform.gameObject.layer = 13;
             }
         }
+        polGate = false;
 
 
     }
@@ -121,7 +154,6 @@ public class Grab : MonoBehaviour
     void debugOOM(){
         Debug.Log("Out of Money!");
     }
-
 
     void Aseller(RaycastHit hit){
         if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinB){
@@ -884,6 +916,13 @@ public class Grab : MonoBehaviour
             if (throwingforce > maxThrowingForce){
                 isgrabCharging = false;
                 highorLow = false;
+                if(prop.tag == "Pol"){
+                    Debug.Log("fully chraged pol");
+                    if(!polGate){
+                        prop.GetComponent<PolSounds>().playRandomPolSound();
+                        polGate = true;
+                    }
+                }
             }
             //if you are holding something, throw it. 
 

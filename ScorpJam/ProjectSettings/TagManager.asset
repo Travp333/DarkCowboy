@@ -9,6 +9,7 @@ TagManager:
   - wp
   - Breakable
   - SHOP
+  - Pol
   layers:
   - Default
   - TransparentFX

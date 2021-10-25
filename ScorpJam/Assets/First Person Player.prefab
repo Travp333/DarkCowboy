@@ -4471,6 +4471,7 @@ MonoBehaviour:
   chargeRate: 0.3
   isgrabCharging: 0
   SmallMediumLarge: NULL
+  dialogueManager: {fileID: 0}
 --- !u!114 &3781926639967533348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7675,7 +7676,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 92.5
   orthographic: 0
@@ -7757,7 +7758,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 92.5
   orthographic: 0
@@ -8023,6 +8024,9 @@ MonoBehaviour:
   coinC: 0
   coinD: 0
   coinE: 0
+  coinF: 0
+  coinG: 0
+  coinH: 0
 --- !u!114 &8997915682440978713
 MonoBehaviour:
   m_ObjectHideFlags: 0

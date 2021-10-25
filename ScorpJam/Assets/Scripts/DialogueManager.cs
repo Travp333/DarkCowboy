@@ -50,6 +50,9 @@ public class DialogueManager : MonoBehaviour
         }
     }
     void EndDialogue() {
+
+        //imma add a thing here so that the dialogue ending calls a method, 
+
         NPCisTalking = false;
         textLayer.SetActive(false);
     }
