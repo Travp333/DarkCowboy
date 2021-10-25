@@ -28,7 +28,7 @@ TagManager:
   - heldItemCollider
   - Fists
   - NoCollideWithPlayer
-  - 
+  - PostProcessing
   - 
   - 
   - 
