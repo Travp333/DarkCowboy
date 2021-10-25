@@ -42,9 +42,9 @@ GameObject:
   - component: {fileID: 719846616807661007}
   - component: {fileID: 1042532539921201051}
   - component: {fileID: 1042532539921201052}
-  - component: {fileID: 1042532539921201048}
-  - component: {fileID: 1042532539921201049}
   - component: {fileID: 6062360640820492471}
+  - component: {fileID: -698182523912514848}
+  - component: {fileID: 9001873504739936427}
   m_Layer: 13
   m_Name: BubbaPol 1
   m_TagString: Pol
@@ -103,33 +103,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.66, y: 2.38, z: 0.47}
   m_Center: {x: 0, y: -0.76, z: 0}
---- !u!114 &1042532539921201048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 195545959095469941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd648e0587f96b64e89bd50c03e12cb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSmall: 1
-  isMedium: 0
-  isLarge: 0
---- !u!114 &1042532539921201049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 195545959095469941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82afca58c8a95a54dbf84cc3b54351cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6062360640820492471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +121,47 @@ MonoBehaviour:
   - {fileID: 6062360641410603295}
   - {fileID: 6062360641711400625}
   - {fileID: 6062360642190515261}
+  - {fileID: 2031908389000876130}
+  - {fileID: 4198870635353146065}
+  - {fileID: 475376579730756156}
+  - {fileID: 3120657099919423667}
+--- !u!114 &-698182523912514848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195545959095469941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd433cc8f29b66f4f8d80adb1ec737b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  involveCurrencies: 1
+  dialogue:
+    name: Bubba Martin
+    sentences:
+    - Look at the little cowboy!
+    - kids these days dont appreciate the finer things in life
+    - have a candy!
+--- !u!114 &9001873504739936427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195545959095469941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef6440e64196914eaae3a64c4d33a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treateeOrTrader: 1
+  selling: 0
+  buying: 0
+  cooldown: 0
+  takeAmount: 0
+  giveAmount: 0
 --- !u!1 &476390800759188456
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135129095252601301}
   m_LocalRotation: {x: -0, y: 0.00000047683713, z: -0, w: 1}
-  m_LocalPosition: {x: -10.670207, y: 0.046845753, z: 0.0880682}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 719846616807661007}
@@ -454,7 +468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204536080463712459}
   m_LocalRotation: {x: -0, y: 0.00000047683713, z: -0, w: 1}
-  m_LocalPosition: {x: -10.670207, y: 0.046845753, z: 0.0880682}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 719846616807661007}
@@ -2092,7 +2106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5992504901832218036}
   m_LocalRotation: {x: -0, y: 0.00000047683713, z: -0, w: 1}
-  m_LocalPosition: {x: -10.670207, y: 0.046845753, z: 0.0880682}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 719846616807661007}
@@ -3291,7 +3305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7401549632259429116}
   m_LocalRotation: {x: -0, y: 0.00000047683713, z: -0, w: 1}
-  m_LocalPosition: {x: -10.670207, y: 0.046845753, z: 0.0880682}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 719846616807661007}

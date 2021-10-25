@@ -19,6 +19,7 @@ public class Shop : MonoBehaviour
     [SerializeField]
     [Tooltip("basically this traders going trade rate")]
     public int takeAmount, giveAmount;
+    AudioSource textNoise;
 
     public bool getTreatOrTrater(){
         return treateeOrTrader;
@@ -27,7 +28,11 @@ public class Shop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        textNoise = GetComponent<AudioSource>();
+    }
+
+    public void playTextSound(){
+        textNoise.Play();
     }
 
     // Update is called once per frame

@@ -1068,7 +1068,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1421525869682503075}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.77764, y: 0.10056216, z: 0.1748728}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6440255980479664077}
@@ -1318,7 +1318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696607305535392415}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.77764, y: 0.10056216, z: 0.1748728}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6440255980479664077}
@@ -1869,7 +1869,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3232767741140290677}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.77764, y: 0.10056216, z: 0.1748728}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6440255980479664077}
@@ -2414,9 +2414,9 @@ GameObject:
   - component: {fileID: 6440255980479664077}
   - component: {fileID: 6839520655085200793}
   - component: {fileID: 6839520655085200798}
-  - component: {fileID: 6839520655085200794}
-  - component: {fileID: 6839520655085200795}
   - component: {fileID: 341392846574529205}
+  - component: {fileID: 4691424565224697448}
+  - component: {fileID: 8161376768657309439}
   m_Layer: 13
   m_Name: JameroquePol 1
   m_TagString: Pol
@@ -2475,33 +2475,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.66, y: 2.38, z: 0.47}
   m_Center: {x: 0, y: -0.76, z: 0}
---- !u!114 &6839520655085200794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5921021975444264311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd648e0587f96b64e89bd50c03e12cb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSmall: 1
-  isMedium: 0
-  isLarge: 0
---- !u!114 &6839520655085200795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5921021975444264311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82afca58c8a95a54dbf84cc3b54351cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &341392846574529205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2520,6 +2493,46 @@ MonoBehaviour:
   - {fileID: 341392846073596701}
   - {fileID: 341392847313925299}
   - {fileID: 341392846870679103}
+  - {fileID: 7679358618493234749}
+  - {fileID: 5692894121740555143}
+  - {fileID: 7067365812311673360}
+  - {fileID: 7074426122299700278}
+--- !u!114 &4691424565224697448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5921021975444264311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd433cc8f29b66f4f8d80adb1ec737b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  involveCurrencies: 1
+  dialogue:
+    name: Jamiroquai Martin
+    sentences:
+    - the future might be made of virtual insanity
+    - but this candy is made of sweetness and delight!
+--- !u!114 &8161376768657309439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5921021975444264311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef6440e64196914eaae3a64c4d33a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treateeOrTrader: 1
+  selling: 0
+  buying: 0
+  cooldown: 0
+  takeAmount: 0
+  giveAmount: 0
 --- !u!1 &5966926857052865793
 GameObject:
   m_ObjectHideFlags: 0
@@ -2637,7 +2650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6437773994610840925}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.77764, y: 0.10056216, z: 0.1748728}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6440255980479664077}

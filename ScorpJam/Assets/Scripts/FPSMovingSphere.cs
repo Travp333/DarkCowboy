@@ -154,7 +154,7 @@ public class FPSMovingSphere : MonoBehaviour {
 		OnValidate();
 	}
 	void Update () {
-		Debug.Log(canClimb);
+		//Debug.Log(canClimb);
 		if(OnGround || ClimbingADJ){
 			if (!diveGate){
 				Diving = false;

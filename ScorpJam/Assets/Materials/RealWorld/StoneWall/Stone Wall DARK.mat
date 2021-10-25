@@ -13,10 +13,11 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap:
     OptimizedShaderFolder: Stone Wall DARK-4fea0216
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -331,7 +332,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SpecularMap:
         m_Texture: {fileID: 2800000, guid: 42fb96a5ca1257b43bcd997cc40d544f, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.03, y: 0.03}
         m_Offset: {x: 0, y: 0}
     - _SpecularMap1:
         m_Texture: {fileID: 0}
@@ -339,7 +340,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SpecularMask:
         m_Texture: {fileID: 2800000, guid: 42fb96a5ca1257b43bcd997cc40d544f, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.03, y: 0.03}
         m_Offset: {x: 0, y: 0}
     - _SpecularMask1:
         m_Texture: {fileID: 0}
@@ -940,7 +941,7 @@ Material:
     - _LightingAdditiveGradientEndAnimated: 0
     - _LightingAdditiveGradientStart: 0
     - _LightingAdditiveGradientStartAnimated: 0
-    - _LightingAdditiveLimitIntensity: 0
+    - _LightingAdditiveLimitIntensity: 1
     - _LightingAdditiveLimitIntensityAnimated: 0
     - _LightingAdditiveMaxIntensity: 0
     - _LightingAdditiveMaxIntensityAnimated: 0
@@ -1012,7 +1013,7 @@ Material:
     - _MainAlphaToCoverage: 0
     - _MainAlphaToCoverageAnimated: 0
     - _MainDistanceFadeAnimated: 0
-    - _MainEmissionStrength: 0.1
+    - _MainEmissionStrength: 0
     - _MainEmissionStrengthAnimated: 0
     - _MainFadeTextureAnimated: 0
     - _MainFadeTexturePanAnimated: 0
@@ -1323,7 +1324,7 @@ Material:
     - _ScrollingEmission1: 0
     - _ScrollingEmission1Animated: 0
     - _ScrollingEmissionAnimated: 0
-    - _ShaderOptimizerEnabled: 1
+    - _ShaderOptimizerEnabled: 0
     - _ShadowMix: 0
     - _ShadowMixAnimated: 0
     - _ShadowMixThreshold: 0.5
@@ -1395,7 +1396,7 @@ Material:
     - _SpecularAnisoJitterMirrored1Animated: 0
     - _SpecularAnisoJitterMirroredAnimated: 0
     - _SpecularHighlights: 1
-    - _SpecularInvertSmoothness: 1
+    - _SpecularInvertSmoothness: 0
     - _SpecularInvertSmoothness1: 0
     - _SpecularInvertSmoothness1Animated: 0
     - _SpecularInvertSmoothnessAnimated: 0
@@ -1415,7 +1416,7 @@ Material:
     - _SpecularMaskPanAnimated: 0
     - _SpecularMaskUV: 0
     - _SpecularMaskUVAnimated: 0
-    - _SpecularMetallic: 0.38
+    - _SpecularMetallic: 0.213
     - _SpecularMetallic1: 0
     - _SpecularMetallic1Animated: 0
     - _SpecularMetallicAnimated: 0
@@ -1425,7 +1426,7 @@ Material:
     - _SpecularNormal1: 1
     - _SpecularNormal1Animated: 0
     - _SpecularNormalAnimated: 0
-    - _SpecularSmoothness: 0.878
+    - _SpecularSmoothness: 0.137
     - _SpecularSmoothness1: 0.75
     - _SpecularSmoothness1Animated: 0
     - _SpecularSmoothnessAnimated: 0
@@ -1710,7 +1711,7 @@ Material:
     - m_start_scrollingEmissionOptions: 0
     - m_start_scrollingEmissionOptions1: 0
     - m_start_shadowTexture: 0
-    - m_start_specular: 0
+    - m_start_specular: 1
     - m_start_specular1: 0
     - m_start_subsurface: 0
     - m_start_vertexManipulation: 0
@@ -1730,7 +1731,7 @@ Material:
     - _ClearCoatMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _ClearCoatSmoothnessMapPan: {r: 0, g: 0, b: 0, a: 0}
     - _ClearCoatTint: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
+    - _Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
     - _DecalColor: {r: 1, g: 1, b: 1, a: 1}
     - _DecalMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _DecalPosition: {r: 0.5, g: 0.5, b: 0, a: 0}

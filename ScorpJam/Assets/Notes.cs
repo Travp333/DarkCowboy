@@ -1,10 +1,13 @@
 /*
 
 
-SCORPY NOTES 
-Change climbing system to be dependent on overlapping with a volume attached to a climbable surface. this way, climbing will never activate accidentally. 
+SCORPY NOTES  
 
 EMISSION MAPS FOR KAWAII FRIDGE AND TV
+
+make the dialogue system close out of the conversation when you walk away or lock your controls while speaking, its weird that you can just leave and have the conversation hud on your screen forever
+
+put a door between you and the treatee for the trick or treating section and interact with that instead
 
 
 
@@ -70,3 +73,5 @@ need to make a death state
 
 running forward + sideways (strafing) seems to be faster than just running, should be patched
 */
+
+

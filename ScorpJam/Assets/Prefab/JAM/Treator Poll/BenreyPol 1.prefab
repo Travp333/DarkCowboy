@@ -1471,9 +1471,9 @@ GameObject:
   - component: {fileID: 3965192089821650311}
   - component: {fileID: 3498602359215208403}
   - component: {fileID: 3498602359215208404}
-  - component: {fileID: 3498602359215208400}
-  - component: {fileID: 3498602359215208401}
   - component: {fileID: 7699903566466414847}
+  - component: {fileID: -6834950908175723738}
+  - component: {fileID: -673199377994632817}
   m_Layer: 13
   m_Name: BenreyPol 1
   m_TagString: Pol
@@ -1532,33 +1532,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.66, y: 2.38, z: 0.47}
   m_Center: {x: 0, y: -0.76, z: 0}
---- !u!114 &3498602359215208400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4345095813097211709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd648e0587f96b64e89bd50c03e12cb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSmall: 1
-  isMedium: 0
-  isLarge: 0
---- !u!114 &3498602359215208401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4345095813097211709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82afca58c8a95a54dbf84cc3b54351cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7699903566466414847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1581,6 +1554,44 @@ MonoBehaviour:
   - {fileID: 585665102458870133}
   - {fileID: 4037508157115160940}
   - {fileID: 1083278250456105956}
+--- !u!114 &-6834950908175723738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4345095813097211709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef6440e64196914eaae3a64c4d33a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treateeOrTrader: 1
+  selling: 0
+  buying: 0
+  cooldown: 0
+  takeAmount: 0
+  giveAmount: 0
+--- !u!114 &-673199377994632817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4345095813097211709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd433cc8f29b66f4f8d80adb1ec737b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  involveCurrencies: 1
+  dialogue:
+    name: Benrey Martin
+    sentences:
+    - show me passport child you must show the portpass you fool
+    - hah ha jk jk
+    - .......
+    - unless?
 --- !u!1 &4388123991098477848
 GameObject:
   m_ObjectHideFlags: 0

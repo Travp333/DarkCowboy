@@ -155,6 +155,535 @@ public class Grab : MonoBehaviour
         Debug.Log("Out of Money!");
     }
 
+        public void Aseller(Shop shop){
+        if(shop.buying == Shop.coinType.coinB){
+                if(stats.coinB - shop.takeAmount > 0){
+                    stats.coinB = stats.coinB - shop.takeAmount;
+                    stats.coinA = stats.coinA +  shop.giveAmount;
+                }
+                else{
+                    debugOOM();
+                    }
+                }
+                else if(shop.buying == Shop.coinType.coinC){
+                    if(stats.coinC - shop.takeAmount > 0){
+                        stats.coinC = stats.coinC - shop.takeAmount;
+                        stats.coinA = stats.coinA +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }
+                }       
+                else if(shop.buying == Shop.coinType.coinD){
+                    if(stats.coinD - shop.takeAmount > 0){
+                        stats.coinD = stats.coinD - shop.takeAmount;
+                        stats.coinA = stats.coinA +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                      
+                }   
+                else if(shop.buying == Shop.coinType.coinE){
+                    if(stats.coinE - shop.takeAmount > 0){
+                        stats.coinE = stats.coinE - shop.takeAmount;
+                        stats.coinA = stats.coinA +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(shop.buying == Shop.coinType.coinF){
+                    if(stats.coinF - shop.takeAmount > 0){
+                        stats.coinF = stats.coinF - shop.takeAmount;
+                        stats.coinA = stats.coinA + shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(shop.buying == Shop.coinType.coinG){
+                    if(stats.coinG - shop.takeAmount > 0){
+                        stats.coinG = stats.coinG - shop.takeAmount;
+                        stats.coinA = stats.coinA +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(shop.buying == Shop.coinType.coinH){
+                    if(stats.coinH - shop.takeAmount > 0){
+                        stats.coinH = stats.coinH - shop.takeAmount;
+                        stats.coinA = stats.coinA + shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                        
+                    
+    }
+
+    public void Bseller(Shop shop){
+        if(shop.buying == Shop.coinType.coinA){
+                if(stats.coinA - shop.takeAmount > 0){
+                    stats.coinA = stats.coinA - shop.takeAmount;
+                    stats.coinB = stats.coinB +  shop.giveAmount;
+                }
+                else{
+                    debugOOM();
+                    }
+                }
+                else if(shop.buying == Shop.coinType.coinC){
+                    if(stats.coinC - shop.takeAmount > 0){
+                        stats.coinC = stats.coinC - shop.takeAmount;
+                        stats.coinB = stats.coinB +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }
+                }       
+                else if(shop.buying == Shop.coinType.coinD){
+                    if(stats.coinD - shop.takeAmount > 0){
+                        stats.coinD = stats.coinD - shop.takeAmount;
+                        stats.coinB = stats.coinB +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                      
+                }   
+                else if(shop.buying == Shop.coinType.coinE){
+                    if(stats.coinE - shop.takeAmount > 0){
+                        stats.coinE = stats.coinE - shop.takeAmount;
+                        stats.coinB = stats.coinB +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }   
+                    else if(shop.buying == Shop.coinType.coinF){
+                    if(stats.coinF - shop.takeAmount > 0){
+                        stats.coinF = stats.coinF - shop.takeAmount;
+                        stats.coinB = stats.coinB +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(shop.buying == Shop.coinType.coinG){
+                    if(stats.coinG - shop.takeAmount > 0){
+                        stats.coinG = stats.coinG - shop.takeAmount;
+                        stats.coinB = stats.coinB +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(shop.buying == Shop.coinType.coinH){
+                    if(stats.coinH - shop.takeAmount > 0){
+                        stats.coinH = stats.coinH - shop.takeAmount;
+                        stats.coinB = stats.coinB +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }      
+                    
+    }
+
+    public void Cseller(Shop shop){
+        if(shop.buying == Shop.coinType.coinB){
+                if(stats.coinB - shop.takeAmount > 0){
+                    stats.coinB = stats.coinB - shop.takeAmount;
+                    stats.coinC = stats.coinC +  shop.giveAmount;
+                }
+                else{
+                    debugOOM();
+                    }
+                }
+                else if(shop.buying == Shop.coinType.coinA){
+                    if(stats.coinA - shop.takeAmount > 0){
+                        stats.coinA = stats.coinA - shop.takeAmount;
+                        stats.coinC = stats.coinC +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }
+                }       
+                else if(shop.buying == Shop.coinType.coinD){
+                    if(stats.coinD - shop.takeAmount > 0){
+                        stats.coinD = stats.coinD - shop.takeAmount;
+                        stats.coinC = stats.coinC +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                      
+                }   
+                else if(shop.buying == Shop.coinType.coinE){
+                    if(stats.coinE - shop.takeAmount > 0){
+                        stats.coinE = stats.coinE - shop.takeAmount;
+                        stats.coinC = stats.coinC +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                } 
+                else if(shop.buying == Shop.coinType.coinF){
+                    if(stats.coinF - shop.takeAmount > 0){
+                        stats.coinF = stats.coinF - shop.takeAmount;
+                        stats.coinC = stats.coinC +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(shop.buying == Shop.coinType.coinG){
+                    if(stats.coinG - shop.takeAmount > 0){
+                        stats.coinG = stats.coinG - shop.takeAmount;
+                        stats.coinC = stats.coinC +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(shop.buying == Shop.coinType.coinH){
+                    if(stats.coinH - shop.takeAmount > 0){
+                        stats.coinH = stats.coinH - shop.takeAmount;
+                        stats.coinC = stats.coinC +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }        
+                    
+    }
+    public void Dseller(Shop shop){
+        if(shop.buying == Shop.coinType.coinB){
+                if(stats.coinB - shop.takeAmount > 0){
+                    stats.coinB = stats.coinB - shop.takeAmount;
+                    stats.coinD = stats.coinD +  shop.giveAmount;
+                }
+                else{
+                    debugOOM();
+                    }
+                }
+                else if(shop.buying == Shop.coinType.coinA){
+                    if(stats.coinA - shop.takeAmount > 0){
+                        stats.coinA = stats.coinA - shop.takeAmount;
+                        stats.coinD = stats.coinD +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }
+                }       
+                else if(shop.buying == Shop.coinType.coinC){
+                    if(stats.coinC - shop.takeAmount > 0){
+                        stats.coinC = stats.coinC - shop.takeAmount;
+                        stats.coinD = stats.coinD +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                      
+                }   
+                else if(shop.buying == Shop.coinType.coinE){
+                    if(stats.coinE - shop.takeAmount > 0){
+                        stats.coinE = stats.coinE - shop.takeAmount;
+                        stats.coinD = stats.coinD +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }  
+                    else if(shop.buying == Shop.coinType.coinF){
+                    if(stats.coinF - shop.takeAmount > 0){
+                        stats.coinF = stats.coinF - shop.takeAmount;
+                        stats.coinD = stats.coinD +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(shop.buying == Shop.coinType.coinG){
+                    if(stats.coinG - shop.takeAmount > 0){
+                        stats.coinG = stats.coinG - shop.takeAmount;
+                        stats.coinD = stats.coinD +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(shop.buying == Shop.coinType.coinH){
+                    if(stats.coinH - shop.takeAmount > 0){
+                        stats.coinH = stats.coinH - shop.takeAmount;
+                        stats.coinD = stats.coinD +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }       
+                    
+    }
+    public void Eseller(Shop shop){
+        if(shop.buying == Shop.coinType.coinB){
+                if(stats.coinB - shop.takeAmount > 0){
+                    stats.coinB = stats.coinB - shop.takeAmount;
+                    stats.coinE = stats.coinE +  shop.giveAmount;
+                }
+                else{
+                    debugOOM();
+                    }
+                }
+                else if(shop.buying == Shop.coinType.coinA){
+                    if(stats.coinA - shop.takeAmount > 0){
+                        stats.coinA = stats.coinA - shop.takeAmount;
+                        stats.coinE = stats.coinE +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }
+                }       
+                else if(shop.buying == Shop.coinType.coinC){
+                    if(stats.coinC - shop.takeAmount > 0){
+                        stats.coinC = stats.coinC - shop.takeAmount;
+                        stats.coinE = stats.coinE +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                      
+                }   
+                else if(shop.buying == Shop.coinType.coinD){
+                    if(stats.coinD - shop.takeAmount > 0){
+                        stats.coinD = stats.coinD - shop.takeAmount;
+                        stats.coinE = stats.coinE +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }  
+                    else if(shop.buying == Shop.coinType.coinF){
+                    if(stats.coinF - shop.takeAmount > 0){
+                        stats.coinF = stats.coinF - shop.takeAmount;
+                        stats.coinE = stats.coinE +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(shop.buying == Shop.coinType.coinG){
+                    if(stats.coinG - shop.takeAmount > 0){
+                        stats.coinG = stats.coinG - shop.takeAmount;
+                        stats.coinE = stats.coinE +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(shop.buying == Shop.coinType.coinH){
+                    if(stats.coinH - shop.takeAmount > 0){
+                        stats.coinH = stats.coinH - shop.takeAmount;
+                        stats.coinE = stats.coinE +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }                  
+    }
+
+    public void Fseller(Shop shop){
+        if(shop.buying == Shop.coinType.coinB){
+                if(stats.coinB - shop.takeAmount > 0){
+                    stats.coinB = stats.coinB - shop.takeAmount;
+                    stats.coinF = stats.coinF +  shop.giveAmount;
+                }
+                else{
+                    debugOOM();
+                    }
+                }
+                else if(shop.buying == Shop.coinType.coinA){
+                    if(stats.coinA - shop.takeAmount > 0){
+                        stats.coinA = stats.coinA - shop.takeAmount;
+                        stats.coinF = stats.coinF +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }
+                }       
+                else if(shop.buying == Shop.coinType.coinC){
+                    if(stats.coinC - shop.takeAmount > 0){
+                        stats.coinC = stats.coinC - shop.takeAmount;
+                        stats.coinF = stats.coinF +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                      
+                }   
+                else if(shop.buying == Shop.coinType.coinD){
+                    if(stats.coinD - shop.takeAmount > 0){
+                        stats.coinD = stats.coinD - shop.takeAmount;
+                        stats.coinF = stats.coinF +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }  
+                    else if(shop.buying == Shop.coinType.coinE){
+                    if(stats.coinE - shop.takeAmount > 0){
+                        stats.coinE = stats.coinE - shop.takeAmount;
+                        stats.coinF = stats.coinF +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(shop.buying == Shop.coinType.coinG){
+                    if(stats.coinG - shop.takeAmount > 0){
+                        stats.coinG = stats.coinG - shop.takeAmount;
+                        stats.coinF = stats.coinF +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(shop.buying == Shop.coinType.coinH){
+                    if(stats.coinH - shop.takeAmount > 0){
+                        stats.coinH = stats.coinH - shop.takeAmount;
+                        stats.coinF = stats.coinF +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }                  
+    }
+    public void Gseller(Shop shop){
+        if(shop.buying == Shop.coinType.coinB){
+                if(stats.coinB - shop.takeAmount > 0){
+                    stats.coinB = stats.coinB - shop.takeAmount;
+                    stats.coinG = stats.coinG +  shop.giveAmount;
+                }
+                else{
+                    debugOOM();
+                    }
+                }
+                else if(shop.buying == Shop.coinType.coinA){
+                    if(stats.coinA - shop.takeAmount > 0){
+                        stats.coinA = stats.coinA - shop.takeAmount;
+                        stats.coinG = stats.coinG +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }
+                }       
+                else if(shop.buying == Shop.coinType.coinC){
+                    if(stats.coinC - shop.takeAmount > 0){
+                        stats.coinC = stats.coinC - shop.takeAmount;
+                        stats.coinG = stats.coinG +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                      
+                }   
+                else if(shop.buying == Shop.coinType.coinD){
+                    if(stats.coinD - shop.takeAmount > 0){
+                        stats.coinD = stats.coinD - shop.takeAmount;
+                        stats.coinG = stats.coinG +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }  
+                    else if(shop.buying == Shop.coinType.coinF){
+                    if(stats.coinF - shop.takeAmount > 0){
+                        stats.coinF = stats.coinF - shop.takeAmount;
+                        stats.coinG = stats.coinG +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(shop.buying == Shop.coinType.coinE){
+                    if(stats.coinE - shop.takeAmount > 0){
+                        stats.coinE = stats.coinE - shop.takeAmount;
+                        stats.coinG = stats.coinG +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(shop.buying == Shop.coinType.coinH){
+                    if(stats.coinH - shop.takeAmount > 0){
+                        stats.coinH = stats.coinH - shop.takeAmount;
+                        stats.coinG = stats.coinG +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }                  
+    }
+    public void Hseller(Shop shop){
+        if(shop.buying == Shop.coinType.coinB){
+                if(stats.coinB - shop.takeAmount > 0){
+                    stats.coinB = stats.coinB - shop.takeAmount;
+                    stats.coinH = stats.coinH +  shop.giveAmount;
+                }
+                else{
+                    debugOOM();
+                    }
+                }
+                else if(shop.buying == Shop.coinType.coinA){
+                    if(stats.coinA - shop.takeAmount > 0){
+                        stats.coinA = stats.coinA - shop.takeAmount;
+                        stats.coinH = stats.coinH +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }
+                }       
+                else if(shop.buying == Shop.coinType.coinC){
+                    if(stats.coinC - shop.takeAmount > 0){
+                        stats.coinC = stats.coinC - shop.takeAmount;
+                        stats.coinH = stats.coinH +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                      
+                }   
+                else if(shop.buying == Shop.coinType.coinD){
+                    if(stats.coinD - shop.takeAmount > 0){
+                        stats.coinD = stats.coinD - shop.takeAmount;
+                        stats.coinH = stats.coinH +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }  
+                    else if(shop.buying == Shop.coinType.coinF){
+                    if(stats.coinF - shop.takeAmount > 0){
+                        stats.coinF = stats.coinF - shop.takeAmount;
+                        stats.coinH = stats.coinH +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(shop.buying == Shop.coinType.coinE){
+                    if(stats.coinE - shop.takeAmount > 0){
+                        stats.coinE = stats.coinE - shop.takeAmount;
+                        stats.coinH = stats.coinH +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }
+                else if(shop.buying == Shop.coinType.coinG){
+                    if(stats.coinG - shop.takeAmount > 0){
+                        stats.coinG = stats.coinG - shop.takeAmount;
+                        stats.coinH = stats.coinH +  shop.giveAmount;
+                    }
+                    else{
+                        debugOOM();
+                    }                    
+                }                  
+    }
+
     void Aseller(RaycastHit hit){
         if(hit.transform.gameObject.GetComponent<Shop>().buying == Shop.coinType.coinB){
                 if(stats.coinB - hit.transform.gameObject.GetComponent<Shop>().takeAmount > 0){
@@ -684,6 +1213,48 @@ public class Grab : MonoBehaviour
                 }                  
     }
 
+    public void currencyInteraction(Shop game){
+    //overload
+        //TREATORS ===============================================================================================================
+        if(game.getTreatOrTrater()){
+            
+            int range = Random.Range(1,9);
+            int range2 = Random.Range(1, 50);
+            if(range == 1){
+                    //Debug.Log("got" + range2 + " coin A");
+                    stats.coinA = stats.coinA + range2;
+            }
+            else if(range == 2){
+                    //Debug.Log("got" + range2 + " coin B");
+                    stats.coinB = stats.coinB + range2;
+            }
+            else if(range == 3){
+                    //Debug.Log("got" + range2 + " coin C");
+                    stats.coinC = stats.coinC + range2;
+            }
+            else if(range == 4){
+
+                    //Debug.Log("got" + range2 + " coin D");
+                    stats.coinD = stats.coinD + range2;
+            }
+            else if(range == 5){
+                    //Debug.Log("got" + range2 + " coin E");
+                    stats.coinE = stats.coinE + range2;
+            }
+            else if(range == 6){
+                    //Debug.Log("got" + range2 + " coin F");
+                    stats.coinF = stats.coinF + range2;
+            }
+            else if(range == 7){
+                    //Debug.Log("got" + range2 + " coin G");
+                    stats.coinG = stats.coinG + range2;
+            }
+            else if(range == 8){
+                    //Debug.Log("got" + range2 + " coin H");
+                    stats.coinH = stats.coinH + range2;
+            }
+        } 
+}
 
     void currencyInteraction(RaycastHit hit){
         //TREATORS ===============================================================================================================
@@ -691,61 +1262,45 @@ public class Grab : MonoBehaviour
             int range = Random.Range(1,9);
             int range2 = Random.Range(1, 50);
             if(range == 1){
-                if(hit.transform.gameObject.GetComponent<Shop>().cooldown == 0){
                     //Debug.Log("got" + range2 + " coin A");
                     stats.coinA = stats.coinA + range2;
                     hit.transform.gameObject.GetComponent<Shop>().cooldown = 5;
-                }
             }
             else if(range == 2){
-                if(hit.transform.gameObject.GetComponent<Shop>().cooldown == 0){
                     //Debug.Log("got" + range2 + " coin B");
                     stats.coinB = stats.coinB + range2;
                     hit.transform.gameObject.GetComponent<Shop>().cooldown = 5;
-                }
             }
             else if(range == 3){
-                if(hit.transform.gameObject.GetComponent<Shop>().cooldown == 0){
                     //Debug.Log("got" + range2 + " coin C");
                     stats.coinC = stats.coinC + range2;
                     hit.transform.gameObject.GetComponent<Shop>().cooldown = 5;
-                }
             }
             else if(range == 4){
-                if(hit.transform.gameObject.GetComponent<Shop>().cooldown == 0){
                     //Debug.Log("got" + range2 + " coin D");
                     stats.coinD = stats.coinD + range2;
                     hit.transform.gameObject.GetComponent<Shop>().cooldown = 5;
-                }
 
             }
             else if(range == 5){
-                if(hit.transform.gameObject.GetComponent<Shop>().cooldown == 0){
                     //Debug.Log("got" + range2 + " coin E");
                     stats.coinE = stats.coinE + range2;
                     hit.transform.gameObject.GetComponent<Shop>().cooldown = 5;
-                }
             }
             else if(range == 6){
-                if(hit.transform.gameObject.GetComponent<Shop>().cooldown == 0){
                     //Debug.Log("got" + range2 + " coin F");
                     stats.coinF = stats.coinF + range2;
                     hit.transform.gameObject.GetComponent<Shop>().cooldown = 5;
-                }
             }
             else if(range == 7){
-                if(hit.transform.gameObject.GetComponent<Shop>().cooldown == 0){
                     //Debug.Log("got" + range2 + " coin G");
                     stats.coinG = stats.coinG + range2;
                     hit.transform.gameObject.GetComponent<Shop>().cooldown = 5;
-                }
             }
             else if(range == 8){
-                if(hit.transform.gameObject.GetComponent<Shop>().cooldown == 0){
                     //Debug.Log("got" + range2 + " coin H");
                     stats.coinH = stats.coinH + range2;
                     hit.transform.gameObject.GetComponent<Shop>().cooldown = 5;
-                }
             }
         }
 
@@ -801,7 +1356,8 @@ public class Grab : MonoBehaviour
                 {
                     if (dialogueManager.NPCisTalking)
                     {
-                        dialogueManager.DisplayNextSentence();
+                        NPC.ContinueDialogue();
+                        //dialogueManager.DisplayNextSentence();
                         return;
                     }
                     if (!dialogueManager.NPCisTalking) {
@@ -811,9 +1367,10 @@ public class Grab : MonoBehaviour
                 // send a raycast
                 if (Physics.SphereCast(origin.transform.position, 1, (dummy.position - origin.transform.position), out hit, distance, mask))
                 {
-                    if(hit.transform.gameObject.GetComponent<Shop>() != null){
-                        currencyInteraction(hit);
-                    }
+                    //removing this so that i can focus on making the dialogue be the event that changes the currency rather than the raycast
+                   // if(hit.transform.gameObject.GetComponent<Shop>() != null){
+                       // currencyInteraction(hit);
+                    //}
                     
                     if (hit.transform.gameObject.GetComponent<DialogueNPC>() != null)
                     {

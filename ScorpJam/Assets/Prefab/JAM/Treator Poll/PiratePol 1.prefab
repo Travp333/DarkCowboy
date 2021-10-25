@@ -274,7 +274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914369820315539119}
   m_LocalRotation: {x: 0, y: -0.00000022351739, z: -0, w: -1}
-  m_LocalPosition: {x: -13.254842, y: -0.030605888, z: 0.0993037}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8802958000179589930}
@@ -2238,7 +2238,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6250025446547707057}
   m_LocalRotation: {x: 0, y: -0.00000022351739, z: -0, w: -1}
-  m_LocalPosition: {x: -13.254842, y: -0.030605888, z: 0.0993037}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8802958000179589930}
@@ -2426,7 +2426,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6391783916547475013}
   m_LocalRotation: {x: 0, y: -0.00000022351739, z: -0, w: -1}
-  m_LocalPosition: {x: -13.254842, y: -0.030605888, z: 0.0993037}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8802958000179589930}
@@ -2914,9 +2914,9 @@ GameObject:
   - component: {fileID: 8802958000179589930}
   - component: {fileID: 9052475856932084094}
   - component: {fileID: 9052475856932084089}
-  - component: {fileID: 9052475856932084093}
-  - component: {fileID: 9052475856932084092}
   - component: {fileID: 2879735182944851538}
+  - component: {fileID: 2700589417148974172}
+  - component: {fileID: 4351283251160093827}
   m_Layer: 13
   m_Name: PiratePol 1
   m_TagString: Pol
@@ -2975,33 +2975,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.66, y: 2.38, z: 0.47}
   m_Center: {x: 0, y: -0.76, z: 0}
---- !u!114 &9052475856932084093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8170008035898648976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd648e0587f96b64e89bd50c03e12cb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSmall: 1
-  isMedium: 0
-  isLarge: 0
---- !u!114 &9052475856932084092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8170008035898648976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82afca58c8a95a54dbf84cc3b54351cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2879735182944851538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3020,6 +2993,46 @@ MonoBehaviour:
   - {fileID: 2879735182387312634}
   - {fileID: 2879735183831009364}
   - {fileID: 2879735183184392920}
+  - {fileID: 1989309911230199885}
+  - {fileID: 6642397173904222093}
+  - {fileID: 366076333906748738}
+  - {fileID: 5342308567399361145}
+--- !u!114 &2700589417148974172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8170008035898648976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd433cc8f29b66f4f8d80adb1ec737b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  involveCurrencies: 1
+  dialogue:
+    name: Captin Pol
+    sentences:
+    - Argh me Matey...
+    - this candy be worth your weight in dabloons!
+--- !u!114 &4351283251160093827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8170008035898648976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef6440e64196914eaae3a64c4d33a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treateeOrTrader: 1
+  selling: 0
+  buying: 0
+  cooldown: 0
+  takeAmount: 0
+  giveAmount: 0
 --- !u!1 &8229192712105757838
 GameObject:
   m_ObjectHideFlags: 0
@@ -3107,7 +3120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8338478411113525163}
   m_LocalRotation: {x: 0, y: -0.00000022351739, z: -0, w: -1}
-  m_LocalPosition: {x: -13.254842, y: -0.030605888, z: 0.0993037}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8802958000179589930}
