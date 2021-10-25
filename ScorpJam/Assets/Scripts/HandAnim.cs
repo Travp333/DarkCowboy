@@ -9,7 +9,6 @@ public class HandAnim : MonoBehaviour
     GameObject sphere;
     FPSMovingSphere player;
     [HideInInspector]
-    public bool barragePrep = false;
     bool flipflop = true;
     bool flipflop2 = true;
     bool blocker = true;
@@ -70,21 +69,6 @@ public class HandAnim : MonoBehaviour
         animator = GetComponent<Animator>();
         player = sphere.GetComponent<FPSMovingSphere>();
         grab = GetComponent<Grab>();
-    }
-
-    void startBarrage(){
-        animator.SetBool("barragePrep", false);
-        player.isBarraging = true;
-        flipflop2 = true;
-        speedController.setFactor(.5f);
-        //movement change here
-
-    }
-
-    void resetbarragePrep(){
-        barragePrep = false;
-        speedController.setFactor(2f);
-        //movement restoration here
     }
 
     void openGate(){
@@ -176,21 +160,6 @@ public class HandAnim : MonoBehaviour
                 animator.SetFloat("walkBlend", playerSpeed);
             }
         }
-        if(Input.GetKeyDown("mouse 1")){
-            if(flipflop2 && !player.isBarraging && !grab.isHolding){
-                animator.SetBool("barragePrep", true);
-                barragePrep = true;
-                blocker = false;
-                flipflop2 = false;
-            }
-            else if (!flipflop2){
-                player.isBarraging = false;
-                animator.SetBool("barragePrep", false);
-                barragePrep = false;
-                blocker = true;
-                flipflop2 = true;
-            }
-        }
         if ( Input.GetKeyDown("mouse 0") ){
             if(blocker && !grab.isHolding){
                 if(flipflop){
@@ -200,20 +169,6 @@ public class HandAnim : MonoBehaviour
                     Invoke("waveStartR", .1f);
                 }
             }
-        }
-        if ( Input.GetKey("mouse 0") ){
-            if(barragePrep){
-                animator.SetBool("charging", true);
-                
-            }
-            else if (!barragePrep){
-                animator.SetBool("charging", false);
-                player.isBarraging = false;
-            }
-        }
-        else if (!Input.GetKey("mouse 0") ){
-            animator.SetBool("charging", false);
-            player.isBarraging = false;
         }
     }
 }

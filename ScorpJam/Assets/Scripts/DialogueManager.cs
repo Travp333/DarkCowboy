@@ -11,6 +11,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject textLayer;
     public bool NPCisTalking;
 
+    bool flipflop;
+
     private Queue<string> sentences;
     void Start()
     {
@@ -82,14 +84,10 @@ public class DialogueManager : MonoBehaviour
                     grab.Hseller(shop);
                 }
             }
-            
         }
-        else{
-            //Debug.Log("ended conversation with normal man");
-        }
-        //imma add a thing here so that the dialogue ending calls a method, 
         NPCisTalking = false;
         textLayer.SetActive(false);
+        
         
     }
 
@@ -97,10 +95,22 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
-            //text noise here
-            shop.playTextSound();
-            dialogueText.text += letter;
-            yield return null;
+            if(NPCisTalking){
+                //text noise here
+                //the flip flop makes it so that it only playe the sound for every other letter, to slow it down a bit 
+                if(flipflop){
+                    shop.playTextSound();
+                    dialogueText.text += letter;
+                    yield return null;
+                    flipflop = false;
+                }
+                else{
+                    dialogueText.text += letter;
+                    yield return null;
+                    flipflop = true;
+                }
+
+            }
         }
     }
 }

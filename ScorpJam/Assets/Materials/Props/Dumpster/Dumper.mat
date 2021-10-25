@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Dumper
-  m_Shader: {fileID: 4800000, guid: f9ee5c030b1fc7544b06772121123a6a, type: 3}
+  m_Shader: {fileID: 4800000, guid: 058857136486dfa49a371fc36d5258ae, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _METALLICGLOSSMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
     _SPECGLOSSMAP
   m_LightmapFlags: 2
@@ -29,7 +29,7 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: Dumper-37d92a3e
+    OptimizedShaderFolder: Dumper-25cd764e
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []
@@ -1046,7 +1046,7 @@ Material:
     - _LightingUncapped: 0
     - _LightingUncappedAnimated: 0
     - _LineColorAnimated: 0
-    - _LineWidth: 0
+    - _LineWidth: 3.79
     - _LineWidthAnimated: 0
     - _LockTooltip: 0
     - _MainAlphaToCoverage: 0
@@ -1176,7 +1176,7 @@ Material:
     - _OutlineLitAnimated: 0
     - _OutlineMaskAnimated: 0
     - _OutlineMaskUV: 0
-    - _OutlineMode: 0
+    - _OutlineMode: 1
     - _OutlineModeAnimated: 0
     - _OutlineOffsetFactor: 0
     - _OutlineOffsetUnits: 0
@@ -1202,7 +1202,7 @@ Material:
     - _OutlineTextureAnimated: 0
     - _OutlineTexturePanAnimated: 0
     - _OutlineTextureUV: 0
-    - _OutlineTintMix: 0
+    - _OutlineTintMix: 0.134
     - _OutlineTintMixAnimated: 0
     - _OutlineUseVertexColors: 0
     - _OutlineUseVertexColorsAnimated: 0
@@ -1617,7 +1617,7 @@ Material:
     - _ZTestAnimated: 0
     - _ZWrite: 1
     - _ZWriteAnimated: 0
-    - _commentIfZero_EnableOutlinePass: 0
+    - _commentIfZero_EnableOutlinePass: 1
     - _commentIfZero_LightingAdditiveEnable: 1
     - _commentIfZero_LightingAdditiveEnableAnimated: 0
     - _glitterFrequencyLinearEmissive: 20
@@ -1694,7 +1694,7 @@ Material:
     - m_end_vertexManipulation: 0
     - m_lightingOptions: 1
     - m_mainOptions: 1
-    - m_outlineOptions: 0
+    - m_outlineOptions: 1
     - m_renderingOptions: 0
     - m_start_Alpha: 0
     - m_start_BonusSliders: 0
@@ -1775,7 +1775,7 @@ Material:
     - _ClearCoatMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _ClearCoatSmoothnessMapPan: {r: 0, g: 0, b: 0, a: 0}
     - _ClearCoatTint: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
+    - _Color: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
     - _DecalColor: {r: 1, g: 1, b: 1, a: 1}
     - _DecalMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _DecalPosition: {r: 0.5, g: 0.5, b: 0, a: 0}
@@ -1822,7 +1822,7 @@ Material:
     - _LightingShadowColor: {r: 1, g: 1, b: 1, a: 1}
     - _LightingShadowMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _LightingShadowTexturePan: {r: 0, g: 0, b: 0, a: 0}
-    - _LineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LineColor: {r: 0, g: 0, b: 0, a: 1}
     - _MainDistanceFade: {r: 0, g: 0, b: 0, a: 0}
     - _MainFadeTexturePan: {r: 0, g: 0, b: 0, a: 0}
     - _MainHueShiftMaskPan: {r: 0, g: 0, b: 0, a: 0}

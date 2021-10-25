@@ -103,6 +103,20 @@ public class Grab : MonoBehaviour
         propRB.isKinematic=(false);
         isHolding = false;
         //this may not be super smart, but i am assuming everything you pick up is labeled as a rigid body. If that changes, this should be updated
+        //prop.transform.gameObject.layer = 13;
+        //foreach ( Transform child in prop.transform){
+        //    child.transform.gameObject.layer = 13;
+        //    foreach ( Transform child2 in child.transform){
+        //        child2.transform.gameObject.layer = 13;
+        //    }
+        //}
+        prop = null;
+        propRB = null;
+        throwingforce = throwingTemp;
+        polGate = false;
+    }
+
+    void resetLayer(){
         prop.transform.gameObject.layer = 13;
         foreach ( Transform child in prop.transform){
             child.transform.gameObject.layer = 13;
@@ -113,7 +127,6 @@ public class Grab : MonoBehaviour
         prop = null;
         propRB = null;
         throwingforce = throwingTemp;
-        polGate = false;
     }
 
     void detach(){
@@ -136,13 +149,7 @@ public class Grab : MonoBehaviour
         propRB.isKinematic=(false);
         isHolding = false;
         //this may not be super smart, but i am assuming everything you pick up is labeled as a rigid body. If that changes, this should be updated
-        prop.transform.gameObject.layer = 13;
-        foreach ( Transform child in prop.transform){
-            child.transform.gameObject.layer = 13;
-            foreach ( Transform child2 in child.transform){
-                child2.transform.gameObject.layer = 13;
-            }
-        }
+        Invoke("resetLayer", .05f);
         polGate = false;
 
 
@@ -155,7 +162,7 @@ public class Grab : MonoBehaviour
         Debug.Log("Out of Money!");
     }
 
-        public void Aseller(Shop shop){
+    public void Aseller(Shop shop){
         if(shop.buying == Shop.coinType.coinB){
                 if(stats.coinB - shop.takeAmount > 0){
                     stats.coinB = stats.coinB - shop.takeAmount;
@@ -1350,8 +1357,8 @@ public class Grab : MonoBehaviour
         RaycastHit hit;
         if (Input.GetKeyDown("e"))
         {
-            // if you are not holding anything, and you are not preparing to barrage, and you are not barraging
-            if(!isHolding && !hand.barragePrep && !player.isBarraging){
+            // if you are not holding anything
+            if(!isHolding){
                 if (NPC)
                 {
                     if (dialogueManager.NPCisTalking)
@@ -1438,13 +1445,13 @@ public class Grab : MonoBehaviour
             else if (isHolding){
                 detach();
                 //clear the temps for next loop
-                prop = null;
-                propRB = null;
-                throwingforce = throwingTemp;
+               // prop = null;
+               // propRB = null;
+               // throwingforce = throwingTemp;
             }
 
         }
-        if (Input.GetKeyUp("mouse 0") && isHolding && !hand.barragePrep && !player.isBarraging ){
+        if (Input.GetKeyUp("mouse 0") && isHolding){
             
             detach();
             if (highorLow){
@@ -1465,7 +1472,7 @@ public class Grab : MonoBehaviour
             highorLow = true;
         }
         //throw
-        if (Input.GetKey("mouse 0") && isHolding && !hand.barragePrep && !player.isBarraging ){
+        if (Input.GetKey("mouse 0") && isHolding){
             if (throwingforce <= maxThrowingForce){
                 isgrabCharging = true;
                 throwingforce = throwingforce + chargeRate;

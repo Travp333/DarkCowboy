@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: mt_Wet_mat
-  m_Shader: {fileID: 4800000, guid: 22a51adebc2783740a32d3a3a6203b00, type: 3}
-  m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+  m_Shader: {fileID: 4800000, guid: 163bce63629b1b649aa7dfe4eb8dedd6, type: 3}
+  m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A _SPECGLOSSMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: mt_Wet_mat-54817e5f
+    OptimizedShaderFolder: mt_Wet_mat-dcc9fffa
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []
@@ -479,7 +479,7 @@ Material:
     - _ContinuousDissolve: 0
     - _ContinuousDissolveAnimated: 0
     - _CubeMapAnimated: 0
-    - _Cull: 2
+    - _Cull: 0
     - _CullAnimated: 0
     - _Cutoff: 0.5
     - _CutoffAnimated: 0
@@ -767,7 +767,7 @@ Material:
     - _EnableSSS: 0
     - _EnableSSSAnimated: 0
     - _EnableScifiSpawnInAnimated: 0
-    - _EnableSpecular: 0
+    - _EnableSpecular: 1
     - _EnableSpecular1: 0
     - _EnableSpecular1Animated: 0
     - _EnableSpecularAnimated: 0
@@ -1007,7 +1007,7 @@ Material:
     - _LightingUncapped: 0
     - _LightingUncappedAnimated: 0
     - _LineColorAnimated: 0
-    - _LineWidth: 0
+    - _LineWidth: 2.22
     - _LineWidthAnimated: 0
     - _LockTooltip: 0
     - _MainAlphaToCoverage: 0
@@ -1137,7 +1137,7 @@ Material:
     - _OutlineLitAnimated: 0
     - _OutlineMaskAnimated: 0
     - _OutlineMaskUV: 0
-    - _OutlineMode: 0
+    - _OutlineMode: 1
     - _OutlineModeAnimated: 0
     - _OutlineOffsetFactor: 0
     - _OutlineOffsetUnits: 0
@@ -1163,7 +1163,7 @@ Material:
     - _OutlineTextureAnimated: 0
     - _OutlineTexturePanAnimated: 0
     - _OutlineTextureUV: 0
-    - _OutlineTintMix: 0
+    - _OutlineTintMix: 0.123
     - _OutlineTintMixAnimated: 0
     - _OutlineUseVertexColors: 0
     - _OutlineUseVertexColorsAnimated: 0
@@ -1426,7 +1426,7 @@ Material:
     - _SpecularNormal1: 1
     - _SpecularNormal1Animated: 0
     - _SpecularNormalAnimated: 0
-    - _SpecularSmoothness: 1
+    - _SpecularSmoothness: 0.334
     - _SpecularSmoothness1: 0.75
     - _SpecularSmoothness1Animated: 0
     - _SpecularSmoothnessAnimated: 0
@@ -1574,7 +1574,7 @@ Material:
     - _ZTestAnimated: 0
     - _ZWrite: 1
     - _ZWriteAnimated: 0
-    - _commentIfZero_EnableOutlinePass: 0
+    - _commentIfZero_EnableOutlinePass: 1
     - _commentIfZero_LightingAdditiveEnable: 1
     - _commentIfZero_LightingAdditiveEnableAnimated: 0
     - _glitterFrequencyLinearEmissive: 20
@@ -1649,10 +1649,10 @@ Material:
     - m_end_specular1: 0
     - m_end_subsurface: 0
     - m_end_vertexManipulation: 0
-    - m_lightingOptions: 0
+    - m_lightingOptions: 1
     - m_mainOptions: 1
     - m_outlineOptions: 0
-    - m_renderingOptions: 0
+    - m_renderingOptions: 1
     - m_start_Alpha: 0
     - m_start_BonusSliders: 0
     - m_start_CenterOutEmission: 0
@@ -1711,7 +1711,7 @@ Material:
     - m_start_scrollingEmissionOptions: 0
     - m_start_scrollingEmissionOptions1: 0
     - m_start_shadowTexture: 0
-    - m_start_specular: 0
+    - m_start_specular: 1
     - m_start_specular1: 0
     - m_start_subsurface: 0
     - m_start_vertexManipulation: 0
@@ -1778,7 +1778,7 @@ Material:
     - _LightingShadowColor: {r: 1, g: 1, b: 1, a: 1}
     - _LightingShadowMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _LightingShadowTexturePan: {r: 0, g: 0, b: 0, a: 0}
-    - _LineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LineColor: {r: 0, g: 0, b: 0, a: 1}
     - _MainDistanceFade: {r: 0, g: 0, b: 0, a: 0}
     - _MainFadeTexturePan: {r: 0, g: 0, b: 0, a: 0}
     - _MainHueShiftMaskPan: {r: 0, g: 0, b: 0, a: 0}

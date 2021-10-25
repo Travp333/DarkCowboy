@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Celing
-  m_Shader: {fileID: 4800000, guid: c6ffd1c18bd8b0a4bb5cadbc67ed5970, type: 3}
+  m_Shader: {fileID: 4800000, guid: 0b1eb08760e3d6b40b0378dea867b82b, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _EMISSION _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
     _SPECGLOSSMAP
   m_LightmapFlags: 4
@@ -16,7 +16,7 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: Celing-2e4d8263
+    OptimizedShaderFolder: Celing-644260c2
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []
@@ -45,7 +45,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: 14367b8bf1ecb5043b6fab5b588d5e6c, type: 3}
-        m_Scale: {x: 0.03, y: 0.03}
+        m_Scale: {x: 0.1, y: 0.1}
         m_Offset: {x: 0, y: 0}
     - _ClearCoatCubeMap:
         m_Texture: {fileID: 8900000, guid: 1f79f71b84fc2844bb81e9ae4f5bc384, type: 3}
@@ -129,7 +129,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMask:
         m_Texture: {fileID: 2800000, guid: 8e39e268a49a4ad4985ab446d831a1c9, type: 3}
-        m_Scale: {x: 0.03, y: 0.03}
+        m_Scale: {x: 0.1, y: 0.1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMask1:
         m_Texture: {fileID: 0}
@@ -193,7 +193,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: ba98693df083fe4498a2f0c52e82e87a, type: 3}
-        m_Scale: {x: 0.03, y: 0.03}
+        m_Scale: {x: 0.1, y: 0.1}
         m_Offset: {x: 0, y: 0}
     - _Matcap:
         m_Texture: {fileID: 0}
@@ -333,7 +333,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SpecularMap:
         m_Texture: {fileID: 2800000, guid: 9c1c984212bd4d149b256257d544e4b9, type: 3}
-        m_Scale: {x: 0.03, y: 0.03}
+        m_Scale: {x: 0.1, y: 0.1}
         m_Offset: {x: 0, y: 0}
     - _SpecularMap1:
         m_Texture: {fileID: 0}
@@ -341,7 +341,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SpecularMask:
         m_Texture: {fileID: 2800000, guid: 9c1c984212bd4d149b256257d544e4b9, type: 3}
-        m_Scale: {x: 0.04, y: 0.04}
+        m_Scale: {x: 0.1, y: 0.2}
         m_Offset: {x: 0, y: 0}
     - _SpecularMask1:
         m_Texture: {fileID: 0}
@@ -446,7 +446,7 @@ Material:
     - _BumpMapPanAnimated: 0
     - _BumpMapUV: 0
     - _BumpMapUVAnimated: 0
-    - _BumpScale: 0.58
+    - _BumpScale: 0.76
     - _BumpScaleAnimated: 0
     - _CameraAngleMax: 90
     - _CameraAngleMaxAnimated: 0
@@ -701,7 +701,7 @@ Material:
     - _EmissionScrollingVertexColor1: 0
     - _EmissionScrollingVertexColor1Animated: 0
     - _EmissionScrollingVertexColorAnimated: 0
-    - _EmissionStrength: 2.27
+    - _EmissionStrength: 2.05
     - _EmissionStrength1: 0
     - _EmissionStrength1Animated: 0
     - _EmissionStrengthAnimated: 0
@@ -1014,7 +1014,7 @@ Material:
     - _MainAlphaToCoverage: 0
     - _MainAlphaToCoverageAnimated: 0
     - _MainDistanceFadeAnimated: 0
-    - _MainEmissionStrength: 0.6
+    - _MainEmissionStrength: 0.01
     - _MainEmissionStrengthAnimated: 0
     - _MainFadeTextureAnimated: 0
     - _MainFadeTexturePanAnimated: 0
@@ -1319,7 +1319,7 @@ Material:
     - _SSSThicknessModAnimated: 0
     - _SampleWorld: 0
     - _SampleWorldAnimated: 0
-    - _Saturation: -0.101
+    - _Saturation: 0
     - _SaturationAnimated: 0
     - _ScrollingEmission: 0
     - _ScrollingEmission1: 0
@@ -1732,7 +1732,7 @@ Material:
     - _ClearCoatMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _ClearCoatSmoothnessMapPan: {r: 0, g: 0, b: 0, a: 0}
     - _ClearCoatTint: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
+    - _Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
     - _DecalColor: {r: 1, g: 1, b: 1, a: 1}
     - _DecalMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _DecalPosition: {r: 0.5, g: 0.5, b: 0, a: 0}

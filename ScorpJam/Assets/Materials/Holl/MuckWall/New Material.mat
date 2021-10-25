@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: New Material
-  m_Shader: {fileID: 4800000, guid: 62c06e2810974cc40ab2b8635221835b, type: 3}
+  m_Shader: {fileID: 4800000, guid: 13e7568d6af093c49bfc2684f34d7107, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _METALLICGLOSSMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
     _SPECGLOSSMAP
   m_LightmapFlags: 2
@@ -16,7 +16,7 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: New Material-3485ecb2
+    OptimizedShaderFolder: New Material-983439fc
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []
@@ -1008,13 +1008,13 @@ Material:
     - _LightingUncapped: 0
     - _LightingUncappedAnimated: 0
     - _LineColorAnimated: 0
-    - _LineWidth: 0
+    - _LineWidth: 3.63
     - _LineWidthAnimated: 0
     - _LockTooltip: 0
     - _MainAlphaToCoverage: 0
     - _MainAlphaToCoverageAnimated: 0
     - _MainDistanceFadeAnimated: 0
-    - _MainEmissionStrength: 0.1
+    - _MainEmissionStrength: 6.27
     - _MainEmissionStrengthAnimated: 0
     - _MainFadeTextureAnimated: 0
     - _MainFadeTexturePanAnimated: 0
@@ -1138,7 +1138,7 @@ Material:
     - _OutlineLitAnimated: 0
     - _OutlineMaskAnimated: 0
     - _OutlineMaskUV: 0
-    - _OutlineMode: 0
+    - _OutlineMode: 1
     - _OutlineModeAnimated: 0
     - _OutlineOffsetFactor: 0
     - _OutlineOffsetUnits: 0
@@ -1164,7 +1164,7 @@ Material:
     - _OutlineTextureAnimated: 0
     - _OutlineTexturePanAnimated: 0
     - _OutlineTextureUV: 0
-    - _OutlineTintMix: 0
+    - _OutlineTintMix: 0.145
     - _OutlineTintMixAnimated: 0
     - _OutlineUseVertexColors: 0
     - _OutlineUseVertexColorsAnimated: 0
@@ -1575,7 +1575,7 @@ Material:
     - _ZTestAnimated: 0
     - _ZWrite: 1
     - _ZWriteAnimated: 0
-    - _commentIfZero_EnableOutlinePass: 0
+    - _commentIfZero_EnableOutlinePass: 1
     - _commentIfZero_LightingAdditiveEnable: 1
     - _commentIfZero_LightingAdditiveEnableAnimated: 0
     - _glitterFrequencyLinearEmissive: 20
@@ -1652,7 +1652,7 @@ Material:
     - m_end_vertexManipulation: 0
     - m_lightingOptions: 1
     - m_mainOptions: 1
-    - m_outlineOptions: 0
+    - m_outlineOptions: 1
     - m_renderingOptions: 0
     - m_start_Alpha: 0
     - m_start_BonusSliders: 0
@@ -1779,7 +1779,7 @@ Material:
     - _LightingShadowColor: {r: 1, g: 1, b: 1, a: 1}
     - _LightingShadowMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _LightingShadowTexturePan: {r: 0, g: 0, b: 0, a: 0}
-    - _LineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LineColor: {r: 0, g: 0, b: 0, a: 1}
     - _MainDistanceFade: {r: 0, g: 0, b: 0, a: 0}
     - _MainFadeTexturePan: {r: 0, g: 0, b: 0, a: 0}
     - _MainHueShiftMaskPan: {r: 0, g: 0, b: 0, a: 0}

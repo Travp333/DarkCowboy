@@ -21,14 +21,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CRT Screen
-  m_Shader: {fileID: 4800000, guid: c60504b2a950299459a91e82749b656d, type: 3}
+  m_Shader: {fileID: 4800000, guid: 2fd6d1baa80e74646a48151fee29a189, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A _SPECGLOSSMAP
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: CRT Screen-d1ab9fe9
+    OptimizedShaderFolder: CRT Screen-33e3dde3
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []
@@ -701,7 +701,7 @@ Material:
     - _EmissionHueShift1: 0
     - _EmissionHueShift1Animated: 0
     - _EmissionHueShiftAnimated: 0
-    - _EmissionHueShiftEnabled: 0
+    - _EmissionHueShiftEnabled: 1
     - _EmissionHueShiftEnabled1: 0
     - _EmissionHueShiftEnabled1Animated: 0
     - _EmissionHueShiftEnabledAnimated: 0
@@ -1051,7 +1051,7 @@ Material:
     - _MainAlphaToCoverage: 0
     - _MainAlphaToCoverageAnimated: 0
     - _MainDistanceFadeAnimated: 0
-    - _MainEmissionStrength: 2.9
+    - _MainEmissionStrength: 3.2
     - _MainEmissionStrengthAnimated: 0
     - _MainFadeTextureAnimated: 0
     - _MainFadeTexturePanAnimated: 0
@@ -1628,7 +1628,7 @@ Material:
     - footer_youtube: 0
     - m_LockingInfo: 0
     - m_ParallaxMap: 0
-    - m_Special_Effects: 0
+    - m_Special_Effects: 1
     - m_end_Alpha: 0
     - m_end_BonusSliders: 0
     - m_end_CenterOutEmission: 0
@@ -1774,7 +1774,7 @@ Material:
     - _ClearCoatMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _ClearCoatSmoothnessMapPan: {r: 0, g: 0, b: 0, a: 0}
     - _ClearCoatTint: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DecalColor: {r: 1, g: 1, b: 1, a: 1}
     - _DecalMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _DecalPosition: {r: 0.5, g: 0.5, b: 0, a: 0}

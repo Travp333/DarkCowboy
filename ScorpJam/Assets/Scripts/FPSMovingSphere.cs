@@ -133,7 +133,7 @@ public class FPSMovingSphere : MonoBehaviour {
 	}
 
 	void Awake () {
-		grab = transform.GetChild(0).GetChild(0).GetChild(2).GetComponent<Grab>();
+		grab = transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<Grab>();
 		speedController = GetComponent<MovementSpeedController>();
 		camanim = transform.GetChild(0).GetComponent<Animator>();
 		// this is so i can prevent the player from entering a climbing state while standing on the ground
