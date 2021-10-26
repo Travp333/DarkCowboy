@@ -127,6 +127,10 @@ public class FPSMovingSphere : MonoBehaviour {
 	bool skip = true;
 
 	bool diveGate;
+	[SerializeField]
+	public bool dancing;
+
+	bool flipflop;
 
 	public void setCanClimb(bool plug){
 		canClimb = plug;
@@ -155,24 +159,50 @@ public class FPSMovingSphere : MonoBehaviour {
 	}
 	void Update () {
 		//Debug.Log(canClimb);
+
+		if(!OnGround){
+			dancing = false;
+			transform.root.GetChild(4).gameObject.SetActive(false);
+		}
+
+		if(Input.GetButtonDown("Dance") && OnGround){
+			if(OnGround && !ClimbingADJ && !Swimming && !grab.isHolding){
+				if(!flipflop){
+					dancing = true;
+					flipflop = true;
+					playerInput.x = 0f;
+					playerInput.y = 0f;
+					velocity = Vector3.zero;
+					transform.root.GetChild(4).gameObject.SetActive(true);
+				}
+				else{
+					dancing = false;
+					flipflop = false;
+					transform.root.GetChild(4).gameObject.SetActive(false);
+				}
+			}
+		}
+		
 		if(OnGround || ClimbingADJ){
 			if (!diveGate){
 				Diving = false;
 			}
 		}
-        if(Input.GetButtonDown("Duck")){
-            camanim.SetBool("divePrep", true);
-			divingPrep = true;
-        }
-        if(Input.GetButtonUp("Duck")){
-            camanim.SetBool("divePrep", false);
-			divingPrep = false;
-        }
+		if(!dancing){
+			if(Input.GetButtonDown("Duck")){
+				camanim.SetBool("divePrep", true);
+				divingPrep = true;
+			}
+			if(Input.GetButtonUp("Duck")){
+				camanim.SetBool("divePrep", false);
+				divingPrep = false;
+			}
+		}
 		// this is so i can prevent the player from entering a climbing state while standing on the ground
-		if(Climbing && !OnGround && canClimb){
+		if(Climbing && !OnGround && canClimb && !dancing){
 			ClimbingADJ = true;
 		}
-		else if (OnGround || !canClimb){
+		else if (OnGround || !canClimb || dancing){
 			ClimbingADJ = false;
 		}
 		if (Swimming) {
@@ -180,33 +210,22 @@ public class FPSMovingSphere : MonoBehaviour {
 		}
 		if(grab.isHolding){
 			desiresClimbing = false;
-			desiredJump |= Input.GetButtonDown("Jump");
+			if(!dancing){
+				desiredJump |= Input.GetButtonDown("Jump");
+			}
 		}
 		else {
-			desiredJump |= Input.GetButtonDown("Jump");
-			desiresClimbing = Input.GetButton("Duck");
+			if(!dancing){
+				desiredJump |= Input.GetButtonDown("Jump");
+				desiresClimbing = Input.GetButton("Duck");
+			}
 		}
-		ExplosiveForce();
-		// light that shows if youre on the ground or not
-		//if (Swimming){
-		//	lt.color = Color.blue;
-		//}
-		//else if (OnGround){
-		//	lt.color = Color.red;
-		//}
-		//else if (ClimbingADJ){
-		//	lt.color = Color.white;
-		//}
-		//else if (OnSteep){
-		//	lt.color = Color.yellow;
-		//}
-		//else if (!OnSteep && !OnGround && !Swimming){
-		//	lt.color = Color.green;
-		//}
-	    playerInput.x = Input.GetAxis("Horizontal");
-		playerInput.y = Input.GetAxis("Vertical");
-    	playerInput.z = Swimming ? Input.GetAxis("UpDown") : 0f;
-		playerInput = Vector3.ClampMagnitude(playerInput, 1f);
+		if(!dancing){
+			playerInput.x = Input.GetAxis("Horizontal");
+			playerInput.y = Input.GetAxis("Vertical");
+			playerInput.z = Swimming ? Input.GetAxis("UpDown") : 0f;
+			playerInput = Vector3.ClampMagnitude(playerInput, 1f);
+		}
 
 		if (playerInputSpace) {
 			rightAxis = ProjectDirectionOnPlane(playerInputSpace.right, upAxis);
@@ -363,22 +382,6 @@ public class FPSMovingSphere : MonoBehaviour {
 		minGroundDotProduct = Mathf.Cos(maxGroundAngle * Mathf.Deg2Rad);
 		minStairsDotProduct = Mathf.Cos(maxStairsAngle * Mathf.Deg2Rad);
 		minClimbDotProduct = Mathf.Cos(maxClimbAngle * Mathf.Deg2Rad);
-	}
-
-	void ExplosiveForce(){
-		bool BoomPressed = Input.GetKeyDown("v");
-		if(BoomPressed){
-			Vector3 explosionPos = transform.position;
-        	Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
-        	foreach (Collider hit in colliders)
-        	{
-            	Rigidbody rb = hit.GetComponent<Rigidbody>();
-				if (rb != body){
-					if (rb != null)
-						rb.AddExplosionForce(power, explosionPos, radius);
-					}
-				}
-		}
 	}
 
 	void ClearState (){

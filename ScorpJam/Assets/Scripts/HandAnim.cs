@@ -102,6 +102,12 @@ public class HandAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(player.dancing){
+            animator.SetBool("isDancing", true);
+        }
+        else{
+            animator.SetBool("isDancing", false);
+        }
         if(grab.isgrabCharging){
             animator.SetBool("grabCharge", true);
         }
