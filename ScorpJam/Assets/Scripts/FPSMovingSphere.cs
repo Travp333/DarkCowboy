@@ -166,7 +166,7 @@ public class FPSMovingSphere : MonoBehaviour {
 		}
 
 		if(Input.GetButtonDown("Dance") && OnGround){
-			if(OnGround && !ClimbingADJ && !Swimming && !grab.isHolding){
+			if(OnGround && !ClimbingADJ && !Swimming && !grab.isHolding && !divingPrep){
 				if(!flipflop){
 					dancing = true;
 					flipflop = true;
@@ -192,10 +192,18 @@ public class FPSMovingSphere : MonoBehaviour {
 			if(Input.GetButtonDown("Duck")){
 				camanim.SetBool("divePrep", true);
 				divingPrep = true;
+				this.transform.GetChild(1).GetChild(0).GetComponent<CapsuleCollider>().enabled = true;
+				this.transform.GetChild(1).GetChild(0).GetComponent<MeshRenderer>().enabled = true;
+				this.transform.GetChild(1).GetComponent<CapsuleCollider>().enabled = false;
+				this.transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false;
 			}
 			if(Input.GetButtonUp("Duck")){
 				camanim.SetBool("divePrep", false);
 				divingPrep = false;
+				this.transform.GetChild(1).GetChild(0).GetComponent<CapsuleCollider>().enabled = false;
+				this.transform.GetChild(1).GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+				this.transform.GetChild(1).GetComponent<CapsuleCollider>().enabled = true;
+				this.transform.GetChild(1).GetComponent<MeshRenderer>().enabled = true;
 			}
 		}
 		// this is so i can prevent the player from entering a climbing state while standing on the ground

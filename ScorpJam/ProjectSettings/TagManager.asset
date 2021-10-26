@@ -27,10 +27,10 @@ TagManager:
   - Interactable
   - heldItemCollider
   - Fists
-  - NoCollideWithPlayer
+  - NoCollide
   - PostProcessing
   - boots
-  - 
+  - NoCollideWithPlayer
   - 
   - 
   - 
