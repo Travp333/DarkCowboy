@@ -11,6 +11,8 @@ put a door between you and the treatee for the trick or treating section and int
 
 CARAMELDANSIN REMIX BY MIC in discord
 
+FIX stuff getting broken while you are holding it then you get stuck in grab anim 
+
 
 
 

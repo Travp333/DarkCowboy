@@ -67,7 +67,7 @@ public class followPlayer : MonoBehaviour
                 hit.transform.gameObject.GetComponent<Shatter>().oneShot(0);
             }
             if(hit.transform.gameObject.tag == "Player"){
-                player.GetComponent<PlayerStats>().hp -= 10;
+                player.GetComponent<PlayerStats>().takeDamage(10);
             }
         }
     }
