@@ -11,33 +11,42 @@ public class DialogueManager : MonoBehaviour
     public GameObject textLayer;
     public bool NPCisTalking;
 
+
+    public GameObject shopLayer;
+
+
+
     bool flipflop;
 
     private Queue<string> sentences;
+    private Queue<ShopItems.Item> shopInventory;
     void Start()
     {
         sentences = new Queue<string>();
+        shopInventory = new Queue<ShopItems.Item>();
+        textLayer.SetActive(false);
+        shopLayer.SetActive(false);
     }
 
     // this is just me trying to tie the shop script and the dialogue script together ==================================================
 
-    public void StartDialogue(Dialogue dialogue, Shop shop, Grab grab, bool involveCurrencies) 
+    public void StartDialogue(Dialogue dialogue, Shop shop, Grab grab, bool involveCurrencies)
     {
         textLayer.SetActive(true);
         nameText.text = dialogue.name;
         sentences.Clear();
         NPCisTalking = true;
 
-        foreach (string sentence in dialogue.sentences) 
+        foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
         }
         DisplayNextSentence(grab, shop, involveCurrencies);
     }
 
-    public void DisplayNextSentence(Grab grab, Shop shop, bool involveCurrencies) 
+    public void DisplayNextSentence(Grab grab, Shop shop, bool involveCurrencies)
     {
-        if (sentences.Count == 0) 
+        if (sentences.Count == 0)
         {
             EndDialogue(grab, shop, involveCurrencies);
             return;
@@ -45,66 +54,82 @@ public class DialogueManager : MonoBehaviour
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence, shop));
-        
+
     }
-    void EndDialogue(Grab grab, Shop shop, bool involveCurrencies) {
-        if(involveCurrencies){
+    void EndDialogue(Grab grab, Shop shop, bool involveCurrencies)
+    {
+        if (involveCurrencies)
+        {
             //Debug.Log("ended conversation with currency man");
-            if(shop.getTreatOrTrater()){
+            if (shop.getTreatOrTrater())
+            {
                 grab.currencyInteraction(shop);
             }
-            else{
+            else
+            {
                 //SELLING A =============================================================================================
-                if(shop.selling == Shop.coinType.coinA){
+                if (shop.selling == Shop.coinType.coinA)
+                {
                     grab.Aseller(shop);
                 }
                 //SELLING B =============================================================================================
-                if(shop.selling == Shop.coinType.coinB){
+                if (shop.selling == Shop.coinType.coinB)
+                {
                     grab.Bseller(shop);
                 }
                 //SELLING C =============================================================================================
-                if(shop.selling == Shop.coinType.coinC){
+                if (shop.selling == Shop.coinType.coinC)
+                {
                     grab.Cseller(shop);
                 }
                 //SELLING D =============================================================================================
-                if(shop.selling == Shop.coinType.coinD){
+                if (shop.selling == Shop.coinType.coinD)
+                {
                     grab.Dseller(shop);
                 }
                 //SELLING E =============================================================================================
-                if(shop.selling == Shop.coinType.coinE){
+                if (shop.selling == Shop.coinType.coinE)
+                {
                     grab.Eseller(shop);
                 }
-                if(shop.selling == Shop.coinType.coinF){
+                if (shop.selling == Shop.coinType.coinF)
+                {
                     grab.Fseller(shop);
                 }
-                if(shop.selling == Shop.coinType.coinG){
+                if (shop.selling == Shop.coinType.coinG)
+                {
                     grab.Gseller(shop);
                 }
-                if(shop.selling == Shop.coinType.coinH){
+                if (shop.selling == Shop.coinType.coinH)
+                {
                     grab.Hseller(shop);
                 }
             }
         }
         NPCisTalking = false;
         textLayer.SetActive(false);
-        
-        
+
+
     }
 
-    IEnumerator TypeSentence(string sentence, Shop shop) {
+    IEnumerator TypeSentence(string sentence, Shop shop)
+    {
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
-            if(NPCisTalking){
+            if (NPCisTalking)
+            {
                 //text noise here
                 //the flip flop makes it so that it only playe the sound for every other letter, to slow it down a bit 
-                if(flipflop){
+                if (flipflop)
+                {
                     shop.playTextSound();
                     dialogueText.text += letter;
                     yield return null;
                     flipflop = false;
                 }
-                else{
+                else
+                {
                     dialogueText.text += letter;
                     yield return null;
                     flipflop = true;
@@ -113,9 +138,22 @@ public class DialogueManager : MonoBehaviour
             }
         }
     }
+
+    public void StartVendor(ShopItems shopItems)
+    {
+        shopLayer.SetActive(true);
+        shopInventory.Clear();
+        foreach (ShopItems.Item item in shopItems.inventory)
+        {
+            shopInventory.Enqueue(item);
+        }
+
+
+
+    }
 }
 
-    //Below here is just the normal script ==============================================
+//Below here is just the normal script ==============================================
 
 /*
     public void StartDialogue(Dialogue dialogue) 
