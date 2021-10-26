@@ -66,6 +66,7 @@ public class Grab : MonoBehaviour
     ShopNPC shopNPC = null;
     public DialogueManager dialogueManager;
     bool polGate;
+    public float dialogueRange = 5f;
 
     void Start() {
         stats = transform.root.GetComponent<PlayerStats>();
@@ -1349,7 +1350,15 @@ public class Grab : MonoBehaviour
 
     //(Physics.Raycast(origin.transform.position, (dummy.position - origin.transform.position), out hit, distance, mask)
     void Update()
-    {   
+    {
+        if (NPC) {
+            float distanceToNPC = (this.transform.position - NPC.transform.position).magnitude;
+            if (distanceToNPC > dialogueRange) {
+                NPC.CancelDialogue();
+                
+            }
+
+        }
         //keeps track of all the basketballs in the level
         if (GameObject.FindGameObjectsWithTag("bball").Length != ballLength){
             balls = GameObject.FindGameObjectsWithTag("bball");

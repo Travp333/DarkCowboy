@@ -63400,6 +63400,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1856722684, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 304109371543567223, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -34.380276
@@ -63563,6 +63567,10 @@ PrefabInstance:
     - target: {fileID: 4235986593829087805, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 68.933495
+      objectReference: {fileID: 0}
+    - target: {fileID: 4337047967344324140, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
+      propertyPath: dialogueRange
+      value: 8.55
       objectReference: {fileID: 0}
     - target: {fileID: 4337047967344324140, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
       propertyPath: dialogueManager
