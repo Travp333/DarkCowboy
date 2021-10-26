@@ -11,21 +11,12 @@ public class DialogueManager : MonoBehaviour
     public GameObject textLayer;
     public bool NPCisTalking;
 
-
-    public GameObject shopLayer;
-
-
-
     bool flipflop;
 
     private Queue<string> sentences;
-    private Queue<ShopItems.Item> shopInventory;
     void Start()
     {
         sentences = new Queue<string>();
-        shopInventory = new Queue<ShopItems.Item>();
-        textLayer.SetActive(false);
-        shopLayer.SetActive(false);
     }
 
     // this is just me trying to tie the shop script and the dialogue script together ==================================================
@@ -121,18 +112,6 @@ public class DialogueManager : MonoBehaviour
 
             }
         }
-    }
-
-    public void StartVendor(ShopItems shopItems) {
-        shopLayer.SetActive(true);
-        shopInventory.Clear();
-        foreach (ShopItems.Item item in shopItems.inventory)
-        {
-           shopInventory.Enqueue(item);
-        }
-
-        DisplayNextSentence(grab, shop, involveCurrencies);
-        
     }
 }
 
