@@ -869,3 +869,5 @@ Disabled keywords: DIRLIGHTMAP_COMBINED DYNAMICLIGHTMAP_ON FOG_EXP FOG_EXP2 FOG_
  ok=1 outsize=10894
 
 Cmd: shutdown
+
+Quitting shader compiler process

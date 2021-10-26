@@ -26,6 +26,9 @@ public class DialogueNPC : MonoBehaviour
         }
         
     }
+    public void CancelDialogue() {
+        FindObjectOfType<DialogueManager>().EndDialogue( grab, shop, involveCurrencies);
+    }
     public void ContinueDialogue() {
         FindObjectOfType<DialogueManager>().DisplayNextSentence(grab, shop, involveCurrencies);
     }

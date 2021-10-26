@@ -863,3 +863,5 @@ Disabled keywords: DIRECTIONAL DIRECTIONAL_COOKIE INSTANCING_ON LIGHTMAP_SHADOW_
 
 
 Cmd: shutdown
+
+Quitting shader compiler process

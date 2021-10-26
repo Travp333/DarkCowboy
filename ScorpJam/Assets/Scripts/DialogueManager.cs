@@ -58,7 +58,7 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence, shop));
 
     }
-    void EndDialogue(Grab grab, Shop shop, bool involveCurrencies)
+    public void EndDialogue(Grab grab, Shop shop, bool involveCurrencies)
     {
         if (involveCurrencies)
         {
