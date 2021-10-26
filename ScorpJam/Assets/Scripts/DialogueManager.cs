@@ -15,8 +15,12 @@ public class DialogueManager : MonoBehaviour
     public GameObject shopLayer;
 
 
+<<<<<<< Updated upstream
 
     bool flipflop;
+=======
+    bool flipflop = false;
+>>>>>>> Stashed changes
 
     private Queue<string> sentences;
     private Queue<ShopItems.Item> shopInventory;
@@ -147,10 +151,47 @@ public class DialogueManager : MonoBehaviour
         {
             shopInventory.Enqueue(item);
         }
+<<<<<<< Updated upstream
+=======
+        int ct = shopInventory.Count;
+        for (int i = 0; i < ct; i++)
+        {
+            DisplayVendorInventory(i);
+            Debug.Log(i);
+        }
+    }
+    public void DisplayVendorInventory(int i)
+    {
+        Item item = shopInventory.Dequeue();
+        Debug.Log(item.name);
+
+        /* Texture icon = item.icon;
+         string name = item.name;
+         int cost = item.cost;
+         Shop.coinType costCoin = item.costCoin;*/
+
+        GameObject itemSlot = shopLayer.transform.GetChild(i).gameObject;
 
 
+        GameObject currentElement = itemSlot.transform.GetChild(0).gameObject;
+        RawImage pic = currentElement.GetComponent<RawImage>();
+        pic.texture = item.icon;
+
+        Debug.Log("texture" + i + "changed");
+>>>>>>> Stashed changes
+
+
+<<<<<<< Updated upstream
+=======
+        Debug.Log("name" + i + "changed");
+>>>>>>> Stashed changes
 
     }
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 }
 
 //Below here is just the normal script ==============================================
