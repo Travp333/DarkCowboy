@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4351480569572548380}
   - component: {fileID: 4351480569572548379}
   - component: {fileID: 4351480569572548377}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: WindVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}

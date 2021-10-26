@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Item
 {
 	
-	public Texture icon;
+	public Texture2D icon;
 	
 	[TextArea(1, 10)]
 	public string name;

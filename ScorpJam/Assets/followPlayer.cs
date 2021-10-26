@@ -66,6 +66,9 @@ public class followPlayer : MonoBehaviour
             if(hit.transform.gameObject.tag == "Breakable" || hit.transform.gameObject.tag == "Explosive" ){
                 hit.transform.gameObject.GetComponent<Shatter>().oneShot(0);
             }
+            if(hit.transform.gameObject.tag == "Player"){
+                player.GetComponent<PlayerStats>().hp -= 10;
+            }
         }
     }
 
