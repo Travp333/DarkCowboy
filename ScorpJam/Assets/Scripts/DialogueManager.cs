@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject textLayer;
     public bool NPCisTalking, ShopisOpen;
 
+    public GameObject itemSlotPrefab = default;
 
     public GameObject shopLayer;
 
@@ -28,6 +29,16 @@ public class DialogueManager : MonoBehaviour
         shopLayer.SetActive(false);
 
 
+    }
+
+    void Update() {
+        if (ShopisOpen) {
+            if (Input.GetKeyDown("space"))
+            {
+                CloseShopMenu();
+            }
+        }
+        
     }
 
     // this is just me trying to tie the shop script and the dialogue script together ==================================================
@@ -144,21 +155,31 @@ public class DialogueManager : MonoBehaviour
     public void StartVendor(ShopItems shopItems)
     {
         shopLayer.SetActive(true);
-        ShopisOpen = true;
+        
         shopInventory.Clear();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
         foreach (Item item in shopItems.inventory)
         {
             shopInventory.Enqueue(item);
         }
         int ct = shopInventory.Count;
-        for (int i = 0; i < ct; i++)
-       {
+        if(!ShopisOpen)
+        {
+            for (int i = 0; i < ct; i++)
+        {
+            
             DisplayVendorInventory(i);
-           Debug.Log(i);
-       }
+            Debug.Log(i);
+        }
+            }
+        ShopisOpen = true;
     }
     public void DisplayVendorInventory(int i)
     {
+        var Slot = Instantiate(itemSlotPrefab, shopLayer.transform);
+        Slot.transform.SetParent(shopLayer.transform, false);
+
         Item item = shopInventory.Dequeue();
         Debug.Log(item.name);
 
@@ -173,18 +194,26 @@ public class DialogueManager : MonoBehaviour
         GameObject currentElement = itemSlot.transform.GetChild(0).gameObject;
         RawImage pic = currentElement.GetComponent<RawImage>();
         pic.texture = item.icon;
-        
+        if ((int)item.ItemType < 8) //ignores icon if item is a coin and gives it the correct icon based on the type
+        {pic.texture = pic.texture = CurrencyEnumtoTexture(item.ItemType);
+        }
+        currentElement = currentElement.transform.GetChild(0).gameObject;
+        Text currentText = currentElement.GetComponent<Text>();
+        currentText.text = "x" + item.quantity.ToString();
+
         Debug.Log("texture"+ i+"changed");
 
         currentElement = itemSlot.transform.GetChild(1).gameObject;
-        Text currentName = currentElement.GetComponent<Text>();
-        currentName.text = item.name;
+        currentText = currentElement.GetComponent<Text>();
+        currentText.text = item.name;
 
         Debug.Log("name" + i +"changed");
 
         currentElement = itemSlot.transform.GetChild(2).gameObject;
-        Text currentCost = currentElement.GetComponent<Text>();
-        currentCost.text = item.cost.ToString();
+        currentText = currentElement.GetComponent<Text>();
+        currentText.text = item.cost.ToString();
+
+        
 
         Debug.Log("Cost" + i + "changed");
 
@@ -192,12 +221,34 @@ public class DialogueManager : MonoBehaviour
         pic = currentElement.GetComponent<RawImage>();
         pic.texture = CurrencyEnumtoTexture(item.costCoin);
 
+        currentElement = itemSlot.transform.GetChild(4).gameObject;
+        Button buy = currentElement.GetComponent<Button>();
+        buy.onClick.AddListener(delegate{Trade(item);});
+
+        
+
+
+
+    }
+
+    public void CloseShopMenu() {
+        foreach (Transform child in shopLayer.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        shopLayer.SetActive(false);
+        ShopisOpen = false;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+
     }
 
     public Texture CurrencyEnumtoTexture(Shop.coinType en)
     {
 
-        if (coins.Length == 8)
+        if (coins.Length > 0)
         {
 
             return coins[(int)en];
@@ -205,7 +256,33 @@ public class DialogueManager : MonoBehaviour
         else
             return null;
     }
-     
+    public void Trade(Item getItem) {
+        PlayerStats pStats = FindObjectOfType<PlayerStats>();
+        if (!pStats) { Debug.Log("CouldntFindStats");}
+        int[] playerCoins = { pStats.coinA, pStats.coinB, pStats.coinC, pStats.coinD, pStats.coinE, pStats.coinF, pStats.coinG, pStats.coinH};
+
+        if ((int)getItem.ItemType < 8)//if the item is a coin
+        {
+            if (playerCoins[(int)getItem.costCoin] > getItem.cost)
+            {
+                playerCoins[(int)getItem.costCoin] -= getItem.cost; //subtract from inventory
+                playerCoins[(int)getItem.ItemType] += getItem.quantity;
+            }
+        }
+        if ((int)getItem.ItemType == 8) { 
+            //special cases for items
+        }
+
+
+            pStats.coinA = playerCoins[0];
+            pStats.coinB = playerCoins[1];
+            pStats.coinC = playerCoins[2];
+            pStats.coinD = playerCoins[3];
+            pStats.coinE = playerCoins[4];
+            pStats.coinF = playerCoins[5];
+            pStats.coinG = playerCoins[6];
+            pStats.coinH = playerCoins[7];
+    } 
     
 }
 

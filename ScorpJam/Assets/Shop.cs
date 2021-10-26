@@ -8,7 +8,8 @@ public class Shop : MonoBehaviour
     [Tooltip("True = treatee, false = trader")]
     bool treateeOrTrader;
     [SerializeField]
-    public enum coinType{coinA, coinB, coinC, coinD, coinE, coinF, coinG, coinH};
+    public enum coinType{coinA, coinB, coinC, coinD, coinE, coinF, coinG, coinH,ITEM};
+
     public coinType selling;
 
     [SerializeField]
