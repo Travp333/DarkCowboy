@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Box
-  m_Shader: {fileID: 4800000, guid: f3cceb57c30e69249a9e52ad050a616c, type: 3}
+  m_Shader: {fileID: 4800000, guid: 1daffab3aec7a6f4e9637bd10e6ba09a, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: Box-64c3fcb0
+    OptimizedShaderFolder: Box-d6031f15
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []
@@ -1038,7 +1038,7 @@ Material:
     - _MainAlphaToCoverage: 0
     - _MainAlphaToCoverageAnimated: 0
     - _MainDistanceFadeAnimated: 0
-    - _MainEmissionStrength: 0.1
+    - _MainEmissionStrength: 0
     - _MainEmissionStrengthAnimated: 0
     - _MainFadeTextureAnimated: 0
     - _MainFadeTexturePanAnimated: 0

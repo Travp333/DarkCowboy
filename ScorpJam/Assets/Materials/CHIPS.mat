@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CHIPS
-  m_Shader: {fileID: 4800000, guid: 7017c430ff5d39145a53214867e09d2c, type: 3}
+  m_Shader: {fileID: 4800000, guid: 7ad74b6b9b579f54aa93b816fe212e0e, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: CHIPS-b9c7eba0
+    OptimizedShaderFolder: CHIPS-419e7907
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []

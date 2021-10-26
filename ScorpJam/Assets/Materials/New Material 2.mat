@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: New Material 2
-  m_Shader: {fileID: 4800000, guid: f8a2a874334fb9245b844bab850443da, type: 3}
+  m_Shader: {fileID: 4800000, guid: 05dcfedd809abcf48afe624a02e9b7ea, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: New Material 2-8f84519f
+    OptimizedShaderFolder: New Material 2-46e27b96
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Trophy
-  m_Shader: {fileID: 4800000, guid: a211859418ac3fb47910126b7fa76a0f, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5e98db3985bb3c64eaf43eae1b842e96, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _METALLICGLOSSMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
     _SPECGLOSSMAP
   m_LightmapFlags: 2
@@ -16,7 +16,7 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: Trophy-b01b30f6
+    OptimizedShaderFolder: Trophy-25c1eba1
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []
@@ -1039,7 +1039,7 @@ Material:
     - _MainAlphaToCoverage: 0
     - _MainAlphaToCoverageAnimated: 0
     - _MainDistanceFadeAnimated: 0
-    - _MainEmissionStrength: 0.1
+    - _MainEmissionStrength: 0
     - _MainEmissionStrengthAnimated: 0
     - _MainFadeTextureAnimated: 0
     - _MainFadeTexturePanAnimated: 0
