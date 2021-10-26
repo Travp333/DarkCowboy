@@ -63,6 +63,7 @@ public class Grab : MonoBehaviour
     PlayerStats stats;
 
     DialogueNPC NPC =null;
+    ShopNPC shopNPC = null;
     public DialogueManager dialogueManager;
     bool polGate;
 
@@ -1371,14 +1372,21 @@ public class Grab : MonoBehaviour
                         NPC = null;
                     }
                 }
+                
                 // send a raycast
                 if (Physics.SphereCast(origin.transform.position, 1, (dummy.position - origin.transform.position), out hit, distance, mask))
                 {
                     //removing this so that i can focus on making the dialogue be the event that changes the currency rather than the raycast
-                   // if(hit.transform.gameObject.GetComponent<Shop>() != null){
-                       // currencyInteraction(hit);
+                    // if(hit.transform.gameObject.GetComponent<Shop>() != null){
+                    // currencyInteraction(hit);
                     //}
-                    
+                    if (hit.transform.gameObject.GetComponent<ShopNPC>() != null)
+                    {
+                        shopNPC = hit.transform.gameObject.GetComponent<ShopNPC>();
+                        shopNPC.TriggerVendor();
+                        Debug.Log("foundshop");
+                        return;
+                    }
                     if (hit.transform.gameObject.GetComponent<DialogueNPC>() != null)
                     {
                         NPC = hit.transform.gameObject.GetComponent<DialogueNPC>();
@@ -1386,6 +1394,7 @@ public class Grab : MonoBehaviour
                         return;
                     }
                     
+
                     if (hit.transform.gameObject.GetComponent<Rigidbody>() != null){
                         if(hit.transform.gameObject.GetComponent<Rigidbody>().mass <= strength){
                             if(hit.transform.gameObject.GetComponent<objectSize>().isLarge && !hit.transform.gameObject.GetComponent<objectSize>().isMedium && !hit.transform.gameObject.GetComponent<objectSize>().isSmall){
