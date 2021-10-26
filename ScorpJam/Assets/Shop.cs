@@ -19,7 +19,7 @@ public class Shop : MonoBehaviour
     [SerializeField]
     [Tooltip("basically this traders going trade rate")]
     public int takeAmount, giveAmount;
-    AudioSource textNoise=default;
+    AudioSource textNoise;
 
     public bool getTreatOrTrater(){
         return treateeOrTrader;

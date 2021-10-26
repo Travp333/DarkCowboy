@@ -9,25 +9,23 @@ public class DialogueManager : MonoBehaviour
     public Text nameText;
     public Text dialogueText;
     public GameObject textLayer;
-    public bool NPCisTalking, ShopisOpen;
+    public bool NPCisTalking;
 
 
     public GameObject shopLayer;
 
-    public Texture[] coins;
 
-    bool flipflop=false;
+
+    bool flipflop;
 
     private Queue<string> sentences;
-    private Queue<Item> shopInventory;
+    private Queue<ShopItems.Item> shopInventory;
     void Start()
     {
         sentences = new Queue<string>();
-        shopInventory = new Queue<Item>();
+        shopInventory = new Queue<ShopItems.Item>();
         textLayer.SetActive(false);
         shopLayer.SetActive(false);
-
-
     }
 
     // this is just me trying to tie the shop script and the dialogue script together ==================================================
@@ -144,69 +142,15 @@ public class DialogueManager : MonoBehaviour
     public void StartVendor(ShopItems shopItems)
     {
         shopLayer.SetActive(true);
-        ShopisOpen = true;
         shopInventory.Clear();
-        foreach (Item item in shopItems.inventory)
+        foreach (ShopItems.Item item in shopItems.inventory)
         {
             shopInventory.Enqueue(item);
         }
-        int ct = shopInventory.Count;
-        for (int i = 0; i < ct; i++)
-       {
-            DisplayVendorInventory(i);
-           Debug.Log(i);
-       }
-    }
-    public void DisplayVendorInventory(int i)
-    {
-        Item item = shopInventory.Dequeue();
-        Debug.Log(item.name);
 
-       /* Texture icon = item.icon;
-        string name = item.name;
-        int cost = item.cost;
-        Shop.coinType costCoin = item.costCoin;*/
 
-        GameObject itemSlot = shopLayer.transform.GetChild(i).gameObject;
-        
-
-        GameObject currentElement = itemSlot.transform.GetChild(0).gameObject;
-        RawImage pic = currentElement.GetComponent<RawImage>();
-        pic.texture = item.icon;
-        
-        Debug.Log("texture"+ i+"changed");
-
-        currentElement = itemSlot.transform.GetChild(1).gameObject;
-        Text currentName = currentElement.GetComponent<Text>();
-        currentName.text = item.name;
-
-        Debug.Log("name" + i +"changed");
-
-        currentElement = itemSlot.transform.GetChild(2).gameObject;
-        Text currentCost = currentElement.GetComponent<Text>();
-        currentCost.text = item.cost.ToString();
-
-        Debug.Log("Cost" + i + "changed");
-
-        currentElement = itemSlot.transform.GetChild(3).gameObject;
-        pic = currentElement.GetComponent<RawImage>();
-        pic.texture = CurrencyEnumtoTexture(item.costCoin);
 
     }
-
-    public Texture CurrencyEnumtoTexture(Shop.coinType en)
-    {
-
-        if (coins.Length == 8)
-        {
-
-            return coins[(int)en];
-        }
-        else
-            return null;
-    }
-     
-    
 }
 
 //Below here is just the normal script ==============================================
