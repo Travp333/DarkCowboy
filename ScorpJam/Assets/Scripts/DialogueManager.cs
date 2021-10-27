@@ -45,6 +45,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue, Shop shop, Grab grab, bool involveCurrencies)
     {
+        grab.gameObject.transform.root.gameObject.GetComponent<FPSMovingSphere>().blockMovement();
         textLayer.SetActive(true);
         nameText.text = dialogue.name;
         sentences.Clear();
@@ -61,6 +62,8 @@ public class DialogueManager : MonoBehaviour
     {
         if (sentences.Count == 0)
         {
+            
+            grab.gameObject.transform.root.gameObject.GetComponent<FPSMovingSphere>().unblockMovement();
             EndDialogue(grab, shop, involveCurrencies);
             return;
         }
@@ -69,14 +72,18 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence, shop));
 
     }
+    //this is getting fired over and over constantly while you are not in range of an npc it seems
     public void EndDialogue(Grab grab, Shop shop, bool involveCurrencies)
     {
+        
         if (involveCurrencies)
         {
             //Debug.Log("ended conversation with currency man");
             if (shop.getTreatOrTrater())
             {
+                shop.beenTreated = true;
                 grab.currencyInteraction(shop);
+                grab.gameObject.transform.root.gameObject.GetComponent<PlayerStats>().trickOrTreated += 1;
             }
             else
             {

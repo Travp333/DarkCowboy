@@ -26,6 +26,9 @@ public class PropBuster : MonoBehaviour
                 otherExplosive.oneShot(0);
             }
         }
+        if(other.gameObject.tag == "DARKCOWBOY"){
+            other.gameObject.GetComponent<followPlayer>().cowboyDamage();
+        }
     }
 }
 

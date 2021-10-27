@@ -21,6 +21,7 @@ public class Shop : MonoBehaviour
     [Tooltip("basically this traders going trade rate")]
     public int takeAmount, giveAmount;
     AudioSource textNoise=default;
+    public bool beenTreated;
 
     public bool getTreatOrTrater(){
         return treateeOrTrader;

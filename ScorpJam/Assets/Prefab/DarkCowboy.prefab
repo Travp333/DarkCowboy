@@ -2065,7 +2065,7 @@ GameObject:
   - component: {fileID: 8799097541351449526}
   - component: {fileID: 8799097541351449520}
   - component: {fileID: 8799097541351449521}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: DarkCowboy
   m_TagString: DARKCOWBOY
   m_Icon: {fileID: 0}
@@ -2133,9 +2133,10 @@ MonoBehaviour:
   impact: {fileID: 2751956294498618463, guid: 6b0e2de898be62741815e3751d542552, type: 3}
   mask:
     serializedVersion: 2
-    m_Bits: 1048375
+    m_Bits: 3145527
   gunorigin: {fileID: 8565218987289128911}
   lite: {fileID: 8565218987150643025}
+  safeSpace: {fileID: 0}
 --- !u!195 &8799097541351449526
 NavMeshAgent:
   m_ObjectHideFlags: 0

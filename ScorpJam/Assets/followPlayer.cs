@@ -24,10 +24,41 @@ public class followPlayer : MonoBehaviour
     GameObject gunorigin;
     [SerializeField]
     Light lite;
+
+    //Phase1, default, low draw speed low accuracy
+    //Phase 2, Higher draw speed, low accuracy
+    //Phase 3, High Draw Speed High Accuracy
+    //Phace 4, Highest DrawSpeed and fire rate, high accuracy. "FAN THE HAMMER"
+    public enum PHASE{Phase1, Phase2, Phase3, Phase4};
+
+    public PHASE bossPhase;
+
+    RaycastHit hit;
+    PlayerStats stats;
     [SerializeField]
-    enum PHASE{Phase1, Phase2, Phase3, Phase4};
+    public GameObject safeSpace;
+    bool takingDamage;
+    float timer = 30f;
+    bool vulnerable;
+    
+    Vector3 destination;
+    Vector3 backup;
+    private float elapsed = 0.0f;
 
+    public void resetPhase(){
+        bossPhase = PHASE.Phase1;
+    }
+    public void pauseAI(){
+        agent.isStopped = true;
+    }
+    public void resumeAI(){
+        agent.isStopped = false;
+    }
 
+    private NavMeshPath path;
+    void playRandomPainNoise(){
+        clips[Random.Range(4, 8)].Play();
+    }
     void playEagleNoise(){
         clips[3].Play();
     }
@@ -42,8 +73,14 @@ public class followPlayer : MonoBehaviour
     }
 
     void resetShoot(){
-        anim.SetBool("Shoot", false);
-        
+        anim.SetBool("Shoot", false);  
+    }
+    void resetQuickShoot(){
+        anim.SetBool("QuickShoot", false);  
+    }
+
+    void resetHammerFan(){
+        anim.SetBool("HammerFan", false);  
     }
 
     void resetSpeed(){
@@ -56,55 +93,151 @@ public class followPlayer : MonoBehaviour
     void killLite(){
         lite.GetComponent<Light>().enabled = false;
     }
+    void resetTakingDamage(){
+        anim.SetBool("TakingDamage", false);
+    }
+    void otherResetTakingDamage(){
+        takingDamage = false;
+    }
 
-    void SHOOT(){
-        lite.GetComponent<Light>().enabled = true;
-        Invoke("killLite", .1f);
-        RaycastHit hit;
-        if(Physics.Raycast(gunorigin.transform.position, this.transform.forward, out hit, range, mask)){
-            Instantiate(impact, hit.point, Quaternion.identity);
-            if(hit.transform.gameObject.tag == "Breakable" || hit.transform.gameObject.tag == "Explosive" ){
-                hit.transform.gameObject.GetComponent<Shatter>().oneShot(0);
-            }
-            if(hit.transform.gameObject.tag == "Player"){
-                player.GetComponent<PlayerStats>().takeDamage(10);
-            }
+    public void cowboyDamage(){
+        if(vulnerable){
+            takingDamage = true;
+            anim.SetBool("TakingDamage", true);
+            Invoke("resetTakingDamage", .1f);
+            Invoke("otherResetTakingDamage", 5f);
+            timer = 0f;
+            playRandomPainNoise();
         }
     }
 
+    void SHOOT(){
+        //Debug.Log(bossPhase);
+        if (bossPhase == PHASE.Phase1 || bossPhase == PHASE.Phase2){
+            //Debug.Log("FIRED A LOW ACCURACY SHOT");
+            lite.GetComponent<Light>().enabled = true;
+            Invoke("killLite", .1f);
+            if(Physics.Raycast(gunorigin.transform.position, this.transform.forward, out hit, range, mask)){
+                Instantiate(impact, hit.point, Quaternion.identity);
+                if(hit.transform.gameObject.tag == "Breakable" || hit.transform.gameObject.tag == "Explosive" ){
+                    hit.transform.gameObject.GetComponent<Shatter>().oneShot(0);
+                }
+                if(hit.transform.gameObject.tag == "Player"){
+                    player.GetComponent<PlayerStats>().takeDamage(10);
+                }
+            }
+        }
+        if(bossPhase == PHASE.Phase4 || bossPhase == PHASE.Phase3){
+            //Debug.Log("FIRED A HIGH ACCURACY SHOT");
+            lite.GetComponent<Light>().enabled = true;
+            Invoke("killLite", .1f);
+            if(Physics.Raycast(gunorigin.transform.position, (player.transform.GetChild(2).position - gunorigin.transform.position), out hit, range, mask)){
+                Instantiate(impact, hit.point, Quaternion.identity);
+                if(hit.transform.gameObject.tag == "Breakable" || hit.transform.gameObject.tag == "Explosive" ){
+                    hit.transform.gameObject.GetComponent<Shatter>().oneShot(0);
+                }
+                if(hit.transform.gameObject.tag == "Player"){
+                    player.GetComponent<PlayerStats>().takeDamage(10);
+                }
+        }
+        }
+    }
     
     // Start is called before the first frame update
     void Start()
     { 
+        elapsed = 0.0f;
+        path = new NavMeshPath();
         Invoke("openGate", 5f);
         anim = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
         agent = this.GetComponent<NavMeshAgent>();
         tempSpeed = agent.speed;
-        
+        stats = player.GetComponent<PlayerStats>();
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(player.transform.position);
+
+        // Update the way to the goal every second.
+        if(!takingDamage && stats.location == false){
+            elapsed += Time.deltaTime;
+            if (elapsed > 1.0f)
+            {
+                elapsed -= 1.0f;
+                NavMesh.CalculatePath(transform.position, player.transform.position, NavMesh.AllAreas, path);
+            }
+            agent.SetDestination(path.corners[path.corners.Length - 1]);
+        }
+        else if(takingDamage){
+            //Debug.Log("Retreating!" + agent.hasPath);
+            agent.SetDestination(safeSpace.transform.position);
+            agent.stoppingDistance = 5;
+            agent.isStopped = false;
+        }
+        else if(stats.location == true){
+            agent.isStopped = true;
+        }
+        if(timer < 30){
+            timer += Time.deltaTime;
+            vulnerable = false;
+        }
+        else if(timer >= 30){
+            timer = 30f;
+            vulnerable = true;
+        }
+        
+
+
+        if(stats.trickOrTreated == 0){
+            bossPhase = PHASE.Phase1;
+        }
+        if(stats.trickOrTreated == 1){
+            bossPhase = PHASE.Phase2;
+        }
+        if(stats.trickOrTreated == 3){
+            bossPhase = PHASE.Phase3;
+        }
+        if(stats.trickOrTreated == 4){
+            bossPhase = PHASE.Phase4;
+        }
         if(agent.remainingDistance > 20){
-            Debug.Log("Getting SpeedBoost!");
             agent.speed = boostSpeed;
         }
         else if (agent.remainingDistance < 20){
-            Debug.Log("resetting to default");
             agent.speed = tempSpeed;
         }
-        if(agent.velocity.magnitude == 0 && gate){
-            agent.isStopped = true;
-            anim.SetBool("Shoot", true);
-            Invoke("resetShoot", .1f);
-            agent.speed = 0;
-            gate = false;
-            Invoke("openGate", 5f);
-            
+        if(gate && agent.remainingDistance < 150 && !takingDamage && !player.GetComponent<PlayerStats>().inSafeZone){
+            if(Physics.Raycast(this.transform.position, (player.transform.position-this.transform.position), out hit, range, mask)){
+                if (hit.transform.gameObject.tag=="Player"){
+                    if(bossPhase == PHASE.Phase1){
+                        agent.isStopped = true;
+                        anim.SetBool("Shoot", true);
+                        Invoke("resetShoot", .1f);
+                        agent.speed = 0;
+                        gate = false;
+                        Invoke("openGate", 5f);
+                    }
+                    else if (bossPhase == PHASE.Phase2 || bossPhase == PHASE.Phase3){
+                        agent.isStopped = true;
+                        anim.SetBool("QuickShoot", true);
+                        Invoke("resetQuickShoot", .1f);
+                        agent.speed = 0;
+                        gate = false;
+                        Invoke("openGate", 5f);
+                    }
+                    else if (bossPhase == PHASE.Phase4){
+                        agent.isStopped = true;
+                        anim.SetBool("HammerFan", true);
+                        Invoke("resetHammerFan", .1f);
+                        agent.speed = 0;
+                        gate = false;
+                        Invoke("openGate", 5f);
+                    }
+                }
+            }
         }
 
         var lookPos = player.transform.position - transform.position;

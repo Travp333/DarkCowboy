@@ -129,11 +129,21 @@ public class FPSMovingSphere : MonoBehaviour {
 	bool diveGate;
 	[SerializeField]
 	public bool dancing;
-
 	bool flipflop;
+	public bool moveBlocked;
 
 	public void setCanClimb(bool plug){
 		canClimb = plug;
+	}
+
+	public void blockMovement(){
+		moveBlocked = true;
+		playerInput.x = 0f;
+		playerInput.y = 0f;
+		velocity = Vector3.zero;
+	}
+	public void unblockMovement(){
+		moveBlocked = false;
 	}
 
 	void Awake () {
@@ -188,7 +198,7 @@ public class FPSMovingSphere : MonoBehaviour {
 				Diving = false;
 			}
 		}
-		if(!dancing){
+		if(!dancing && !moveBlocked){
 			if(Input.GetButtonDown("Duck")){
 				camanim.SetBool("divePrep", true);
 				divingPrep = true;
@@ -207,10 +217,10 @@ public class FPSMovingSphere : MonoBehaviour {
 			}
 		}
 		// this is so i can prevent the player from entering a climbing state while standing on the ground
-		if(Climbing && !OnGround && canClimb && !dancing){
+		if(Climbing && !OnGround && canClimb && !dancing && !moveBlocked){
 			ClimbingADJ = true;
 		}
-		else if (OnGround || !canClimb || dancing){
+		else if (OnGround || !canClimb || dancing || moveBlocked){
 			ClimbingADJ = false;
 		}
 		if (Swimming) {
@@ -218,17 +228,17 @@ public class FPSMovingSphere : MonoBehaviour {
 		}
 		if(grab.isHolding){
 			desiresClimbing = false;
-			if(!dancing){
+			if(!dancing && !moveBlocked){
 				desiredJump |= Input.GetButtonDown("Jump");
 			}
 		}
 		else {
-			if(!dancing){
+			if(!dancing && !moveBlocked){
 				desiredJump |= Input.GetButtonDown("Jump");
 				desiresClimbing = Input.GetButton("Duck");
 			}
 		}
-		if(!dancing){
+		if(!dancing && !moveBlocked){
 			playerInput.x = Input.GetAxis("Horizontal");
 			playerInput.y = Input.GetAxis("Vertical");
 			playerInput.z = Swimming ? Input.GetAxis("UpDown") : 0f;

@@ -266,5 +266,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSmall: 0
-  isMedium: 0
-  isLarge: 1
+  isMedium: 1
+  isLarge: 0

@@ -10,7 +10,7 @@ public class HandAnim : MonoBehaviour
     FPSMovingSphere player;
     [HideInInspector]
     bool flipflop = true;
-    bool flipflop2 = true;
+    //bool flipflop2 = true;
     bool blocker = true;
     float charge;
     Animator animator;
@@ -149,11 +149,11 @@ public class HandAnim : MonoBehaviour
             animator.SetFloat("Blend", 0f);
         }
         else{
-            if(playerSpeed >= 15f){
+            if(playerSpeed >= 10f){
                 animator.SetFloat("Blend", 1f);
             }
             else {
-                playerSpeed2 = playerSpeed / 15f;
+                playerSpeed2 = playerSpeed / 10f;
                 animator.SetFloat("Blend", playerSpeed2);
 
                 if(playerSpeed >= 10f){
@@ -162,7 +162,7 @@ public class HandAnim : MonoBehaviour
                 if (playerSpeed < .001f){
                     animator.SetFloat("walkBlend", 0f);
                 }
-                playerSpeed = playerSpeed / 10f;
+                playerSpeed = playerSpeed / 5f;
                 animator.SetFloat("walkBlend", playerSpeed);
             }
         }

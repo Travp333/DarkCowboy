@@ -16,6 +16,7 @@ public class Shatter : MonoBehaviour
     int Damagestate = 0;
 
     float breakSpeed = 40f;
+    GameObject player;
 
     void OnCollisionEnter(Collision other) {
         // does this object have a ridigbody? is the object colliding with another object past the breaking speed? if so, break it. dont let that object be a player. that colliding objects mass must be greater than or equal to the current obejcts mass
@@ -29,6 +30,10 @@ public class Shatter : MonoBehaviour
     }
     public void oneShot(float time){
         Invoke("spawnShatter", time);
+        player = GameObject.FindWithTag("Player");
+        if(player.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).GetComponent<Grab>().isHolding){
+            player.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).GetComponent<Grab>().detach();
+        }
     }
     public void takeDamage(){
         if (Damagestate < hitPoints){
@@ -41,6 +46,11 @@ public class Shatter : MonoBehaviour
         }
         else if ( Damagestate >= hitPoints){
             Invoke("spawnShatter", 0);
+            player = GameObject.FindWithTag("Player");
+            if(player.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).GetComponent<Grab>().isHolding){
+                player.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).GetComponent<Grab>().detach();
+            }
+
         }
     }
     void spawnShatter(){

@@ -14,7 +14,7 @@ public class ImprovedZoneWarp : MonoBehaviour
     bool flipflop;
     bool desiresShift;
     bool subDummy = false;
-    bool possibleShift;
+    //bool possibleShift;
 
     bool shiftBlocked = false;
     public void setShiftBlocked(bool plug){
@@ -125,10 +125,10 @@ public class ImprovedZoneWarp : MonoBehaviour
             desiresShift = false;
         }
         if (dummies[0].gameObject.GetComponent<canShift>().getShiftable() || dummies[1].gameObject.GetComponent<canShift>().getShiftable() || dummies[2].gameObject.GetComponent<canShift>().getShiftable() || dummies[3].gameObject.GetComponent<canShift>().getShiftable() || dummies[4].gameObject.GetComponent<canShift>().getShiftable() || dummy.gameObject.GetComponent<canShift>().getShiftable()){
-            possibleShift = true;
+            //possibleShift = true;
         }
         else{
-            possibleShift = false;
+            //possibleShift = false;
         }
     }
 }
