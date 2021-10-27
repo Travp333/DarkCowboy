@@ -8,16 +8,16 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SCORP
-  m_Shader: {fileID: 4800000, guid: fc877414946acbb469778cf4e5c93e37, type: 3}
+  m_Shader: {fileID: 4800000, guid: b811a9ecb23457a45ad951fd06628f5a, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2451
+  m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: SCORP-7d536e4a
+    OptimizedShaderFolder: SCORP-f9691777
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
-    RenderType: TransparentCutout
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -1652,7 +1652,7 @@ Material:
     - m_lightingOptions: 0
     - m_mainOptions: 1
     - m_outlineOptions: 1
-    - m_renderingOptions: 0
+    - m_renderingOptions: 1
     - m_start_Alpha: 0
     - m_start_BonusSliders: 0
     - m_start_CenterOutEmission: 0

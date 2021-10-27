@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: mt_Wet_mat
-  m_Shader: {fileID: 4800000, guid: cea1d08c97836274b895faaf63f13024, type: 3}
+  m_Shader: {fileID: 4800000, guid: 2056d4bba7fc22b42a24226aab8fb23a, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A _SPECGLOSSMAP
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: mt_Wet_mat-41143e2e
+    OptimizedShaderFolder: mt_Wet_mat-2caa78cd
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []

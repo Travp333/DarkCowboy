@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Guitar Blue
-  m_Shader: {fileID: 4800000, guid: b15a9f8418a18964f973ecca7fd73c0c, type: 3}
+  m_Shader: {fileID: 4800000, guid: cf06ff223db3a9b4589c98080d772b0a, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: Guitar Blue-a1fdc9fd
+    OptimizedShaderFolder: Guitar Blue-82b0ed73
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []
@@ -1681,7 +1681,7 @@ Material:
     - m_lightingOptions: 0
     - m_mainOptions: 1
     - m_outlineOptions: 1
-    - m_renderingOptions: 0
+    - m_renderingOptions: 1
     - m_start_Alpha: 0
     - m_start_BonusSliders: 0
     - m_start_CenterOutEmission: 0
