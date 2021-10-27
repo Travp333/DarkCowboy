@@ -43,6 +43,10 @@ public class ConveyorBelt : MonoBehaviour
             //Debug.Log("A player just got added");
             pushingObjects.Add(other.gameObject.transform.root.gameObject);
         }
+        if(other.gameObject.tag == "DARKCOWBOY" && pushingObjects.Contains(other.gameObject) == false){
+            //Debug.Log("A player just got added");
+            pushingObjects.Add(other.gameObject);
+        }
     }
     void OnTriggerExit(Collider other) {
         if(other.gameObject.GetComponent<Rigidbody>() != null && other.gameObject.GetComponent<Rigidbody>().isKinematic == false && other.gameObject.layer != 16 && other.gameObject.tag != "Player" && pushingObjects.Contains(other.gameObject) == true){
@@ -70,6 +74,10 @@ public class ConveyorBelt : MonoBehaviour
                 //Debug.Log("Lil Speed Boost");
                 other.gameObject.transform.root.gameObject.GetComponent<Rigidbody>().velocity = other.gameObject.transform.root.gameObject.GetComponent<Rigidbody>().velocity + this.transform.right * (speed);
             }
+        }
+        if(other.gameObject.tag == "DARKCOWBOY" && pushingObjects.Contains(other.gameObject) == true){
+            //Debug.Log("A player just got added");
+            pushingObjects.Remove(other.gameObject);
         }
     }
     //void Update() {

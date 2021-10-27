@@ -68,6 +68,10 @@ public class Grab : MonoBehaviour
     bool polGate;
     public float dialogueRange = 5f;
 
+    [SerializeField]
+    GameObject coinCam;
+    int range;
+
     void Start() {
         stats = transform.root.GetComponent<PlayerStats>();
         throwingTemp = throwingforce;
@@ -1351,6 +1355,15 @@ public class Grab : MonoBehaviour
     //(Physics.Raycast(origin.transform.position, (dummy.position - origin.transform.position), out hit, distance, mask)
     void Update()
     {
+        
+        if(Input.GetKeyDown("y")){
+            range = Random.Range(0, 8);
+            coinCam.GetComponent<coinsToggle>().toggleCoin(range, true);
+        }
+        if(Input.GetKeyUp("y")){
+            coinCam.GetComponent<coinsToggle>().toggleCoin(range, false);
+        }
+
         if (NPC) {
             float distanceToNPC = (this.transform.position - NPC.transform.position).magnitude;
             if (distanceToNPC > dialogueRange) {

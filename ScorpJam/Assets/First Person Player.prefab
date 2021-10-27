@@ -1371,6 +1371,7 @@ MonoBehaviour:
   isgrabCharging: 0
   SmallMediumLarge: NULL
   dialogueManager: {fileID: 0}
+  dialogueRange: 5
 --- !u!114 &3781926639967533348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2425,7 +2426,7 @@ Camera:
   field of view: 92.5
   orthographic: 0
   orthographic size: 5
-  m_Depth: 100
+  m_Depth: 99
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 32768
@@ -2752,6 +2753,7 @@ MonoBehaviour:
   coinF: 10
   coinG: 10
   coinH: 10
+  painSounds: []
 --- !u!114 &8997915682440978713
 MonoBehaviour:
   m_ObjectHideFlags: 0

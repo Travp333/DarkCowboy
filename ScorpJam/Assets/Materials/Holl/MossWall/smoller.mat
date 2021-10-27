@@ -8,16 +8,15 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: smoller
-  m_Shader: {fileID: 4800000, guid: 4c9c55c4400a0a849ab6dfd5fa16006c, type: 3}
-  m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A _SPECGLOSSMAP
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: VIGNETTE_MASKED _GLOSSYREFLECTIONS_OFF _SPECGLOSSMAP _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap:
     OptimizedShaderFolder: smoller-beecaf8b
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
-    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -43,7 +42,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: e3f4d1b6f74f04448a2366d314733414, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ClearCoatCubeMap:
@@ -893,7 +892,7 @@ Material:
     - _GlitterUseSurfaceColorAnimated: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
-    - _GlossyReflections: 1
+    - _GlossyReflections: 0
     - _GrabBlurDirectionsAnimated: 0
     - _GrabBlurDistanceAnimated: 0
     - _GrabBlurQualityAnimated: 0
@@ -1395,7 +1394,7 @@ Material:
     - _SpecularAnisoJitterMirrored1: 0
     - _SpecularAnisoJitterMirrored1Animated: 0
     - _SpecularAnisoJitterMirroredAnimated: 0
-    - _SpecularHighlights: 1
+    - _SpecularHighlights: 0
     - _SpecularInvertSmoothness: 1
     - _SpecularInvertSmoothness1: 0
     - _SpecularInvertSmoothness1Animated: 0
@@ -1731,7 +1730,7 @@ Material:
     - _ClearCoatMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _ClearCoatSmoothnessMapPan: {r: 0, g: 0, b: 0, a: 0}
     - _ClearCoatTint: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+    - _Color: {r: 0.41384837, g: 0.5660378, b: 0.42814282, a: 1}
     - _DecalColor: {r: 1, g: 1, b: 1, a: 1}
     - _DecalMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _DecalPosition: {r: 0.5, g: 0.5, b: 0, a: 0}
