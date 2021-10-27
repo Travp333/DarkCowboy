@@ -1863,7 +1863,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 100
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -22072,7 +22072,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -22086,7 +22086,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 500
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -44029,6 +44029,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1856722687, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
+      propertyPath: far clip plane
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 4337047967344324140, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
       propertyPath: coinCam
       value: 
@@ -44037,6 +44041,14 @@ PrefabInstance:
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 1323595755}
+    - target: {fileID: 7197834582348623821, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
+      propertyPath: far clip plane
+      value: 169.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7197834582480664845, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
+      propertyPath: far clip plane
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7197834583306505045, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
       propertyPath: m_Name
       value: First Person Player
