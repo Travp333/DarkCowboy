@@ -1513,7 +1513,7 @@ public class Grab : MonoBehaviour
                         shopNPC = hit.transform.gameObject.GetComponent<ShopNPC>();
                         shopNPC.TriggerVendor();
                         Debug.Log("foundshop");
-                        return;
+                        
                     }
                     if (hit.transform.gameObject.GetComponent<DialogueNPC>() != null)
                     {
