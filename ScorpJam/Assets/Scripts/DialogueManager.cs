@@ -69,7 +69,8 @@ public class DialogueManager : MonoBehaviour
         }
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence, shop));
+        
+        StartCoroutine(TypeSentence(sentence, shop, involveCurrencies));
 
     }
     //this is getting fired over and over constantly while you are not in range of an npc it seems
@@ -132,7 +133,7 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    IEnumerator TypeSentence(string sentence, Shop shop)
+    IEnumerator TypeSentence(string sentence, Shop shop, bool involveCurrencies)
     {
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())

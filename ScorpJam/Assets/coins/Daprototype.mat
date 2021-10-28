@@ -1575,7 +1575,7 @@ Material:
     - _ZTestAnimated: 0
     - _ZWrite: 1
     - _ZWriteAnimated: 0
-    - _commentIfZero_EnableOutlinePass: 1
+    - _commentIfZero_EnableOutlinePass: 0
     - _commentIfZero_LightingAdditiveEnable: 1
     - _commentIfZero_LightingAdditiveEnableAnimated: 0
     - _glitterFrequencyLinearEmissive: 20
@@ -1650,7 +1650,7 @@ Material:
     - m_end_specular1: 0
     - m_end_subsurface: 0
     - m_end_vertexManipulation: 0
-    - m_lightingOptions: 1
+    - m_lightingOptions: 0
     - m_mainOptions: 1
     - m_outlineOptions: 1
     - m_renderingOptions: 0

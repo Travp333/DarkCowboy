@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: mt_wet_s_label_mat
-  m_Shader: {fileID: 4800000, guid: acfc272be7027764ab6be860eccaa977, type: 3}
+  m_Shader: {fileID: 4800000, guid: 917b37092bae034459c28c00a3a19b54, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -977,7 +977,7 @@ Material:
     - _LightingMinLightBrightnessAnimated: 0
     - _LightingMinShadowBrightnessRatio: 0
     - _LightingMinShadowBrightnessRatioAnimated: 0
-    - _LightingMode: 0
+    - _LightingMode: 1
     - _LightingModeAnimated: 0
     - _LightingMonochromatic: 0
     - _LightingMonochromaticAnimated: 0
@@ -1324,7 +1324,7 @@ Material:
     - _ScrollingEmission1: 0
     - _ScrollingEmission1Animated: 0
     - _ScrollingEmissionAnimated: 0
-    - _ShaderOptimizerEnabled: 1
+    - _ShaderOptimizerEnabled: 0
     - _ShadowMix: 0
     - _ShadowMixAnimated: 0
     - _ShadowMixThreshold: 0.5
@@ -1649,7 +1649,7 @@ Material:
     - m_end_specular1: 0
     - m_end_subsurface: 0
     - m_end_vertexManipulation: 0
-    - m_lightingOptions: 0
+    - m_lightingOptions: 1
     - m_mainOptions: 1
     - m_outlineOptions: 0
     - m_renderingOptions: 1
@@ -1659,7 +1659,7 @@ Material:
     - m_start_CenterOutEmission1: 0
     - m_start_DecalSection: 0
     - m_start_DetailOptions: 0
-    - m_start_Lighting: 0
+    - m_start_Lighting: 1
     - m_start_MainHueShift: 0
     - m_start_MainVertexColors: 0
     - m_start_Matcap2: 0

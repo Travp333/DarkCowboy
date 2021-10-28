@@ -20,7 +20,9 @@ public class DialogueNPC : MonoBehaviour
     }
 
     public void TriggerDialogue() {
+
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue, shop, grab, involveCurrencies);
+        
         //if(TryGetComponent<PolSounds>(out var sound)){
             //sound.playRandomPolSound();
         //}

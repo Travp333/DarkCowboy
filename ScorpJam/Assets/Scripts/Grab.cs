@@ -1499,11 +1499,19 @@ public class Grab : MonoBehaviour
                         Debug.Log("foundshop");
                         return;
                     }
-                    if (hit.transform.gameObject.GetComponent<DialogueNPC>() != null && hit.transform.gameObject.GetComponent<Shop>().beenTreated == false)
+                    if (hit.transform.gameObject.GetComponent<DialogueNPC>() != null)
                     {
-                        NPC = hit.transform.gameObject.GetComponent<DialogueNPC>();
-                        NPC.TriggerDialogue();
-                        return;
+                        if(hit.transform.gameObject.GetComponent<Shop>() != null && hit.transform.gameObject.GetComponent<Shop>().beenTreated == false || hit.transform.gameObject.GetComponent<Shop>() == null){
+                            NPC = hit.transform.gameObject.GetComponent<DialogueNPC>();
+                            NPC.TriggerDialogue();
+                            return;
+                        }
+                        else if(hit.transform.gameObject.GetComponent<Shop>() != null && hit.transform.gameObject.GetComponent<Shop>().beenTreated == true){
+                            Debug.Log("This treater already gave you a treat!");
+                        }
+
+                        
+
                     }
                     
 
