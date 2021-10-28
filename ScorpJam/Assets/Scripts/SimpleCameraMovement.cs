@@ -11,6 +11,7 @@ public class SimpleCameraMovement : MonoBehaviour
     Transform playerCamera = null;
     Vector2 currentMouseDelta = Vector2.zero;
     Vector2 currentMouseDeltaVelocity = Vector2.zero;
+    public bool cameraRotLock;
 
     [SerializeField, Range(0f, .5f)]
     float mouseSmoothTime = 0.03f;
@@ -24,12 +25,15 @@ public class SimpleCameraMovement : MonoBehaviour
         if (!cursorLock) {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            cameraRotLock = false;
         }
     }
 	void FixedUpdate()
     {
-        UpdateMouseLook();
-        
+        if (!cameraRotLock)
+        {
+            UpdateMouseLook();
+        }
     }
     void UpdateMouseLook() {
     
@@ -47,8 +51,13 @@ public class SimpleCameraMovement : MonoBehaviour
             transform.Rotate(Vector3.up * currentMouseDelta.x * sens);
             
     }
+    public void toggleCamLock() {
+        cameraRotLock = !cameraRotLock;
+    }
+
 	
-   
+
+
 
 
 

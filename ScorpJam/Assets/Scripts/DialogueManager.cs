@@ -5,15 +5,19 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-
+    [SerializeField]
+    public PlayerStats stats;
+    [SerializeField]
+    public SimpleCameraMovement camMovement;
     public Text nameText;
     public Text dialogueText;
     public GameObject textLayer;
     public bool NPCisTalking, ShopisOpen;
+   
 
     public GameObject itemSlotPrefab = default;
 
-    public GameObject shopLayer;
+    public GameObject shopLayer, shopMenu,errorLayer, inventoryUI;
 
     public Texture[] coins;
 
@@ -21,7 +25,8 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
     private Queue<Item> shopInventory;
-
+    float errorTime = 2f;
+    float timer;
     
     void Start()
     {
@@ -29,7 +34,9 @@ public class DialogueManager : MonoBehaviour
         shopInventory = new Queue<Item>();
         textLayer.SetActive(false);
         shopLayer.SetActive(false);
-
+        errorLayer.SetActive(false);
+        inventoryUI.SetActive(false);
+        timer = 0f;
 
     }
 
@@ -38,13 +45,24 @@ public class DialogueManager : MonoBehaviour
         if (ShopisOpen){
             if (Input.GetKeyDown(KeyCode.Mouse1)) {
 
-                CloseShopMenu();
-                
-                
+                CloseShopMenu();  
             }
         }
-
+        if (errorLayer.activeSelf) {
+            timer += Time.deltaTime;
+            
+            if (timer > errorTime)
+            {
+                Debug.Log(timer +" " +errorTime);
+                Debug.Log("errorscreenfalse");
+                errorLayer.SetActive(false);
+                timer = 0f;
+            }
+        }
         
+        camMovement.cameraRotLock = NPCisTalking||ShopisOpen;
+
+
     }
 
     // this is just me trying to tie the shop script and the dialogue script together ==================================================
@@ -77,6 +95,7 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines();
         
         StartCoroutine(TypeSentence(sentence, shop, involveCurrencies));
+        
 
     }
     //this is getting fired over and over constantly while you are not in range of an npc it seems
@@ -136,6 +155,7 @@ public class DialogueManager : MonoBehaviour
         NPCisTalking = false;
         textLayer.SetActive(false);
         
+        
         Debug.Log("dialogue set to true");
 
     }
@@ -170,7 +190,8 @@ public class DialogueManager : MonoBehaviour
     public void StartVendor(ShopItems shopItems)
     {
         shopLayer.SetActive(true);
-        
+        inventoryUI.SetActive(true);
+        camMovement.cameraRotLock = true;
         shopInventory.Clear();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
@@ -183,7 +204,6 @@ public class DialogueManager : MonoBehaviour
         {
             for (int i = 0; i < ct; i++)
         {
-            
             DisplayVendorInventory(i);
             Debug.Log(i);
         }
@@ -192,8 +212,8 @@ public class DialogueManager : MonoBehaviour
     }
     public void DisplayVendorInventory(int i)
     {
-        var Slot = Instantiate(itemSlotPrefab, shopLayer.transform);
-        Slot.transform.SetParent(shopLayer.transform, false);
+        var Slot = Instantiate(itemSlotPrefab, shopMenu.transform);
+        Slot.transform.SetParent(shopMenu.transform, false);
 
         Item item = shopInventory.Dequeue();
         Debug.Log(item.name);
@@ -203,7 +223,7 @@ public class DialogueManager : MonoBehaviour
         int cost = item.cost;
         Shop.coinType costCoin = item.costCoin;*/
 
-        GameObject itemSlot = shopLayer.transform.GetChild(i).gameObject;
+        GameObject itemSlot = shopMenu.transform.GetChild(i).gameObject;
         
 
         GameObject currentElement = itemSlot.transform.GetChild(0).gameObject;
@@ -248,23 +268,21 @@ public class DialogueManager : MonoBehaviour
 
     public void CloseShopMenu() {
         Debug.Log("CloseShopMenuCalled");
-        foreach (Transform child in shopLayer.transform)
+        foreach (Transform child in shopMenu.transform)
         {
             GameObject.Destroy(child.gameObject);
         }
         shopLayer.SetActive(false);
+        
         ShopisOpen = false;
-
+        inventoryUI.SetActive(false);
+        
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        
-
-
     }
 
     public Texture CurrencyEnumtoTexture(Shop.coinType en)
     {
-
         if (coins.Length > 0)
         {
 
@@ -285,12 +303,15 @@ public class DialogueManager : MonoBehaviour
                 playerCoins[(int)getItem.costCoin] -= getItem.cost; //subtract from inventory
                 playerCoins[(int)getItem.ItemType] += getItem.quantity;
             }
+            else {
+                Debug.Log("elsebeforecant");
+                CantDoThat();
+            }
         }
         if ((int)getItem.ItemType == 8) { 
             //special cases for items
+            if(getItem.name == "GUN"){}
         }
-
-
             pStats.coinA = playerCoins[0];
             pStats.coinB = playerCoins[1];
             pStats.coinC = playerCoins[2];
@@ -299,8 +320,13 @@ public class DialogueManager : MonoBehaviour
             pStats.coinF = playerCoins[5];
             pStats.coinG = playerCoins[6];
             pStats.coinH = playerCoins[7];
-    } 
-    
+    }
+
+    void CantDoThat() {
+        
+        errorLayer.SetActive(true);
+        Debug.Log("cantdothat");
+    }
 }
 
 //Below here is just the normal script ==============================================

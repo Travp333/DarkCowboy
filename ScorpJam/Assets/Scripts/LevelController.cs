@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour
 {
+    public GameObject inventoryUI;
     public GameObject pauseMenu;
     public GameObject player;
     bool pause = false;
@@ -30,7 +31,7 @@ public class LevelController : MonoBehaviour
 
             if (!pause)
             {
-                
+                inventoryUI.SetActive(true);
                 pauseMenu.SetActive(true);
                 player.SetActive(false);
                 Cursor.visible = true;
@@ -42,6 +43,7 @@ public class LevelController : MonoBehaviour
             {
                 Time.timeScale = 1;
                 pauseMenu.SetActive(false);
+                inventoryUI.SetActive(false);
                 player.SetActive(true);
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;

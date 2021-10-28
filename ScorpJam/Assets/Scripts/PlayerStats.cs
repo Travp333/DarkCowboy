@@ -19,6 +19,7 @@ public class PlayerStats : MonoBehaviour
     public bool location;
     public int trickOrTreated;
     public float hunger = 100;
+    public float maxHp = 100f;
     public float hp = 100;
     [SerializeField, Min(0)]
     public int coinA,coinB,coinC,coinD,coinE,coinF,coinG,coinH;
