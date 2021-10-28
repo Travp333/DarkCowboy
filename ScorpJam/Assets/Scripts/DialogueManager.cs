@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField]
+    public FPSMovingSphere player;
+    [SerializeField]
     public PlayerStats stats;
     [SerializeField]
     public SimpleCameraMovement camMovement;
@@ -61,6 +63,13 @@ public class DialogueManager : MonoBehaviour
         }
         
         camMovement.cameraRotLock = NPCisTalking||ShopisOpen;
+        if (camMovement.cameraRotLock)
+        {
+            player.blockMovement();
+        }
+        else {
+            player.unblockMovement();
+        }
 
 
     }
@@ -69,7 +78,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue, Shop shop, Grab grab, bool involveCurrencies)
     {
-        grab.gameObject.transform.root.gameObject.GetComponent<FPSMovingSphere>().blockMovement();
+        
         textLayer.SetActive(true);
         nameText.text = dialogue.name;
         sentences.Clear();
@@ -86,7 +95,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (sentences.Count == 0)
         {
-            
+
             grab.gameObject.transform.root.gameObject.GetComponent<FPSMovingSphere>().unblockMovement();
             EndDialogue(grab, shop, involveCurrencies);
             return;
@@ -308,9 +317,31 @@ public class DialogueManager : MonoBehaviour
                 CantDoThat();
             }
         }
-        if ((int)getItem.ItemType == 8) { 
+        if ((int)getItem.ItemType == 8) {
             //special cases for items
-            if(getItem.name == "GUN"){}
+            if (playerCoins[(int)getItem.costCoin] >= getItem.cost)
+            {
+                if (getItem.name.Equals("Burger(11hp)"))
+                {
+
+                    if (stats.hp <= stats.maxHp)
+                    {
+                        stats.hp += 11;
+                        playerCoins[(int)getItem.costCoin] -= getItem.cost;
+
+                    }
+                    else { CantDoThat(); }
+                }
+                if (getItem.name == "GUN")
+                {
+                    stats.hasGun = true;
+                }
+
+            }
+            else {
+                CantDoThat();
+
+            }
         }
             pStats.coinA = playerCoins[0];
             pStats.coinB = playerCoins[1];
