@@ -16,6 +16,8 @@ TagManager:
   - buttons
   - porter
   - gun
+  - MARKET
+  - STREET
   layers:
   - Default
   - TransparentFX

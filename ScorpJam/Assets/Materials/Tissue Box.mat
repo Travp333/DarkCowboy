@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Tissue Box
-  m_Shader: {fileID: 4800000, guid: f14dd7b0a5b892c4f80996259d56ffb7, type: 3}
+  m_Shader: {fileID: 4800000, guid: 11b57492182ac594e9a098f7f8904dff, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: Tissue Box-3fb9c91b
+    OptimizedShaderFolder: Tissue Box-c787f3f8
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []

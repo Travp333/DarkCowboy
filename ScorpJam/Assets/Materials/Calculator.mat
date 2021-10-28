@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Calculator
-  m_Shader: {fileID: 4800000, guid: ff2e3acd59b46304c935800d81899332, type: 3}
+  m_Shader: {fileID: 4800000, guid: 18ee38eb1ecacd349bc678c3f275d21a, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: Calculator-2316caee
+    OptimizedShaderFolder: Calculator-586a7d90
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []

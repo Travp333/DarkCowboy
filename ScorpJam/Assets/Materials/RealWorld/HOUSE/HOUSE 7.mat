@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HOUSE 7
-  m_Shader: {fileID: 4800000, guid: 046185480bdd1d6459583cee5c53e2b4, type: 3}
+  m_Shader: {fileID: 4800000, guid: 64a214c331f39c44c8badc1adad3158d, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: HOUSE 7-8bd4e214
+    OptimizedShaderFolder: HOUSE 7-a3402f25
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []

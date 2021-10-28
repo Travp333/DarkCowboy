@@ -21,14 +21,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CRT Screen
-  m_Shader: {fileID: 4800000, guid: cabe58d0a2e04934aad3fa2c682a1431, type: 3}
+  m_Shader: {fileID: 4800000, guid: 3f2832d5adefe6641b4242d2796e2671, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A _SPECGLOSSMAP
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: CRT Screen-45cc63f4
+    OptimizedShaderFolder: CRT Screen-53ea2ac7
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []

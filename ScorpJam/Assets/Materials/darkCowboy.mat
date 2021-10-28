@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: darkCowboy
-  m_Shader: {fileID: 4800000, guid: 4ea2e813f386f4e4f980460517a7c9b0, type: 3}
+  m_Shader: {fileID: 4800000, guid: 713478a677c6b7c4ba105d03b2358993, type: 3}
   m_ShaderKeywords: VIGNETTE_MASKED _EMISSION _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
-    OptimizedShaderFolder: darkCowboy-2d8c8d5f
+    OptimizedShaderFolder: darkCowboy-f46d02aa
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []
