@@ -35,7 +35,7 @@ public class PlayerStats : MonoBehaviour
         hasGun = false;
         GameObject var;
         var = Instantiate(gun, this.transform.position, Quaternion.identity);
-        var.GetComponent<Rigidbody>().AddForce(-this.transform.forward * 10);
+        var.GetComponent<Rigidbody>().AddForce(this.transform.forward * 1000 );
 
     }
     public void getGun(){
