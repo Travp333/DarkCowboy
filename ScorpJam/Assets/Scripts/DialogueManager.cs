@@ -21,6 +21,8 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
     private Queue<Item> shopInventory;
+
+    
     void Start()
     {
         sentences = new Queue<string>();
@@ -32,12 +34,16 @@ public class DialogueManager : MonoBehaviour
     }
 
     void Update() {
-        if (ShopisOpen) {
-            if (Input.GetKeyDown("space"))
-            {
+
+        if (ShopisOpen){
+            if (Input.GetKeyDown(KeyCode.Mouse1)) {
+
                 CloseShopMenu();
+                
+                
             }
         }
+
         
     }
 
@@ -129,7 +135,8 @@ public class DialogueManager : MonoBehaviour
         }
         NPCisTalking = false;
         textLayer.SetActive(false);
-
+        
+        Debug.Log("dialogue set to true");
 
     }
 
@@ -240,6 +247,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void CloseShopMenu() {
+        Debug.Log("CloseShopMenuCalled");
         foreach (Transform child in shopLayer.transform)
         {
             GameObject.Destroy(child.gameObject);
@@ -249,6 +257,7 @@ public class DialogueManager : MonoBehaviour
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        
 
 
     }
