@@ -1,6 +1,7 @@
 Base path: 'C:/Program Files/Unity/Hub/Editor/2020.3.19f1/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2020.3.19f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
 
+<<<<<<< HEAD
 
 
 
@@ -9874,4 +9875,6 @@ Disabled keywords: SHADER_API_GLES30 UNITY_ASTC_NORMALMAP_ENCODING UNITY_ENABLE_
 
 
 
+=======
+>>>>>>> 31057c82268f05309cc020aca1ae070d8d9d6c77
 Cmd: shutdown
