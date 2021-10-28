@@ -27632,6 +27632,20 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 1.7083334
+    functionName: showHandGun
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.7083334
+    functionName: hideHipGun
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 2.125
     functionName: SHOOT
     data: 
@@ -27648,6 +27662,20 @@ AnimationClip:
     messageOptions: 0
   - time: 3.7916667
     functionName: resetSpeed
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3.7916667
+    functionName: hideHandGun
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3.7916667
+    functionName: showHipGun
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

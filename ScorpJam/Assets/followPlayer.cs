@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class followPlayer : MonoBehaviour
 {
+    [SerializeField]
+    float hp;
     GameObject player;
     NavMeshAgent agent;
     [SerializeField]
@@ -24,6 +26,10 @@ public class followPlayer : MonoBehaviour
     GameObject gunorigin;
     [SerializeField]
     Light lite;
+    [SerializeField]
+    GameObject hipGun;
+    [SerializeField]
+    GameObject handGun;
 
     //Phase1, default, low draw speed low accuracy
     //Phase 2, Higher draw speed, low accuracy
@@ -44,6 +50,19 @@ public class followPlayer : MonoBehaviour
     Vector3 destination;
     Vector3 backup;
     private float elapsed = 0.0f;
+
+    void hideHipGun(){
+        hipGun.SetActive(false);
+    }
+    void showHipGun(){
+        hipGun.SetActive(true);
+    }
+    void hideHandGun(){
+        handGun.SetActive(false);
+    }
+    void showHandGun(){
+        handGun.SetActive(true);
+    }
 
     public void resetPhase(){
         bossPhase = PHASE.Phase1;
@@ -109,6 +128,21 @@ public class followPlayer : MonoBehaviour
             timer = 0f;
             playRandomPainNoise();
         }
+    }
+
+    void Die(){
+        
+    }
+
+    public void takeDamage(float amount){
+        anim.SetBool("TakingDamage", true);
+        Invoke("resetTakingDamage", .1f);
+        hp -= amount;
+        if((hp - amount) <= 0){
+            Die();
+            hp = 0;
+        }
+        
     }
 
     void SHOOT(){

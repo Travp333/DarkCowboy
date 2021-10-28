@@ -171,8 +171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSmall: 0
-  isMedium: 0
-  isLarge: 1
+  isMedium: 1
+  isLarge: 0
 --- !u!1 &5580782799703230387
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,16 +8,16 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Normal Shader Belt
-  m_Shader: {fileID: 4800000, guid: b318317cc56e55740862da323bcf1e1d, type: 3}
-  m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: VIGNETTE_MASKED _EMISSION _GLOSSYREFLECTIONS_OFF _METALLICGLOSSMAP
+    _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap:
     OptimizedShaderFolder: Normal Shader Belt-91ddab67
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
-    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -120,8 +120,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 2800000, guid: 85b8201f01c2221449425911f2008b23, type: 3}
-        m_Scale: {x: 300, y: 70}
-        m_Offset: {x: 1, y: 0}
+        m_Scale: {x: 35.25, y: 22.43}
+        m_Offset: {x: 1, y: 1}
     - _EmissionMap1:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -192,8 +192,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 85b8201f01c2221449425911f2008b23, type: 3}
-        m_Scale: {x: 300, y: 70}
-        m_Offset: {x: 1, y: 0}
+        m_Scale: {x: 35.25, y: 22.43}
+        m_Offset: {x: 1, y: 1}
     - _Matcap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -1324,7 +1324,7 @@ Material:
     - _ScrollingEmission1: 0
     - _ScrollingEmission1Animated: 0
     - _ScrollingEmissionAnimated: 0
-    - _ShaderOptimizerEnabled: 1
+    - _ShaderOptimizerEnabled: 0
     - _ShadowMix: 0
     - _ShadowMixAnimated: 0
     - _ShadowMixThreshold: 0.5
@@ -1650,7 +1650,7 @@ Material:
     - m_end_subsurface: 0
     - m_end_vertexManipulation: 0
     - m_lightingOptions: 0
-    - m_mainOptions: 0
+    - m_mainOptions: 1
     - m_outlineOptions: 0
     - m_renderingOptions: 0
     - m_start_Alpha: 0
@@ -1715,7 +1715,7 @@ Material:
     - m_start_specular1: 0
     - m_start_subsurface: 0
     - m_start_vertexManipulation: 0
-    - shader_is_using_thry_editor: 0
+    - shader_is_using_thry_editor: 69
     - shader_master_label: 0
     - shader_presets: 0
     - shader_properties_label_file: 0

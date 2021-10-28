@@ -1398,6 +1398,8 @@ public class Grab : MonoBehaviour
 
 
     public void teleportToMarket(){
+        stats.track1.Stop();
+        stats.track2.Play();
         transform.root.transform.position = MarketTPPoint.position;
         //pause cowboy
         GameObject.FindWithTag("DARKCOWBOY").gameObject.GetComponent<followPlayer>().pauseAI();
@@ -1405,10 +1407,15 @@ public class Grab : MonoBehaviour
         GameObject.FindWithTag("DARKCOWBOY").transform.position = GameObject.FindWithTag("DARKCOWBOY").GetComponent<followPlayer>().safeSpace.transform.position;
         //reset his phase
         GameObject.FindWithTag("DARKCOWBOY").gameObject.GetComponent<followPlayer>().resetPhase();
+
         stats.location = true;
         GameObject.FindWithTag("Bank").gameObject.GetComponent<Bank>().switchCoin();
     }
     public void teleportToStreet(){
+        stats.track2.Stop();
+        stats.track3.Play();
+        stats.blocker.gameObject.SetActive(false);
+        GameObject.FindWithTag("porter").gameObject.GetComponent<stillShittin>().shittinBlock = false;
         //teleporitng back to the street
         transform.root.transform.position = StreetTPPoint.position;
         //making treators able to give candy again 

@@ -5,6 +5,16 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {  
     [SerializeField]
+    public bool hasGun;
+    [SerializeField]
+    public AudioSource track1;
+    [SerializeField]
+    public AudioSource track2;
+    [SerializeField] 
+    public AudioSource track3;
+    [SerializeField]
+    public GameObject blocker;
+    [SerializeField]
     [Tooltip("true for market, false for street")]
     public bool location;
     public int trickOrTreated;

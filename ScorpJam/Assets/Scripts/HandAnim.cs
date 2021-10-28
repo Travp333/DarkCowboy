@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class HandAnim : MonoBehaviour
 {
+    [SerializeField]
+    GameObject cowboy;
+    [SerializeField]
+    GameObject lite;
+    [SerializeField]
+    GameObject gun;
     MovementSpeedController speedController;
     [SerializeField]
     GameObject sphere;
@@ -21,6 +27,10 @@ public class HandAnim : MonoBehaviour
 
     bool isOnGround;
     bool isOnSteep;
+    [SerializeField]
+    LayerMask mask;
+    [SerializeField]
+    GameObject impact;
 
     [HideInInspector]
     public bool isOnGroundADJ;
@@ -99,9 +109,41 @@ public class HandAnim : MonoBehaviour
        
     }
 
+    void resetLite(){
+        lite.SetActive(false);
+    }
+    void resetisShooting(){
+        animator.SetBool("isShooting", false);
+    }
+    void Shoot(){
+        lite.SetActive(true);
+        Invoke("resetLite", .1f);
+        animator.SetBool("isShooting", true);
+        Invoke("resetisShooting", .2f);
+        RaycastHit hit;
+        Physics.Raycast(gun.transform.GetChild(0).transform.position, gun.transform.GetChild(0).transform.forward, out hit, 500, mask);
+        Instantiate(impact, hit.point, Quaternion.identity);
+        if(hit.transform.gameObject.tag == "Breakable" || hit.transform.gameObject.tag == "Explosive" ){
+            hit.transform.gameObject.GetComponent<Shatter>().oneShot(0);
+        }
+        if(hit.transform.gameObject.tag == "DARKCOWBOY"){
+            cowboy.GetComponent<followPlayer>().takeDamage(10);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if(player.gameObject.GetComponent<PlayerStats>().hasGun){
+            animator.SetLayerWeight(1, .37f);
+            gun.SetActive(true);
+
+        }
+        else{
+            animator.SetLayerWeight(1, 1f);
+            gun.SetActive(false);
+        }
+
         if(player.dancing){
             animator.SetBool("isDancing", true);
         }
@@ -167,13 +209,16 @@ public class HandAnim : MonoBehaviour
             }
         }
         if ( Input.GetKeyDown("mouse 0") ){
-            if(blocker && !grab.isHolding){
+            if(blocker && !grab.isHolding && !player.gameObject.GetComponent<PlayerStats>().hasGun){
                 if(flipflop){
                     Invoke("waveStartL", .1f);
                 }
                 else if (!flipflop){
                     Invoke("waveStartR", .1f);
                 }
+            }
+            else if (player.gameObject.GetComponent<PlayerStats>().hasGun){
+                Shoot();
             }
         }
     }

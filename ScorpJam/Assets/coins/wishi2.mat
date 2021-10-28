@@ -8,16 +8,16 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: wishi2
-  m_Shader: {fileID: 4800000, guid: 917b37092bae034459c28c00a3a19b54, type: 3}
+  m_Shader: {fileID: 4800000, guid: d19d4ce832042f84f9838687b0b59440, type: 3}
   m_ShaderKeywords: _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: 2451
   stringTagMap:
-    OptimizedShaderFolder: FREDDY2-42691bd4
+    OptimizedShaderFolder: wishi2-82e13622
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
-    RenderType: Opaque
+    RenderType: TransparentCutout
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -380,7 +380,7 @@ Material:
     - _AlphaModAnimated: 0
     - _AlphaPremultiply: 0
     - _AlphaPremultiplyAnimated: 0
-    - _AlphaToMask: 1
+    - _AlphaToMask: 0
     - _AlphaToMaskAnimated: 0
     - _AngleCompareTo: 0
     - _AngleCompareToAnimated: 0
@@ -445,7 +445,7 @@ Material:
     - _BumpMapPanAnimated: 0
     - _BumpMapUV: 0
     - _BumpMapUVAnimated: 0
-    - _BumpScale: 1
+    - _BumpScale: 10
     - _BumpScaleAnimated: 0
     - _CameraAngleMax: 90
     - _CameraAngleMaxAnimated: 0
@@ -481,7 +481,7 @@ Material:
     - _CubeMapAnimated: 0
     - _Cull: 0
     - _CullAnimated: 0
-    - _Cutoff: 0.5
+    - _Cutoff: 0
     - _CutoffAnimated: 0
     - _DebugCameraData: 0
     - _DebugCameraDataAnimated: 0
@@ -637,7 +637,7 @@ Material:
     - _DitherGradientAnimated: 0
     - _DitheringEnabled: 0
     - _DitheringEnabledAnimated: 0
-    - _DstBlend: 0
+    - _DstBlend: 10
     - _DstBlendAnimated: 0
     - _EmissionBaseColorAsMap: 0
     - _EmissionBaseColorAsMap1: 0
@@ -1115,7 +1115,7 @@ Material:
     - _MirrorTexturePanAnimated: 0
     - _MirrorTextureUV: 0
     - _MirrorTextureUVAnimated: 0
-    - _Mode: 1
+    - _Mode: 9
     - _ModelAngleMax: 90
     - _ModelAngleMaxAnimated: 0
     - _ModelAngleMin: 45
@@ -1318,13 +1318,13 @@ Material:
     - _SSSThicknessModAnimated: 0
     - _SampleWorld: 0
     - _SampleWorldAnimated: 0
-    - _Saturation: 0
+    - _Saturation: 0.326
     - _SaturationAnimated: 0
     - _ScrollingEmission: 0
     - _ScrollingEmission1: 0
     - _ScrollingEmission1Animated: 0
     - _ScrollingEmissionAnimated: 0
-    - _ShaderOptimizerEnabled: 0
+    - _ShaderOptimizerEnabled: 1
     - _ShadowMix: 0
     - _ShadowMixAnimated: 0
     - _ShadowMixThreshold: 0.5
@@ -1446,7 +1446,7 @@ Material:
     - _SpecularType1: 1
     - _SpecularType1Animated: 0
     - _SpecularTypeAnimated: 0
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _SrcBlendAnimated: 0
     - _StencilCompareFunction: 8
     - _StencilCompareFunctionAnimated: 0
@@ -1570,7 +1570,7 @@ Material:
     - _VoronoiSpaceAnimated: 0
     - _VoronoiSpeedAnimated: 0
     - _VoronoiTypeAnimated: 0
-    - _ZTest: 3
+    - _ZTest: 4
     - _ZTestAnimated: 0
     - _ZWrite: 1
     - _ZWriteAnimated: 0
