@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class followPlayer : MonoBehaviour
 {
     [SerializeField]
+    AudioSource cowboydeath;
+    [SerializeField]
     float hp;
     GameObject player;
     NavMeshAgent agent;
@@ -30,6 +32,7 @@ public class followPlayer : MonoBehaviour
     GameObject hipGun;
     [SerializeField]
     GameObject handGun;
+    public bool isDead;
 
     //Phase1, default, low draw speed low accuracy
     //Phase 2, Higher draw speed, low accuracy
@@ -76,7 +79,7 @@ public class followPlayer : MonoBehaviour
 
     private NavMeshPath path;
     void playRandomPainNoise(){
-        clips[Random.Range(4, 8)].Play();
+            clips[Random.Range(4, 8)].Play();
     }
     void playEagleNoise(){
         clips[3].Play();
@@ -120,7 +123,7 @@ public class followPlayer : MonoBehaviour
     }
 
     public void cowboyDamage(){
-        if(vulnerable){
+        if(vulnerable && !isDead){
             takingDamage = true;
             anim.SetBool("TakingDamage", true);
             Invoke("resetTakingDamage", .1f);
@@ -131,18 +134,23 @@ public class followPlayer : MonoBehaviour
     }
 
     void Die(){
-        
+        cowboydeath.Play();
+        anim.SetBool("isDead", true);
+        isDead = true;
+        GetComponent<CapsuleCollider>().enabled = false;
     }
 
     public void takeDamage(float amount){
-        anim.SetBool("TakingDamage", true);
-        Invoke("resetTakingDamage", .1f);
-        hp -= amount;
-        if((hp - amount) <= 0){
-            Die();
-            hp = 0;
+        if(!isDead){
+            playRandomPainNoise();
+            anim.SetBool("TakingDamage", true);
+            Invoke("resetTakingDamage", .1f);
+            hp -= amount;
+            if((hp - amount) <= 0){
+                Die();
+                hp = 0;
+            }
         }
-        
     }
 
     void SHOOT(){
@@ -194,91 +202,89 @@ public class followPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!isDead){
 
-        // Update the way to the goal every second.
-        if(!takingDamage && stats.location == false){
-            elapsed += Time.deltaTime;
-            if (elapsed > 1.0f)
-            {
-                elapsed -= 1.0f;
-                NavMesh.CalculatePath(transform.position, player.transform.position, NavMesh.AllAreas, path);
+            // Update the way to the goal every second.
+            if(!takingDamage && stats.location == false){
+                elapsed += Time.deltaTime;
+                if (elapsed > 1.0f)
+                {
+                    elapsed -= 1.0f;
+                    NavMesh.CalculatePath(transform.position, player.transform.position, NavMesh.AllAreas, path);
+                }
+                agent.SetDestination(path.corners[path.corners.Length - 1]);
             }
-            agent.SetDestination(path.corners[path.corners.Length - 1]);
-        }
-        else if(takingDamage){
-            //Debug.Log("Retreating!" + agent.hasPath);
-            agent.SetDestination(safeSpace.transform.position);
-            agent.stoppingDistance = 5;
-            agent.isStopped = false;
-        }
-        else if(stats.location == true){
-            agent.isStopped = true;
-        }
-        if(timer < 30){
-            timer += Time.deltaTime;
-            vulnerable = false;
-        }
-        else if(timer >= 30){
-            timer = 30f;
-            vulnerable = true;
-        }
-        
-
-
-        if(stats.trickOrTreated == 0){
-            bossPhase = PHASE.Phase1;
-        }
-        if(stats.trickOrTreated == 1){
-            bossPhase = PHASE.Phase2;
-        }
-        if(stats.trickOrTreated == 3){
-            bossPhase = PHASE.Phase3;
-        }
-        if(stats.trickOrTreated == 4){
-            bossPhase = PHASE.Phase4;
-        }
-        if(agent.remainingDistance > 20){
-            agent.speed = boostSpeed;
-        }
-        else if (agent.remainingDistance < 20){
-            agent.speed = tempSpeed;
-        }
-        if(gate && agent.remainingDistance < 150 && !takingDamage && !player.GetComponent<PlayerStats>().inSafeZone){
-            if(Physics.Raycast(this.transform.position, (player.transform.position-this.transform.position), out hit, range, mask)){
-                if (hit.transform.gameObject.tag=="Player"){
-                    if(bossPhase == PHASE.Phase1){
-                        agent.isStopped = true;
-                        anim.SetBool("Shoot", true);
-                        Invoke("resetShoot", .1f);
-                        agent.speed = 0;
-                        gate = false;
-                        Invoke("openGate", 5f);
-                    }
-                    else if (bossPhase == PHASE.Phase2 || bossPhase == PHASE.Phase3){
-                        agent.isStopped = true;
-                        anim.SetBool("QuickShoot", true);
-                        Invoke("resetQuickShoot", .1f);
-                        agent.speed = 0;
-                        gate = false;
-                        Invoke("openGate", 5f);
-                    }
-                    else if (bossPhase == PHASE.Phase4){
-                        agent.isStopped = true;
-                        anim.SetBool("HammerFan", true);
-                        Invoke("resetHammerFan", .1f);
-                        agent.speed = 0;
-                        gate = false;
-                        Invoke("openGate", 5f);
+            else if(takingDamage){
+                //Debug.Log("Retreating!" + agent.hasPath);
+                agent.SetDestination(safeSpace.transform.position);
+                agent.stoppingDistance = 5;
+                agent.isStopped = false;
+            }
+            else if(stats.location == true){
+                agent.isStopped = true;
+            }
+            if(timer < 30){
+                timer += Time.deltaTime;
+                vulnerable = false;
+            }
+            else if(timer >= 30){
+                timer = 30f;
+                vulnerable = true;
+            }
+            if(stats.trickOrTreated == 0){
+                bossPhase = PHASE.Phase1;
+            }
+            if(stats.trickOrTreated == 1){
+                bossPhase = PHASE.Phase2;
+            }
+            if(stats.trickOrTreated == 3){
+                bossPhase = PHASE.Phase3;
+            }
+            if(stats.trickOrTreated == 4){
+                bossPhase = PHASE.Phase4;
+            }
+            if(agent.remainingDistance > 20){
+                agent.speed = boostSpeed;
+            }
+            else if (agent.remainingDistance < 20){
+                agent.speed = tempSpeed;
+            }
+            if(gate && agent.remainingDistance < 150 && !takingDamage && !player.GetComponent<PlayerStats>().inSafeZone){
+                if(Physics.Raycast(this.transform.position, (player.transform.position-this.transform.position), out hit, range, mask)){
+                    if (hit.transform.gameObject.tag=="Player"){
+                        if(bossPhase == PHASE.Phase1){
+                            agent.isStopped = true;
+                            anim.SetBool("Shoot", true);
+                            Invoke("resetShoot", .1f);
+                            agent.speed = 0;
+                            gate = false;
+                            Invoke("openGate", 5f);
+                        }
+                        else if (bossPhase == PHASE.Phase2 || bossPhase == PHASE.Phase3){
+                            agent.isStopped = true;
+                            anim.SetBool("QuickShoot", true);
+                            Invoke("resetQuickShoot", .1f);
+                            agent.speed = 0;
+                            gate = false;
+                            Invoke("openGate", 5f);
+                        }
+                        else if (bossPhase == PHASE.Phase4){
+                            agent.isStopped = true;
+                            anim.SetBool("HammerFan", true);
+                            Invoke("resetHammerFan", .1f);
+                            agent.speed = 0;
+                            gate = false;
+                            Invoke("openGate", 5f);
+                        }
                     }
                 }
             }
+
+            var lookPos = player.transform.position - transform.position;
+            lookPos.y = 0;
+            var rotation = Quaternion.LookRotation(lookPos);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime);
+            anim.SetFloat("velocity", agent.velocity.magnitude / boostSpeed);
         }
-
-        var lookPos = player.transform.position - transform.position;
-        lookPos.y = 0;
-        var rotation = Quaternion.LookRotation(lookPos);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime);
-        anim.SetFloat("velocity", agent.velocity.magnitude / boostSpeed);
-
     }
 }

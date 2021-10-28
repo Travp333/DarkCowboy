@@ -1402,12 +1402,13 @@ public class Grab : MonoBehaviour
         stats.track2.Play();
         transform.root.transform.position = MarketTPPoint.position;
         //pause cowboy
-        GameObject.FindWithTag("DARKCOWBOY").gameObject.GetComponent<followPlayer>().pauseAI();
-        //move him to default postion
-        GameObject.FindWithTag("DARKCOWBOY").transform.position = GameObject.FindWithTag("DARKCOWBOY").GetComponent<followPlayer>().safeSpace.transform.position;
-        //reset his phase
-        GameObject.FindWithTag("DARKCOWBOY").gameObject.GetComponent<followPlayer>().resetPhase();
-
+        if(GameObject.FindWithTag("DARKCOWBOY").gameObject.GetComponent<followPlayer>().isDead){
+            GameObject.FindWithTag("DARKCOWBOY").gameObject.GetComponent<followPlayer>().pauseAI();
+            //move him to default postion
+            GameObject.FindWithTag("DARKCOWBOY").transform.position = GameObject.FindWithTag("DARKCOWBOY").GetComponent<followPlayer>().safeSpace.transform.position;
+            //reset his phase
+            GameObject.FindWithTag("DARKCOWBOY").gameObject.GetComponent<followPlayer>().resetPhase();
+        }
         stats.location = true;
         GameObject.FindWithTag("Bank").gameObject.GetComponent<Bank>().switchCoin();
     }
@@ -1465,6 +1466,9 @@ public class Grab : MonoBehaviour
         RaycastHit hit;
         if (Input.GetKeyDown("e"))
         {
+            if(stats.hasGun){
+                stats.dropGun();
+            }
             // if you are not holding anything
             if(!isHolding){
                 if (NPC)
@@ -1483,6 +1487,11 @@ public class Grab : MonoBehaviour
                 // send a raycast
                 if (Physics.SphereCast(origin.transform.position, 1, (dummy.position - origin.transform.position), out hit, distance, mask))
                 {
+                    if(hit.transform.gameObject.tag == "gun"){
+                        stats.getGun();
+                        Destroy(hit.transform.gameObject);
+                        return;
+                    }
                     if(hit.transform.gameObject.tag == "buttons"){
                         Debug.Log("PRESSY");
                         hit.transform.gameObject.GetComponent<pressy>().interact();
@@ -1522,7 +1531,7 @@ public class Grab : MonoBehaviour
                     }
                     
 
-                    if (hit.transform.gameObject.GetComponent<Rigidbody>() != null){
+                    if (hit.transform.gameObject.GetComponent<Rigidbody>() != null && !stats.hasGun){
                         if(hit.transform.gameObject.GetComponent<Rigidbody>().mass <= strength){
                             if(player.dancing == false && player.moveBlocked == false){
                                 if(hit.transform.gameObject.GetComponent<objectSize>().isLarge && !hit.transform.gameObject.GetComponent<objectSize>().isMedium && !hit.transform.gameObject.GetComponent<objectSize>().isSmall){

@@ -5,6 +5,8 @@ using UnityEngine;
 public class HandAnim : MonoBehaviour
 {
     [SerializeField]
+    AudioSource gunShot;
+    [SerializeField]
     GameObject cowboy;
     [SerializeField]
     GameObject lite;
@@ -116,18 +118,22 @@ public class HandAnim : MonoBehaviour
         animator.SetBool("isShooting", false);
     }
     void Shoot(){
+        gunShot.Play();
         lite.SetActive(true);
         Invoke("resetLite", .1f);
         animator.SetBool("isShooting", true);
         Invoke("resetisShooting", .2f);
         RaycastHit hit;
-        Physics.Raycast(gun.transform.GetChild(0).transform.position, gun.transform.GetChild(0).transform.forward, out hit, 500, mask);
-        Instantiate(impact, hit.point, Quaternion.identity);
-        if(hit.transform.gameObject.tag == "Breakable" || hit.transform.gameObject.tag == "Explosive" ){
-            hit.transform.gameObject.GetComponent<Shatter>().oneShot(0);
-        }
-        if(hit.transform.gameObject.tag == "DARKCOWBOY"){
-            cowboy.GetComponent<followPlayer>().takeDamage(10);
+        if(Physics.Raycast(gun.transform.GetChild(0).transform.position, -this.transform.forward, out hit, 500, mask)){
+            Debug.Log("hit something");
+            Instantiate(impact, hit.point, Quaternion.identity);
+            Debug.DrawRay(gun.transform.GetChild(0).transform.position, -this.transform.forward * 500, Color.green, 5f);
+            if(hit.transform.gameObject.tag == "Breakable" || hit.transform.gameObject.tag == "Explosive" ){
+                hit.transform.gameObject.GetComponent<Shatter>().oneShot(0);
+            }
+            if(hit.transform.gameObject.tag == "DARKCOWBOY"){
+                cowboy.GetComponent<followPlayer>().takeDamage(10);
+            }
         }
     }
 
@@ -137,7 +143,6 @@ public class HandAnim : MonoBehaviour
         if(player.gameObject.GetComponent<PlayerStats>().hasGun){
             animator.SetLayerWeight(1, .37f);
             gun.SetActive(true);
-
         }
         else{
             animator.SetLayerWeight(1, 1f);

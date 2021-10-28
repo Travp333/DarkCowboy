@@ -26,9 +26,21 @@ public class PlayerStats : MonoBehaviour
     AudioSource[] painSounds;
     int range;
     public bool inSafeZone;
+    [SerializeField]
+    GameObject gun;
     //private void Update() {
         //Debug.Log(trickOrTreated);
     //}
+    public void dropGun(){
+        hasGun = false;
+        GameObject var;
+        var = Instantiate(gun, this.transform.position, Quaternion.identity);
+        var.GetComponent<Rigidbody>().AddForce(-this.transform.forward * 10);
+
+    }
+    public void getGun(){
+        hasGun = true;
+    }
     public void takeDamage(int amount){
         if(hp - amount <=0){
             die();

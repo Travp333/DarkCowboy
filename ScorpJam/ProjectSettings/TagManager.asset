@@ -15,6 +15,7 @@ TagManager:
   - Bank
   - buttons
   - porter
+  - gun
   layers:
   - Default
   - TransparentFX
