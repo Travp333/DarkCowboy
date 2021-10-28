@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class followPlayer : MonoBehaviour
 {
     [SerializeField]
+    GameObject scorb;
+    [SerializeField]
     AudioSource cowboydeath;
     [SerializeField]
     float hp;
@@ -133,11 +135,16 @@ public class followPlayer : MonoBehaviour
         }
     }
 
+    void InstantiateScorb(){
+        Instantiate(scorb, new Vector3(this.transform.position.x, transform.position.y - 1f, transform.position.z), Quaternion.identity);
+    }
+
     void Die(){
         cowboydeath.Play();
         anim.SetBool("isDead", true);
         isDead = true;
         GetComponent<CapsuleCollider>().enabled = false;
+        Invoke("InstantiateScorb", 5f);
     }
 
     public void takeDamage(float amount){

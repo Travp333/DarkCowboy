@@ -1400,6 +1400,7 @@ public class Grab : MonoBehaviour
     public void teleportToMarket(){
         stats.track1.Stop();
         stats.track2.Play();
+        stats.track3.Stop();
         transform.root.transform.position = MarketTPPoint.position;
         //pause cowboy
         if(GameObject.FindWithTag("DARKCOWBOY").gameObject.GetComponent<followPlayer>().isDead){
@@ -1622,7 +1623,7 @@ public class Grab : MonoBehaviour
         if (Input.GetKey("mouse 0") && isHolding){
             if (throwingforce <= maxThrowingForce){
                 isgrabCharging = true;
-                throwingforce = throwingforce + chargeRate;
+                throwingforce = throwingforce + (chargeRate * Time.deltaTime);
             }
             if (throwingforce > maxThrowingForce){
                 isgrabCharging = false;
