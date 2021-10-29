@@ -415,3 +415,4 @@ MonoBehaviour:
   - {fileID: 5344301131188129968}
   rate: 0.6
   SpinSpeed: 60
+  curtainsOffset: 2

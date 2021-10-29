@@ -18,6 +18,9 @@ TagManager:
   - gun
   - MARKET
   - STREET
+  - Curtains
+  - lightmanager
+  - slideJam
   layers:
   - Default
   - TransparentFX

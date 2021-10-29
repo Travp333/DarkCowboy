@@ -2720,6 +2720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88bc4a984987b604aadc6d74b1036b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cheerSounds: []
   polSound:
   - {fileID: 726010518}
   - {fileID: 1776318823}
@@ -2730,6 +2731,7 @@ MonoBehaviour:
   - {fileID: 4250893234988820100}
   - {fileID: 3365210365589215681}
   - {fileID: 7947714014324092723}
+  shouldPlayNoise: 1
 --- !u!95 &2546106725650299144
 Animator:
   serializedVersion: 3

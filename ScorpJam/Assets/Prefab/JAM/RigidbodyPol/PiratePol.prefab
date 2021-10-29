@@ -3031,12 +3031,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88bc4a984987b604aadc6d74b1036b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cheerSounds: []
   polSound:
   - {fileID: 2879735183543583028}
   - {fileID: 2879735182446375621}
   - {fileID: 2879735182387312634}
   - {fileID: 2879735183831009364}
   - {fileID: 2879735183184392920}
+  shouldPlayNoise: 1
 --- !u!1 &8229192712105757838
 GameObject:
   m_ObjectHideFlags: 0

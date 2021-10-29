@@ -56,6 +56,9 @@ public class followPlayer : MonoBehaviour
     Vector3 backup;
     private float elapsed = 0.0f;
 
+    [SerializeField]
+    bool phaseOverride;
+
     void hideHipGun(){
         hipGun.SetActive(false);
     }
@@ -174,6 +177,9 @@ public class followPlayer : MonoBehaviour
                 if(hit.transform.gameObject.tag == "Player"){
                     player.GetComponent<PlayerStats>().takeDamage(10);
                 }
+                else if(hit.transform.gameObject.GetComponent<Rigidbody>() != null){
+                    hit.transform.gameObject.GetComponent<Rigidbody>().AddForce((hit.transform.position - transform.position).normalized * 100, ForceMode.Impulse);
+                }
             }
         }
         if(bossPhase == PHASE.Phase4 || bossPhase == PHASE.Phase3){
@@ -187,6 +193,9 @@ public class followPlayer : MonoBehaviour
                 }
                 if(hit.transform.gameObject.tag == "Player"){
                     player.GetComponent<PlayerStats>().takeDamage(10);
+                }
+                else if(hit.transform.gameObject.GetComponent<Rigidbody>() != null){
+                    hit.transform.gameObject.GetComponent<Rigidbody>().AddForce((hit.transform.position - transform.position).normalized * 100, ForceMode.Impulse);
                 }
         }
         }
@@ -238,16 +247,16 @@ public class followPlayer : MonoBehaviour
                 timer = 30f;
                 vulnerable = true;
             }
-            if(stats.trickOrTreated == 0){
+            if(stats.trickOrTreated == 0 && !phaseOverride){
                 bossPhase = PHASE.Phase1;
             }
-            if(stats.trickOrTreated == 1){
+            if(stats.trickOrTreated == 1&& !phaseOverride){
                 bossPhase = PHASE.Phase2;
             }
-            if(stats.trickOrTreated == 3){
+            if(stats.trickOrTreated == 3&& !phaseOverride){
                 bossPhase = PHASE.Phase3;
             }
-            if(stats.trickOrTreated == 4){
+            if(stats.trickOrTreated == 4&& !phaseOverride){
                 bossPhase = PHASE.Phase4;
             }
             if(agent.remainingDistance > 20){
@@ -259,6 +268,32 @@ public class followPlayer : MonoBehaviour
             if(gate && agent.remainingDistance < 150 && !takingDamage && !player.GetComponent<PlayerStats>().inSafeZone){
                 if(Physics.Raycast(this.transform.position, (player.transform.position-this.transform.position), out hit, range, mask)){
                     if (hit.transform.gameObject.tag=="Player"){
+                        if(bossPhase == PHASE.Phase1){
+                            agent.isStopped = true;
+                            anim.SetBool("Shoot", true);
+                            Invoke("resetShoot", .1f);
+                            agent.speed = 0;
+                            gate = false;
+                            Invoke("openGate", 5f);
+                        }
+                        else if (bossPhase == PHASE.Phase2 || bossPhase == PHASE.Phase3){
+                            agent.isStopped = true;
+                            anim.SetBool("QuickShoot", true);
+                            Invoke("resetQuickShoot", .1f);
+                            agent.speed = 0;
+                            gate = false;
+                            Invoke("openGate", 5f);
+                        }
+                        else if (bossPhase == PHASE.Phase4){
+                            agent.isStopped = true;
+                            anim.SetBool("HammerFan", true);
+                            Invoke("resetHammerFan", .1f);
+                            agent.speed = 0;
+                            gate = false;
+                            Invoke("openGate", 5f);
+                        }
+                    }
+                    if (hit.transform.gameObject.tag=="Breakable" || hit.transform.gameObject.tag=="Explosive"){
                         if(bossPhase == PHASE.Phase1){
                             agent.isStopped = true;
                             anim.SetBool("Shoot", true);

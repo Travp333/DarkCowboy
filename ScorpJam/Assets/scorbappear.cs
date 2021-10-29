@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class scorbappear : MonoBehaviour
 {
+    GameObject slideJam;
+    GameObject lightManager;
+    GameObject curtains;
     [SerializeField]
     public GameObject scorbs;
     [SerializeField]
@@ -15,19 +18,27 @@ public class scorbappear : MonoBehaviour
     float SpinSpeed;
     bool gate = true;
     bool gate2 = true;
+
+    [SerializeField]
+    float curtainsOffset;
+    PlayerStats stats;
+
+    void Start() {
+        slideJam = GameObject.FindWithTag("slideJam");
+        lightManager = GameObject.FindWithTag("lightmanager");
+        curtains = GameObject.FindWithTag("Curtains");
+        stats = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
+    }
     
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
+        
         if(timer < 17){
             timer += Time.deltaTime;
             transform.position = new Vector3(transform.position.x, transform.position.y + (rate * Time.deltaTime), transform.position.z);
+            curtains.transform.position = new Vector3(curtains.transform.position.x, curtains.transform.position.y + (curtainsOffset * rate * Time.deltaTime), curtains.transform.position.z);
             this.transform.Rotate(0, SpinSpeed * Time.deltaTime, 0);
         }
         if(timer > 17){
@@ -36,14 +47,18 @@ public class scorbappear : MonoBehaviour
                 GetComponent<Rigidbody>().isKinematic=(false);
                 this.gameObject.layer = 13;
                 gate2 = false;
+                Destroy(curtains);
+                stats.crowdBlocker = false;
+                lightManager.GetComponent<lightController>().lightSwap();
+                slideJam.GetComponent<jamSlide>().movespeedSet();
             }
         }
         if(timer > 65){
-            //if(gate){
+            if(gate){
                 foreach(Transform t in scorbSpawns){
                     Instantiate(scorbs, t.transform.position, Quaternion.identity);
-              //  } 
-              //  gate = false;
+                } 
+                gate = false;
             }
         }
         

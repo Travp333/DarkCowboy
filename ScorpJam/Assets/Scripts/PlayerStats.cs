@@ -29,6 +29,8 @@ public class PlayerStats : MonoBehaviour
     public bool inSafeZone;
     [SerializeField]
     GameObject gun;
+    [SerializeField]
+    public bool crowdBlocker = true;
     //private void Update() {
         //Debug.Log(trickOrTreated);
     //}

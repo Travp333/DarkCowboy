@@ -35,18 +35,14 @@ public class Explode : MonoBehaviour
                 }
                 else{
                     if (rb != null){
-                        if (rb.gameObject.tag == "Explosive"){
-                            otherExplosive = rb.gameObject.GetComponent<Shatter>();
-                            otherExplosive.oneShot(otherExplosiveTime);
-                        }
+                        //if (rb.gameObject.tag == "Explosive"){
+                          //  otherExplosive = rb.gameObject.GetComponent<Shatter>();
+                           // otherExplosive.oneShot(otherExplosiveTime);
+                       // }
                     rb.AddExplosionForce(power, explosionPos, radius, upModifier);
                     }
                 }
         }
     }
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
