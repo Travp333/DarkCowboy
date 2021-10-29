@@ -7,6 +7,10 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     public bool hasGun;
     [SerializeField]
+    public bool hasColdShoe;
+    [SerializeField]
+    public bool hasJumpBoost;
+    [SerializeField]
     public AudioSource track1;
     [SerializeField]
     public AudioSource track2;
