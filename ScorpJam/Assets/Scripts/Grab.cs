@@ -1403,7 +1403,7 @@ public class Grab : MonoBehaviour
         stats.track3.Stop();
         transform.root.transform.position = MarketTPPoint.position;
         //pause cowboy
-        if(GameObject.FindWithTag("DARKCOWBOY").gameObject.GetComponent<followPlayer>().isDead){
+        if (GameObject.FindWithTag("DARKCOWBOY").gameObject.GetComponent<followPlayer>().isDead == false){
             GameObject.FindWithTag("DARKCOWBOY").gameObject.GetComponent<followPlayer>().pauseAI();
             //move him to default postion
             GameObject.FindWithTag("DARKCOWBOY").transform.position = GameObject.FindWithTag("DARKCOWBOY").GetComponent<followPlayer>().safeSpace.transform.position;
@@ -1505,11 +1505,15 @@ public class Grab : MonoBehaviour
                             teleportToStreet();
                         }
                     }
-                    //removing this so that i can focus on making the dialogue be the event that changes the currency rather than the raycast
-                    // if(hit.transform.gameObject.GetComponent<Shop>() != null){
-                    // currencyInteraction(hit);
-                    //}
-                    if (hit.transform.gameObject.GetComponent<ShopNPC>() != null)
+                    if (hit.transform.gameObject.GetComponent<Bank>() != null) {
+                        dialogueManager.ToggleBankMenu();
+                    }
+
+                        //removing this so that i can focus on making the dialogue be the event that changes the currency rather than the raycast
+                        // if(hit.transform.gameObject.GetComponent<Shop>() != null){
+                        // currencyInteraction(hit);
+                        //}
+                        if (hit.transform.gameObject.GetComponent<ShopNPC>() != null)
                     {
                         shopNPC = hit.transform.gameObject.GetComponent<ShopNPC>();
                         shopNPC.TriggerVendor();

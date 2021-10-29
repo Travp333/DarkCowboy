@@ -11,15 +11,18 @@ public class DialogueManager : MonoBehaviour
     public PlayerStats stats;
     [SerializeField]
     public SimpleCameraMovement camMovement;
+    [SerializeField]
+    public MovementSpeedController speedControl;
     public Text nameText;
     public Text dialogueText;
     public GameObject textLayer;
-    public bool NPCisTalking, ShopisOpen;
-   
+    public bool NPCisTalking, ShopisOpen, BankisOpen;
+    [SerializeField]
+    public string coldShoeName, jumpboostName;
 
     public GameObject itemSlotPrefab = default;
 
-    public GameObject shopLayer, shopMenu,errorLayer, inventoryUI;
+    public GameObject shopLayer, shopMenu,errorLayer, inventoryUI, bankLayer;
 
     public Texture[] coins;
 
@@ -29,6 +32,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<Item> shopInventory;
     float errorTime = 2f;
     float timer;
+    public ShopNPC currentNPC;
     
     void Start()
     {
@@ -37,7 +41,8 @@ public class DialogueManager : MonoBehaviour
         textLayer.SetActive(false);
         shopLayer.SetActive(false);
         errorLayer.SetActive(false);
-        inventoryUI.SetActive(false);
+        inventoryUI.SetActive(true);
+        bankLayer.SetActive(false);
         timer = 0f;
 
     }
@@ -62,7 +67,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
         
-        camMovement.cameraRotLock = NPCisTalking||ShopisOpen;
+        camMovement.cameraRotLock = NPCisTalking||ShopisOpen||BankisOpen;
         if (camMovement.cameraRotLock)
         {
             player.blockMovement();
@@ -196,17 +201,22 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartVendor(ShopItems shopItems)
+    public void StartVendor(ShopNPC shopNPC)
     {
+        currentNPC = shopNPC;
         shopLayer.SetActive(true);
-        inventoryUI.SetActive(true);
+        //inventoryUI.SetActive(true);
         camMovement.cameraRotLock = true;
         shopInventory.Clear();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
-        foreach (Item item in shopItems.inventory)
+        foreach (Item item in shopNPC.shopItems.inventory)
         {
-            shopInventory.Enqueue(item);
+            if (    !   ((stats.hasColdShoe && (item.name == coldShoeName)) || (stats.hasJumpBoost && (item.name == jumpboostName)))    )
+
+            {
+                shopInventory.Enqueue(item);
+            }
         }
         int ct = shopInventory.Count;
         if(!ShopisOpen)
@@ -267,12 +277,12 @@ public class DialogueManager : MonoBehaviour
 
         currentElement = itemSlot.transform.GetChild(4).gameObject;
         Button buy = currentElement.GetComponent<Button>();
-        buy.onClick.AddListener(delegate{Trade(item);});
-
         
-
-
-
+            buy.onClick.AddListener(delegate {Trade(item);
+                {
+                    buy.gameObject.SetActive(false);
+                }
+            });
     }
 
     public void CloseShopMenu() {
@@ -284,7 +294,7 @@ public class DialogueManager : MonoBehaviour
         shopLayer.SetActive(false);
         
         ShopisOpen = false;
-        inventoryUI.SetActive(false);
+        //inventoryUI.SetActive(false);
         
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -307,7 +317,7 @@ public class DialogueManager : MonoBehaviour
 
         if ((int)getItem.ItemType < 8)//if the item is a coin
         {
-            if (playerCoins[(int)getItem.costCoin] > getItem.cost)
+            if (playerCoins[(int)getItem.costCoin] >= getItem.cost)
             {
                 playerCoins[(int)getItem.costCoin] -= getItem.cost; //subtract from inventory
                 playerCoins[(int)getItem.ItemType] += getItem.quantity;
@@ -321,20 +331,34 @@ public class DialogueManager : MonoBehaviour
             //special cases for items
             if (playerCoins[(int)getItem.costCoin] >= getItem.cost)
             {
-                if (getItem.name.Equals("Burger(11hp)"))
+                if (getItem.name == "Burger(11hp)")
                 {
 
-                    if (stats.hp <= stats.maxHp)
+                    if (stats.hp < stats.maxHp)
                     {
                         stats.hp += 11;
                         playerCoins[(int)getItem.costCoin] -= getItem.cost;
 
                     }
-                    else { CantDoThat(); }
+                    else {
+                        stats.hp = stats.maxHp;
+                        CantDoThat(); }
                 }
                 if (getItem.name == "GUN")
                 {
                     stats.hasGun = true;
+                }
+                if (getItem.name == jumpboostName) {
+                    stats.hasJumpBoost = true;
+                    player.maxAirJumps++;
+                    
+
+                }
+                if (getItem.name == coldShoeName) {
+                    stats.hasColdShoe = true;
+                    speedControl.baseSpeed *= 1.5f;
+                    speedControl.sprintSpeed *= 1.5f;
+                    
                 }
 
             }
@@ -357,6 +381,23 @@ public class DialogueManager : MonoBehaviour
         
         errorLayer.SetActive(true);
         Debug.Log("cantdothat");
+    }
+    public void ToggleBankMenu() {
+        if (BankisOpen) {
+            bankLayer.SetActive(false);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            BankisOpen = false;
+            return;
+        }
+        if (!BankisOpen) {
+            bankLayer.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+            BankisOpen = true;
+            return;
+        }
+        
     }
 }
 

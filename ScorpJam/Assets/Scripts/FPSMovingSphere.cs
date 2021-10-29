@@ -53,7 +53,7 @@ public class FPSMovingSphere : MonoBehaviour {
 
 	[SerializeField, Range(0, 5)]
 	[Tooltip("controls the amount of jumps you can do while in the air")]
-	int maxAirJumps = 1;
+	public int maxAirJumps = 1;
 
 	[SerializeField]
 	LayerMask probeMask = -1, stairsMask = -1, climbMask = -1, waterMask = 0;

@@ -307,7 +307,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 196.19, y: 32.2}
+  m_SizeDelta: {x: 196.19, y: 88.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3447201081896171177
 CanvasRenderer:
@@ -339,18 +339,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7a744464177b17945a83e77b87e70d5e, type: 3}
-    m_FontSize: 20
+    m_FontSize: 22
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SillyOldMan
+  m_Text: so anyway i went through and deleted everybody on my phone, how do I call
+    me back! Nobody call ME BACK! so anyway i object to them on moral grounds.
 --- !u!1 &3447201082025270279
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,7 +607,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 19.580017, y: 41.1}
+  m_SizeDelta: {x: 43.74, y: 41.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3447201083135921588
 CanvasRenderer:
@@ -643,7 +644,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 44
-    m_Alignment: 0
+    m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

@@ -10,7 +10,7 @@ public class ShopNPC : MonoBehaviour
 
     public void TriggerVendor()
     {
-        FindObjectOfType<DialogueManager>().StartVendor(shopItems);
+        FindObjectOfType<DialogueManager>().StartVendor(this);
         Debug.Log("Vendor Trigger");
         
     }

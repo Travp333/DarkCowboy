@@ -7,6 +7,7 @@ public class InventoryUI : MonoBehaviour
 {
     [SerializeField]
     PlayerStats stats;
+
     [SerializeField]
     public GameObject[] values;//ui elements
     int[] vals;
