@@ -2461,7 +2461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 50
-  power: 2500
+  power: 1000
   upModifier: 2
   isBomb: 1
   otherExplosiveTime: 1

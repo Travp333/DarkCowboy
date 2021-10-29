@@ -10,7 +10,6 @@ Material:
   m_Name: Normal Shader Belt
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: VIGNETTE_MASKED _GLOSSYREFLECTIONS_OFF _METALLICGLOSSMAP _NORMALMAP
-    _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -891,7 +890,7 @@ Material:
     - _GlitterTextureRotationAnimated: 0
     - _GlitterUseSurfaceColor: 0
     - _GlitterUseSurfaceColorAnimated: 0
-    - _GlossMapScale: 0.491
+    - _GlossMapScale: 0.165
     - _Glossiness: 0.5
     - _GlossyReflections: 0
     - _GrabBlurDirectionsAnimated: 0
@@ -1345,7 +1344,7 @@ Material:
     - _SmoothnessMaskPanAnimated: 0
     - _SmoothnessMaskUV: 0
     - _SmoothnessMaskUVAnimated: 0
-    - _SmoothnessTextureChannel: 1
+    - _SmoothnessTextureChannel: 0
     - _SpawnInAlphaAnimated: 0
     - _SpawnInEmissionColorAnimated: 0
     - _SpawnInEmissionOffsetAnimated: 0
@@ -1731,7 +1730,7 @@ Material:
     - _ClearCoatMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _ClearCoatSmoothnessMapPan: {r: 0, g: 0, b: 0, a: 0}
     - _ClearCoatTint: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DecalColor: {r: 1, g: 1, b: 1, a: 1}
     - _DecalMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _DecalPosition: {r: 0.5, g: 0.5, b: 0, a: 0}

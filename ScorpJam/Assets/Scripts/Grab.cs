@@ -1403,13 +1403,12 @@ public class Grab : MonoBehaviour
         stats.track3.Stop();
         transform.root.transform.position = MarketTPPoint.position;
         //pause cowboy
-        if(!GameObject.FindWithTag("DARKCOWBOY").gameObject.GetComponent<followPlayer>().isDead){
-            GameObject.FindWithTag("DARKCOWBOY").gameObject.GetComponent<followPlayer>().pauseAI();
-            //move him to default postion
-            GameObject.FindWithTag("DARKCOWBOY").transform.position = GameObject.FindWithTag("DARKCOWBOY").GetComponent<followPlayer>().safeSpace.transform.position;
-            //reset his phase
-            GameObject.FindWithTag("DARKCOWBOY").gameObject.GetComponent<followPlayer>().resetPhase();
-        }
+        GameObject cowboy = GameObject.FindWithTag("DARKCOWBOY");
+        cowboy.gameObject.GetComponent<followPlayer>().pauseAI();
+        //move him to default postion
+        cowboy.transform.position = cowboy.GetComponent<followPlayer>().safeSpace.transform.position;
+        //reset his phase
+        cowboy.gameObject.GetComponent<followPlayer>().resetPhase();
         stats.location = true;
         GameObject.FindWithTag("Bank").gameObject.GetComponent<Bank>().switchCoin();
     }
@@ -1537,15 +1536,14 @@ public class Grab : MonoBehaviour
                             if(player.dancing == false && player.moveBlocked == false){
                                 if(hit.transform.gameObject.GetComponent<objectSize>().isLarge && !hit.transform.gameObject.GetComponent<objectSize>().isMedium && !hit.transform.gameObject.GetComponent<objectSize>().isSmall){
                                     SmallMediumLarge = "LARGE";
-                                    speedController.setFactor(0.2f);
+                                    //this is where i could use "factor" if i wanted
                                 }
                                 if(hit.transform.gameObject.GetComponent<objectSize>().isMedium && !hit.transform.gameObject.GetComponent<objectSize>().isLarge && !hit.transform.gameObject.GetComponent<objectSize>().isSmall){
                                     SmallMediumLarge = "MEDIUM";
-                                    speedController.setFactor(0.5f);
                                 }
                                 if(hit.transform.gameObject.GetComponent<objectSize>().isSmall && !hit.transform.gameObject.GetComponent<objectSize>().isLarge && !hit.transform.gameObject.GetComponent<objectSize>().isMedium){
                                     SmallMediumLarge = "SMALL";
-                                    
+                                
                                 }                        
                                 //disable dynamic bones
                                 bone.toggle(true);
