@@ -9495,7 +9495,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7197834583306505053, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
   m_PrefabInstance: {fileID: 947569888}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1552938782}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87026f1e9324c624baaf3b0c2aff2541, type: 3}
@@ -9506,7 +9506,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8481454172899552393, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
   m_PrefabInstance: {fileID: 947569888}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1552938782}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4bb13283de7dca45ae44834f2b50baa, type: 3}
@@ -9517,7 +9517,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7197834583306505051, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
   m_PrefabInstance: {fileID: 947569888}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1552938782}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6aea7bba569602849ae08bb9a27b3a0f, type: 3}
@@ -17134,17 +17134,23 @@ MonoBehaviour:
   player: {fileID: 725505573}
   stats: {fileID: 725505572}
   camMovement: {fileID: 725505570}
+  speedControl: {fileID: 0}
   nameText: {fileID: 1262756182}
   dialogueText: {fileID: 820163329}
   textLayer: {fileID: 1525617140}
   NPCisTalking: 0
   ShopisOpen: 0
+  BankisOpen: 0
+  coldShoeName: 
+  jumpboostName: 
   itemSlotPrefab: {fileID: 0}
   shopLayer: {fileID: 0}
   shopMenu: {fileID: 0}
   errorLayer: {fileID: 0}
   inventoryUI: {fileID: 0}
+  bankLayer: {fileID: 0}
   coins: []
+  currentNPC: {fileID: 0}
 --- !u!114 &1365637084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17159,7 +17165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 0}
   pauseMenu: {fileID: 1504741330}
-  player: {fileID: 0}
+  player: {fileID: 1552938782}
   mixer: {fileID: 24100000, guid: 0dbf3beb2375f7d41bbb7840bb835b57, type: 2}
   slider: {fileID: 0}
 --- !u!114 &1365637085
@@ -19500,6 +19506,11 @@ MeshFilter:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3884516301073855211, guid: f4381a716b5889d469966020f672ec0c, type: 3}
   m_PrefabInstance: {fileID: 675402065}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1552938782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7197834583306505045, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
+  m_PrefabInstance: {fileID: 947569888}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1557009123
 GameObject:
