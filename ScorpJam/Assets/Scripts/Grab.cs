@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Grab : MonoBehaviour
 {
+    [SerializeField]
+    GameObject bossphaseUI;
+    [SerializeField]
+	GameObject wakeCowboy;
     MovementSpeedController speedController;
     //renda.material.Lerp(renda.material, shadow, .5f);
     Material mat;
@@ -77,6 +81,12 @@ public class Grab : MonoBehaviour
     Transform StreetTPPoint;
     [SerializeField]
     GameObject[] treators;
+    [SerializeField]
+    GameObject firstTimeMarketCowboy;
+    [SerializeField]
+    GameObject normalMarketCowboy;
+    [SerializeField]
+    GameObject cowboy;
     void Start() {
         stats = transform.root.GetComponent<PlayerStats>();
         throwingTemp = throwingforce;
@@ -97,10 +107,10 @@ public class Grab : MonoBehaviour
 
     void fullDetach(){
         if( SmallMediumLarge == "MEDIUM"){
-            speedController.setFactor(2f);
+            //speedController.setFactor(2f);
         }
         else if (SmallMediumLarge == "LARGE"){
-            speedController.setFactor(5f);
+            //speedController.setFactor(5f);
         }
         SmallMediumLarge = "NULL";
     
@@ -145,10 +155,10 @@ public class Grab : MonoBehaviour
     public void detach(){
         
         if( SmallMediumLarge == "MEDIUM"){
-            speedController.setFactor(2f);
+            //speedController.setFactor(2f);
         }
         else if (SmallMediumLarge == "LARGE"){
-            speedController.setFactor(5f);
+            //speedController.setFactor(5f);
         }
         SmallMediumLarge = "NULL";
     
@@ -1268,48 +1278,56 @@ public class Grab : MonoBehaviour
                     GameObject.FindWithTag("CoinsCam").transform.GetChild(0).gameObject.SetActive(true);
                     Invoke("resetCoinCamA", 5f);
                     stats.coinA = stats.coinA + range2;
+                    stats.playgetCoin();
             }
             else if(range == 2){
                     GameObject.FindWithTag("CoinsCam").transform.GetChild(1).gameObject.SetActive(true);
                     Invoke("resetCoinCamB", 5f);
                     //Debug.Log("got" + range2 + " coin B");
                     stats.coinB = stats.coinB + range2;
+                    stats.playgetCoin();
             }
             else if(range == 3){
                     GameObject.FindWithTag("CoinsCam").transform.GetChild(2).gameObject.SetActive(true);
                     Invoke("resetCoinCamC", 5f);
                     //Debug.Log("got" + range2 + " coin C");
                     stats.coinC = stats.coinC + range2;
+                    stats.playgetCoin();
             }
             else if(range == 4){
                     GameObject.FindWithTag("CoinsCam").transform.GetChild(3).gameObject.SetActive(true);
                     Invoke("resetCoinCamD", 5f);
                     //Debug.Log("got" + range2 + " coin D");
                     stats.coinD = stats.coinD + range2;
+                    stats.playgetCoin();
             }
             else if(range == 5){
                     GameObject.FindWithTag("CoinsCam").transform.GetChild(4).gameObject.SetActive(true);
                     Invoke("resetCoinCamE", 5f);
                     //Debug.Log("got" + range2 + " coin E");
                     stats.coinE = stats.coinE + range2;
+                    stats.playgetCoin();
             }
             else if(range == 6){
                     GameObject.FindWithTag("CoinsCam").transform.GetChild(5).gameObject.SetActive(true);
                     Invoke("resetCoinCamF", 5f);
                     //Debug.Log("got" + range2 + " coin F");
                     stats.coinF = stats.coinF + range2;
+                    stats.playgetCoin();
             }
             else if(range == 7){
                     GameObject.FindWithTag("CoinsCam").transform.GetChild(6).gameObject.SetActive(true);
                     Invoke("resetCoinCamG", 5f);
                     //Debug.Log("got" + range2 + " coin G");
                     stats.coinG = stats.coinG + range2;
+                    stats.playWetFood();
             }
             else if(range == 8){
                     GameObject.FindWithTag("CoinsCam").transform.GetChild(7).gameObject.SetActive(true);
                     Invoke("resetCoinCamH", 5f);
                     //Debug.Log("got" + range2 + " coin H");
                     stats.coinH = stats.coinH + range2;
+                    stats.playgetCoin();
             }
         } 
 }
@@ -1396,14 +1414,14 @@ public class Grab : MonoBehaviour
         }
     }
 
-
-    public void teleportToMarket(){
+    public void teleportToMarket(bool firstTimeatMarket){
+        firstTimeMarketCowboy.gameObject.SetActive(true);
+        normalMarketCowboy.gameObject.SetActive(false);
         stats.track1.Stop();
         stats.track2.Play();
         stats.track3.Stop();
         transform.root.transform.position = MarketTPPoint.position;
         //pause cowboy
-        GameObject cowboy = GameObject.FindWithTag("DARKCOWBOY");
         cowboy.gameObject.GetComponent<followPlayer>().pauseAI();
         //move him to default postion
         cowboy.transform.position = cowboy.GetComponent<followPlayer>().safeSpace.transform.position;
@@ -1412,7 +1430,30 @@ public class Grab : MonoBehaviour
         stats.location = true;
         GameObject.FindWithTag("Bank").gameObject.GetComponent<Bank>().switchCoin();
     }
+
+    public void teleportToMarket(){
+        bossphaseUI.SetActive(false);
+        firstTimeMarketCowboy.gameObject.SetActive(false);
+        normalMarketCowboy.gameObject.SetActive(true);
+        stats.track1.Stop();
+        stats.track2.Play();
+        stats.track3.Stop();
+        transform.root.transform.position = MarketTPPoint.position;
+        //pause cowboy
+
+        cowboy.gameObject.GetComponent<followPlayer>().disableNavAgent();
+        //move him to default postion
+        cowboy.transform.position = cowboy.GetComponent<followPlayer>().safeSpace.transform.position;
+        //reset his phase
+        cowboy.gameObject.GetComponent<followPlayer>().resetPhase();
+        stats.location = true;
+        GameObject.FindWithTag("Bank").gameObject.GetComponent<Bank>().switchCoin();
+    }
     public void teleportToStreet(){
+        bossphaseUI.SetActive(true);
+        stats.trickOrTreated = 0;
+        wakeCowboy.gameObject.GetComponent<wakeCowboy>().gate = true;
+        stats.cowboyVolumes.gameObject.SetActive(true);
         stats.track2.Stop();
         stats.track3.Play();
         stats.blocker.gameObject.SetActive(false);
@@ -1435,20 +1476,22 @@ public class Grab : MonoBehaviour
         stats.coinG = 0;
         stats.coinH = 0;
         //unpausing the cowboy
-        GameObject.FindWithTag("DARKCOWBOY").gameObject.GetComponent<followPlayer>().resumeAI();
+        cowboy.transform.position = cowboy.GetComponent<followPlayer>().safeSpace.transform.position;
+        cowboy.GetComponent<followPlayer>().enableNavAgent();
+        
     }
 
     //(Physics.Raycast(origin.transform.position, (dummy.position - origin.transform.position), out hit, distance, mask)
     void Update()
     {
         
-        if(Input.GetKeyDown("y")){
-            range = Random.Range(0, 8);
-            coinCam.GetComponent<coinsToggle>().toggleCoin(range, true);
-        }
-        if(Input.GetKeyUp("y")){
-            coinCam.GetComponent<coinsToggle>().toggleCoin(range, false);
-        }
+        //if(Input.GetKeyDown("y")){
+        //    range = Random.Range(0, 8);
+        //    coinCam.GetComponent<coinsToggle>().toggleCoin(range, true);
+       // }
+       // if(Input.GetKeyUp("y")){
+       //     coinCam.GetComponent<coinsToggle>().toggleCoin(range, false);
+       // }
 //this was firing infinitely, im trying a different approach
        // if (NPC) {
        //     float distanceToNPC = (this.transform.position - NPC.transform.position).magnitude;
@@ -1468,6 +1511,7 @@ public class Grab : MonoBehaviour
         {
             if(stats.hasGun){
                 stats.dropGun();
+                return;
             }
             // if you are not holding anything
             if(!isHolding){
@@ -1492,10 +1536,10 @@ public class Grab : MonoBehaviour
                         Destroy(hit.transform.gameObject);
                         return;
                     }
-                    if(hit.transform.gameObject.tag == "buttons"){
-                        Debug.Log("PRESSY");
-                        hit.transform.gameObject.GetComponent<pressy>().interact();
-                    }
+                    //if(hit.transform.gameObject.tag == "buttons"){
+                    //    Debug.Log("PRESSY");
+                    //    hit.transform.gameObject.GetComponent<pressy>().interact();
+                    //}
                     if(hit.transform.gameObject.GetComponent<Exit>() != null){
                         if(hit.transform.gameObject.GetComponent<Exit>().direction){
                             teleportToMarket();
@@ -1515,6 +1559,9 @@ public class Grab : MonoBehaviour
                         Debug.Log("foundshop");
                         
                     }
+                    if(hit.transform.gameObject.GetComponent<Bank>() != null){
+                        dialogueManager.ToggleBankMenu();
+                    }
                     if (hit.transform.gameObject.GetComponent<DialogueNPC>() != null)
                     {
                         if(hit.transform.gameObject.GetComponent<Shop>() != null && hit.transform.gameObject.GetComponent<Shop>().beenTreated == false || hit.transform.gameObject.GetComponent<Shop>() == null){
@@ -1523,6 +1570,7 @@ public class Grab : MonoBehaviour
                             return;
                         }
                         else if(hit.transform.gameObject.GetComponent<Shop>() != null && hit.transform.gameObject.GetComponent<Shop>().beenTreated == true){
+
                             Debug.Log("This treater already gave you a treat!");
                         }
 

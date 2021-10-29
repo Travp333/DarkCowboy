@@ -71,9 +71,11 @@ public class DialogueManager : MonoBehaviour
         if (camMovement.cameraRotLock)
         {
             player.blockMovement();
+            player.transform.GetChild(0).GetChild(0).GetChild(1).gameObject.GetComponent<HandAnim>().setUIblocked(true);
         }
         else {
             player.unblockMovement();
+            player.transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<HandAnim>().setUIblocked(false);
         }
 
 
@@ -166,10 +168,14 @@ public class DialogueManager : MonoBehaviour
                 }
             }
         }
+        else if(shop.firstCowboyEncounter){
+            NPCisTalking = false;
+            textLayer.SetActive(false);
+            grab.teleportToMarket(true);
+            Destroy(shop.gameObject);
+        }
         NPCisTalking = false;
         textLayer.SetActive(false);
-        
-        
         Debug.Log("dialogue set to true");
 
     }
@@ -336,6 +342,9 @@ public class DialogueManager : MonoBehaviour
 
                     if (stats.hp < stats.maxHp)
                     {
+                        if(stats.hp + 11 > stats.maxHp){
+                            stats.hp = 100;
+                        }
                         stats.hp += 11;
                         playerCoins[(int)getItem.costCoin] -= getItem.cost;
 

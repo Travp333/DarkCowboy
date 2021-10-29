@@ -5,6 +5,12 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {  
     [SerializeField]
+    AudioSource coinGet;
+    [SerializeField]
+    AudioSource wetFood;
+    [SerializeField]
+    public GameObject cowboyVolumes;
+    [SerializeField]
     public bool hasGun;
     [SerializeField]
     public bool hasColdShoe;
@@ -37,7 +43,13 @@ public class PlayerStats : MonoBehaviour
     public bool crowdBlocker = true;
     //private void Update() {
         //Debug.Log(trickOrTreated);
-    //}
+    //}]
+    public void playgetCoin(){
+        coinGet.Play();
+    }
+    public void playWetFood(){
+        wetFood.Play();
+    }
     public void dropGun(){
         hasGun = false;
         GameObject var;

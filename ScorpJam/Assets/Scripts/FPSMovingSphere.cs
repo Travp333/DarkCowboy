@@ -1,5 +1,7 @@
 using UnityEngine;
 public class FPSMovingSphere : MonoBehaviour { 
+
+
 	Grab grab;
 	[SerializeField]
 	[Tooltip("How strong the force pushing you into the wall is while climbing")]
@@ -464,15 +466,15 @@ public class FPSMovingSphere : MonoBehaviour {
 	}
 
 	public void hungerDive(){
-		if(!OnGround && Diving &&!ClimbingADJ){
-			PreventSnapToGround();
-			jumpDirection = contactNormal + transform.forward * 3f;
-			body.velocity = new Vector3( 0f, 0f, 0f);
+	//	if(!OnGround && Diving &&!ClimbingADJ){
+	//		PreventSnapToGround();
+	//		jumpDirection = contactNormal + transform.forward * 3f;
+	//		body.velocity = new Vector3( 0f, 0f, 0f);
 			//body.velocity += new Vector3( 0f, -body.velocity.y, 0f);
-			body.velocity += (jumpDirection.normalized * 6f) + (-CustomGravity.GetGravity(body.position, out upAxis).normalized * 7f);
-			skip = false;
+	//		body.velocity += (jumpDirection.normalized * 6f) + (-CustomGravity.GetGravity(body.position, out upAxis).normalized * 7f);
+	//		skip = false;
 		}
-	}
+	//}
 	
 	void Jump(Vector3 gravity) {
 			if (submergence < 1){
@@ -481,8 +483,8 @@ public class FPSMovingSphere : MonoBehaviour {
 			if(divingPrep && OnGround && !ClimbingADJ){
 				Diving = true;
 				PreventSnapToGround();
-				jumpDirection = contactNormal + transform.forward * 3f;
-				velocity += (jumpDirection.normalized * 25f) + (contactNormal * 2);
+				jumpDirection = contactNormal + transform.forward;
+				velocity += (jumpDirection.normalized) + (contactNormal * 2);
 				skip = false;
 				diveGate = true;
 				Invoke("resetDiveGate", .5f);

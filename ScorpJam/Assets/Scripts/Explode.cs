@@ -13,8 +13,8 @@ public class Explode : MonoBehaviour
     float upModifier;
     [SerializeField]
     bool isBomb;
-    [SerializeField]
-    float otherExplosiveTime = 1f;
+    //[SerializeField]
+    //float otherExplosiveTime = 1f;
     Shatter otherExplosive;
     // Start is called before the first frame update
     void Start()

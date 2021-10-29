@@ -5,6 +5,8 @@ using UnityEngine;
 public class Shop : MonoBehaviour
 {
     [SerializeField]
+    public bool firstCowboyEncounter;
+    [SerializeField]
     [Tooltip("True = treatee, false = trader")]
     bool treateeOrTrader;
     [SerializeField]

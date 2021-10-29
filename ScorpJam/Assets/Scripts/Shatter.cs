@@ -18,13 +18,13 @@ public class Shatter : MonoBehaviour
     float breakSpeed = 40f;
     GameObject player;
 
-    void OnCollisionEnter(Collision other) {
+   // void OnCollisionEnter(Collision other) {
         // does this object have a ridigbody? is the object colliding with another object past the breaking speed? if so, break it. dont let that object be a player. that colliding objects mass must be greater than or equal to the current obejcts mass
         //consider doing better calculations here, ie dot product of collision normal and collision velocity(relative velocity of both bodies) times the mass of the other collider
-        if (((other.gameObject.GetComponent<Rigidbody>() != null) && other.gameObject.GetComponent<Rigidbody>().velocity.magnitude > breakSpeed) || this.gameObject.GetComponent<Rigidbody>().velocity.magnitude > breakSpeed && other.gameObject.tag != "Player" && other.gameObject.GetComponent<Rigidbody>().mass >= this.gameObject.GetComponent<Rigidbody>().mass){
-            oneShot(0);
-        }
-    }
+        //if (((other.gameObject.GetComponent<Rigidbody>() != null) && other.gameObject.GetComponent<Rigidbody>().velocity.magnitude > breakSpeed) || this.gameObject.GetComponent<Rigidbody>().velocity.magnitude > breakSpeed && other.gameObject.tag != "Player" && other.gameObject.GetComponent<Rigidbody>().mass >= this.gameObject.GetComponent<Rigidbody>().mass){
+           // oneShot(0);
+        //}
+    //}
     void Start() {
         color = GetComponent<Renderer>();
     }
@@ -36,6 +36,7 @@ public class Shatter : MonoBehaviour
         }
     }
     public void takeDamage(){
+        Debug.Log("OW");
         if (Damagestate < hitPoints){
             foreach(Material m in color.materials ){
                 m.SetColor("_EmissionColor", Color.grey * darken);

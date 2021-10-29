@@ -21,7 +21,8 @@ public class Bank : MonoBehaviour
 
     public void switchCoin(){
         
-        S = (Shop.coinType)Random.Range(0, System.Enum.GetValues(typeof(Shop.coinType)).Length);
+        //I Added a -1 because it was including ITEM as well
+        S = (Shop.coinType)Random.Range(0, System.Enum.GetValues(typeof(Shop.coinType)).Length - 1);
         coinIcon.texture = dialogueManager.CurrencyEnumtoTexture(S);
     }
     public void deposit(){

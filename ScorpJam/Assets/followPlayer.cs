@@ -54,6 +54,7 @@ public class followPlayer : MonoBehaviour
     
     Vector3 destination;
     Vector3 backup;
+    bool isBlocked;
     private float elapsed = 0.0f;
 
     [SerializeField]
@@ -136,6 +137,13 @@ public class followPlayer : MonoBehaviour
             timer = 0f;
             playRandomPainNoise();
         }
+    }
+
+    public void disableNavAgent(){
+        isDead = true;
+    }
+    public void enableNavAgent(){
+        isDead = false;
     }
 
     void InstantiateScorb(){

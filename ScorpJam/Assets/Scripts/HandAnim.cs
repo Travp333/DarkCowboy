@@ -43,7 +43,12 @@ public class HandAnim : MonoBehaviour
     float Groundstopwatch = 0;
     bool JumpPressed;
     Grab grab;
+
+    bool UIblocked;
     // Start is called before the first frame update
+    public void setUIblocked(bool plug){
+        UIblocked = plug;
+    }
     public bool getisThrowing(){
         return animator.GetBool("isThrowing");
     }
@@ -133,6 +138,7 @@ public class HandAnim : MonoBehaviour
             }
             if(hit.transform.gameObject.tag == "DARKCOWBOY"){
                 cowboy.GetComponent<followPlayer>().takeDamage(10);
+                player.gameObject.GetComponent<PlayerStats>().dropGun();
             }
             else if(hit.transform.gameObject.GetComponent<Rigidbody>() != null){
                     hit.transform.gameObject.GetComponent<Rigidbody>().AddForce((hit.transform.position - transform.position).normalized * 100, ForceMode.Impulse);
@@ -217,7 +223,7 @@ public class HandAnim : MonoBehaviour
             }
         }
         if ( Input.GetKeyDown("mouse 0") ){
-            if(blocker && !grab.isHolding && !player.gameObject.GetComponent<PlayerStats>().hasGun){
+            if(blocker && !grab.isHolding && !player.gameObject.GetComponent<PlayerStats>().hasGun && !UIblocked){
                 if(flipflop){
                     Invoke("waveStartL", .1f);
                 }
