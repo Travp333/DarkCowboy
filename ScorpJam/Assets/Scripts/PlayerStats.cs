@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {  
     [SerializeField]
+    AudioSource[] coinss;
+    [SerializeField]
     AudioSource joined;
     [SerializeField]
     AudioSource coinGet;
@@ -59,6 +61,19 @@ public class PlayerStats : MonoBehaviour
     }
     public void playWetFood(){
         wetFood.Play();
+    }
+    public void playLoudo(){
+        coinss[0].Play();
+    }
+    public void playHallo(){
+        coinss[2].Play();
+    }
+    public void glassBreak(){
+        coinss[1].Play();
+        
+    }
+    public void nightmares(){
+        coinss[3].Play();
     }
     public void dropGun(){
         hasGun = false;

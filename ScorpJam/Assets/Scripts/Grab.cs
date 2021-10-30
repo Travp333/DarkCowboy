@@ -1290,28 +1290,29 @@ public class Grab : MonoBehaviour
                     Invoke("resetCoinCamB", 5f);
                     //Debug.Log("got" + range2 + " coin B");
                     stats.coinB = stats.coinB + range2;
-                    stats.playgetCoin();
+                    stats.nightmares();
             }
             else if(range == 3){
                     GameObject.FindWithTag("CoinsCam").transform.GetChild(2).gameObject.SetActive(true);
                     Invoke("resetCoinCamC", 5f);
                     //Debug.Log("got" + range2 + " coin C");
                     stats.coinC = stats.coinC + range2;
-                    stats.playgetCoin();
+                    stats.playLoudo();
             }
             else if(range == 4){
                     GameObject.FindWithTag("CoinsCam").transform.GetChild(3).gameObject.SetActive(true);
                     Invoke("resetCoinCamD", 5f);
                     //Debug.Log("got" + range2 + " coin D");
                     stats.coinD = stats.coinD + range2;
-                    stats.playgetCoin();
+                    stats.glassBreak();
             }
             else if(range == 5){
                     GameObject.FindWithTag("CoinsCam").transform.GetChild(4).gameObject.SetActive(true);
                     Invoke("resetCoinCamE", 5f);
                     //Debug.Log("got" + range2 + " coin E");
                     stats.coinE = stats.coinE + range2;
-                    stats.playgetCoin();
+                    
+                    stats.playHallo();
             }
             else if(range == 6){
                     GameObject.FindWithTag("CoinsCam").transform.GetChild(5).gameObject.SetActive(true);
