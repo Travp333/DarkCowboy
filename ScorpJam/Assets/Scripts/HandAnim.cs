@@ -154,7 +154,7 @@ public class HandAnim : MonoBehaviour
             Debug.Log("hit something");
             Instantiate(impact, hit.point, Quaternion.identity);
             Debug.DrawRay(gun.transform.GetChild(0).transform.position, -this.transform.forward * 500, Color.green, 5f);
-            if(hit.transform.gameObject.tag == "Breakable" || hit.transform.gameObject.tag == "Explosive" ){
+            if(hit.transform.gameObject.tag == "Explosive" ){
                 hit.transform.gameObject.GetComponent<Shatter>().oneShot(0);
             }
             if(hit.transform.gameObject.tag == "DARKCOWBOY"){
