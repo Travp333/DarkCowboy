@@ -170,7 +170,7 @@ public class HandAnim : MonoBehaviour
     }
 
     void resetHoldingHat(){
-        animator.SetBool("holdingHat", true);
+        animator.SetBool("holdingHat", false);
     }
 
     void putOnHat(){
