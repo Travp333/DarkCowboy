@@ -378,7 +378,7 @@ public class DialogueManager : MonoBehaviour
             }
             else {
                 Debug.Log("elsebeforecant");
-                CantDoThat();
+                //CantDoThat();
             }
         }
         if ((int)getItem.ItemType == 8) {
