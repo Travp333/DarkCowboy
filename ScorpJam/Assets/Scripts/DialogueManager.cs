@@ -48,6 +48,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     public GameObject sceneSwitcher;
     
+    
     void Start()
     {
         sceneSwitcher = GameObject.FindWithTag("SceneSwapper");
@@ -87,6 +88,10 @@ public class DialogueManager : MonoBehaviour
         }
         if (congratsLayer != null)
         {
+            if (inventoryUI.activeSelf == true) {
+                inventoryUI.SetActive(false);
+            }
+            
             if (congratsLayer.activeSelf)
             {
                 timer += Time.deltaTime;

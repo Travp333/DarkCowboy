@@ -26,5 +26,6 @@ public class HealthUI : MonoBehaviour
     {
         HealthBar.value = stats.hp / stats.maxHp;
         hpText.text = stats.hp.ToString() + "/" + stats.maxHp.ToString();
+        
     }
 }

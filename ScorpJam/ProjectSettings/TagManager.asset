@@ -26,6 +26,7 @@ TagManager:
   - SceneSwapper
   - cowboySong
   - HAT
+  - LASTCOWBOY
   layers:
   - Default
   - TransparentFX

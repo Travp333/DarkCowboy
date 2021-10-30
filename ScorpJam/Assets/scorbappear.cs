@@ -20,6 +20,7 @@ public class scorbappear : MonoBehaviour
 
     [SerializeField]
     float curtainsOffset;
+    public GameObject player;
     PlayerStats stats;
     GameObject cowboy;
     GameObject gun;
@@ -28,9 +29,9 @@ public class scorbappear : MonoBehaviour
     void Start() {
         slideJam = GameObject.FindWithTag("slideJam");
         curtains = GameObject.FindWithTag("Curtains");
-        stats = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
+        stats = player.GetComponent<PlayerStats>();
         cowboy = GameObject.FindWithTag("DARKCOWBOY").transform.GetChild(0).gameObject;
-        gun = GameObject.FindWithTag("thisonespecificgun");
+        gun = GameObject.FindGameObjectsWithTag("thisonespecificgun")[0];
     }
     
     void statsBlocker(){
@@ -49,11 +50,13 @@ public class scorbappear : MonoBehaviour
             this.transform.Rotate(0, SpinSpeed * Time.deltaTime, 0);
         }
         if(timer > 17){
+
             timer += Time.deltaTime;
             if(gate2){
                 
-                stats.gameObject.GetComponent<ZoneWarp>().forceWarp();
+                player.GetComponent<ZoneWarp>().forceWarp();
                 
+
                 cowboy.gameObject.GetComponent<ZoneWarp>().forceWarp();
                 
                 
