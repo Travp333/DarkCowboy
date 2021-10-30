@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class followPlayer : MonoBehaviour
 {
+
     AudioSource song;
     [SerializeField]
     GameObject scorb;
@@ -12,6 +13,7 @@ public class followPlayer : MonoBehaviour
     AudioSource cowboydeath;
     [SerializeField]
     float hp;
+    [SerializeField]
     GameObject player;
     NavMeshAgent agent;
     [SerializeField]
@@ -227,10 +229,12 @@ public class followPlayer : MonoBehaviour
         path = new NavMeshPath();
         Invoke("openGate", 5f);
         anim = GetComponent<Animator>();
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.FindGameObjectsWithTag("Player")[0];//GameObject.FindWithTag("Player");
         agent = this.GetComponent<NavMeshAgent>();
         tempSpeed = agent.speed;
-        stats = player.GetComponent<PlayerStats>();
+        if(player != null){
+            stats = player.GetComponent<PlayerStats>();
+        }
         
     }
 
@@ -244,11 +248,17 @@ public class followPlayer : MonoBehaviour
                 elapsed += Time.deltaTime;
                 if (elapsed > 1.0f)
                 {
+                    Debug.Log("Calculated");
                     elapsed -= 1.0f;
-                    NavMesh.CalculatePath(transform.position, player.transform.position, NavMesh.AllAreas, path);
+                    NavMesh.CalculatePath(transform.position, player.transform.position, NavMesh.AllAreas, path);  
+                    if(path.corners.Length - 1 > 1 ){
+                        agent.SetDestination(path.corners[path.corners.Length - 1]);
+                    } 
+                    else return;
                 }
+                 
                 // path.corners[path.corners.Length - 1]
-                agent.SetDestination(path.corners[path.corners.Length - 1]);
+                
             }
             else if(takingDamage){
                 //Debug.Log("Retreating!" + agent.hasPath);

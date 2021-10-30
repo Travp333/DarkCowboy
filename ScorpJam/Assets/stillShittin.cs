@@ -14,7 +14,7 @@ public class stillShittin : MonoBehaviour
     public bool shittinBlock = true;
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other) {
-        if(other.gameObject.tag == "Player"){
+        if(other.gameObject.transform.root.gameObject.tag == "Player"){
             if(!fartBlock){
                 playFart();
                 fartBlock = true;

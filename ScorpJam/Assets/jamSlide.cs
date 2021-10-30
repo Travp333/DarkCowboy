@@ -18,7 +18,7 @@ public class jamSlide : MonoBehaviour
     {
         agent = this.GetComponent<NavMeshAgent>();
         path = new NavMeshPath();
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
     }
 
     // Update is called once per frame

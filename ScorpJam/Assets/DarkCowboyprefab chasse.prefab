@@ -417,10 +417,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665a415770a7f4340aaebb0d8c6699a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  song: {fileID: 0}
   scorb: {fileID: 7445169291887464174, guid: 3363e51313661e24482a6cccbf81e0e2, type: 3}
   cowboydeath: {fileID: 2942013661864186018}
   hp: 1
+  player: {fileID: 7197834583306505045, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
   boostSpeed: 10
   clips:
   - {fileID: 2942013663149622646}
