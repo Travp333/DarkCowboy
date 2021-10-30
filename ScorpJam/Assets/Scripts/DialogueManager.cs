@@ -285,7 +285,7 @@ public class DialogueManager : MonoBehaviour
         Button buy = currentElement.GetComponent<Button>();
         
             buy.onClick.AddListener(delegate {Trade(item);
-                {
+                {if((int)item.ItemType==8)
                     buy.gameObject.SetActive(false);
                 }
             });
