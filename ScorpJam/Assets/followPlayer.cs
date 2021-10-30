@@ -155,7 +155,9 @@ public class followPlayer : MonoBehaviour
     }
 
     void Die(){
-        song.Stop();
+        if(song != null){
+            song.Stop();
+        }
         cowboydeath.Play();
         anim.SetBool("isDead", true);
         isDead = true;
