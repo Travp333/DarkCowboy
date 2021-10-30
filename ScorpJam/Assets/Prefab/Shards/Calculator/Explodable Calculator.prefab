@@ -146,6 +146,7 @@ MonoBehaviour:
   shatterPrefab: {fileID: 8569911948955233868, guid: e0987b37bc2399d418c9be30b96c4c01, type: 3}
   shatterSpawnPos: {fileID: 4332264250645280431}
   hitPoints: 0
+  player: {fileID: 7197834583306505045, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
 --- !u!114 &-6762724650588394846
 MonoBehaviour:
   m_ObjectHideFlags: 0

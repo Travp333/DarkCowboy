@@ -7,7 +7,7 @@ public class Eat : MonoBehaviour
     [SerializeField]
     float food = default;
     void OnTriggerEnter(Collider other) {
-        if (other.tag == "Player"){
+        if (other.transform.gameObject.transform.root.gameObject.tag == "Player"){
 
             other.gameObject.transform.root.gameObject.GetComponent<FPSMovingSphere>().hungerDive();
             other.gameObject.transform.root.gameObject.GetComponent<playerHunger>().increaseHunger(food);    

@@ -18,6 +18,7 @@ public class Shatter : MonoBehaviour
     int Damagestate = 0;
 
     //float breakSpeed = 40f;
+    [SerializeField]
     GameObject player;
 
    // void OnCollisionEnter(Collision other) {
@@ -32,7 +33,6 @@ public class Shatter : MonoBehaviour
     }
     public void oneShot(float time){
         Invoke("spawnShatter", time);
-        player = GameObject.FindWithTag("Player");
         if(player.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).GetComponent<Grab>().isHolding){
             player.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).GetComponent<Grab>().detach();
         }
@@ -49,7 +49,6 @@ public class Shatter : MonoBehaviour
         }
         else if ( Damagestate >= hitPoints){
             Invoke("spawnShatter", 0);
-            player = GameObject.FindWithTag("Player");
             if(player.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).GetComponent<Grab>().isHolding){
                 player.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).GetComponent<Grab>().detach();
             }

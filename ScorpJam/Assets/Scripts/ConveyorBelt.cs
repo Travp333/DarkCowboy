@@ -39,7 +39,7 @@ public class ConveyorBelt : MonoBehaviour
                 }
             }
         }
-        if(other.gameObject.tag == "Player" && pushingObjects.Contains(other.gameObject.transform.root.gameObject) == false){
+        if(other.gameObject.transform.root.gameObject.tag == "Player" || other.gameObject.tag == "Player" && pushingObjects.Contains(other.gameObject.transform.root.gameObject) == false){
             //Debug.Log("A player just got added");
             pushingObjects.Add(other.gameObject.transform.root.gameObject);
         }
@@ -67,7 +67,7 @@ public class ConveyorBelt : MonoBehaviour
                 }
             }
         }
-        if(other.gameObject.tag == "Player" && pushingObjects.Contains(other.gameObject.transform.root.gameObject) == true){
+        if(other.gameObject.transform.root.gameObject.tag == "Player" && pushingObjects.Contains(other.gameObject.transform.root.gameObject) == true){
             //Debug.Log("A player just got removed");
             pushingObjects.Remove(other.gameObject.transform.root.gameObject);
             if(isEndPiece){

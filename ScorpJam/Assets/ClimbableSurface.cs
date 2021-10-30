@@ -9,12 +9,12 @@ public class ClimbableSurface : MonoBehaviour
     FPSMovingSphere sphere;
 
     void OnTriggerEnter(Collider other) {
-        if(other.gameObject.tag == "Player"){
+        if(other.gameObject.transform.root.gameObject.tag == "Player"){
            sphere.setCanClimb(true);
         }
     }
     private void OnTriggerExit(Collider other) {
-        if(other.gameObject.tag == "Player"){
+        if(other.gameObject.transform.root.gameObject.tag == "Player"){
             sphere.setCanClimb(false);
         }
         

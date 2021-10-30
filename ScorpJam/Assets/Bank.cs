@@ -98,7 +98,7 @@ public class Bank : MonoBehaviour
     DialogueManager dialogueManager;
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
         dialogueManager = bankLayer.transform.gameObject.GetComponentInParent<DialogueManager>();
         coinIcon.texture = dialogueManager.CurrencyEnumtoTexture(S);
         vals = new int[values.Length];

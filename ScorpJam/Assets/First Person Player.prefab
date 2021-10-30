@@ -2062,7 +2062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossphaseUI: {fileID: 0}
-  distance: 8
+  distance: 5
   mask:
     serializedVersion: 2
     m_Bits: 73728
@@ -4688,6 +4688,7 @@ GameObject:
   - component: {fileID: 7197834583306505053}
   - component: {fileID: 8481454172899552393}
   - component: {fileID: 8997915682440978713}
+  - component: {fileID: 674471440555560629}
   m_Layer: 8
   m_Name: First Person Player
   m_TagString: Player
@@ -4878,6 +4879,19 @@ MonoBehaviour:
   walkSpeed: 3
   currentSpeed: 0
   factor: 1
+--- !u!114 &674471440555560629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7197834583306505045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00876d0060967f741b452bf67248bee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warpOffset: -1292.1
 --- !u!1 &7218666623554957600
 GameObject:
   m_ObjectHideFlags: 0

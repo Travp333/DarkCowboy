@@ -24,7 +24,7 @@ public class DetectionZonePlayerOnly : MonoBehaviour {
 			colliders.Add(other);
 		}
 		else {
-			if (other.gameObject.tag == "Player"){	
+			if (other.transform.gameObject.transform.root.gameObject.tag == "Player"){	
 					onFirstEnter.Invoke();
 			}
 		}
@@ -37,7 +37,7 @@ public class DetectionZonePlayerOnly : MonoBehaviour {
 			}
 		}
 		else {
-			if (other.gameObject.tag == "Player"){
+			if (other.transform.gameObject.transform.root.gameObject.tag == "Player"){
 				onLastExit.Invoke();
 			}
 		}

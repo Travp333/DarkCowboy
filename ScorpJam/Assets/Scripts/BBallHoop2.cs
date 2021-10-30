@@ -34,8 +34,10 @@ public class BBallHoop2 : MonoBehaviour
                     anim.SetBool("isSwish", true);
                     if (!gate)
                     {
-                        gate = true;
-                        FindObjectOfType<DialogueManager>().Congrats();
+                        if(FindObjectOfType<DialogueManager>()){
+                            gate = true;
+                            FindObjectOfType<DialogueManager>().Congrats();
+                        }
                     }
                     Invoke("reset", .1f);
                 }

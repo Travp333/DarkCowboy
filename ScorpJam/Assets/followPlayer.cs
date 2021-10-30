@@ -194,7 +194,7 @@ public class followPlayer : MonoBehaviour
                 if(hit.transform.gameObject.tag == "Breakable" || hit.transform.gameObject.tag == "Explosive" ){
                     hit.transform.gameObject.GetComponent<Shatter>().oneShot(0);
                 }
-                if(hit.transform.gameObject.tag == "Player"){
+                if(hit.transform.gameObject.transform.root.gameObject.tag == "Player"){
                     player.GetComponent<PlayerStats>().takeDamage(10);
                 }
                 else if(hit.transform.gameObject.GetComponent<Rigidbody>() != null){
@@ -211,7 +211,7 @@ public class followPlayer : MonoBehaviour
                 if(hit.transform.gameObject.tag == "Breakable" || hit.transform.gameObject.tag == "Explosive" ){
                     hit.transform.gameObject.GetComponent<Shatter>().oneShot(0);
                 }
-                if(hit.transform.gameObject.tag == "Player"){
+                if(hit.transform.gameObject.transform.root.gameObject.tag == "Player"){
                     player.GetComponent<PlayerStats>().takeDamage(10);
                 }
                 else if(hit.transform.gameObject.GetComponent<Rigidbody>() != null){

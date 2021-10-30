@@ -61,17 +61,15 @@ public class Grab : MonoBehaviour
     float chargeRate;
     [SerializeField]
     public bool isgrabCharging = false;
-    [SerializeField]
+    
     public string SmallMediumLarge = "NULL";
 
     PlayerStats stats;
 
     DialogueNPC NPC =null;
     ShopNPC shopNPC = null;
-    [SerializeField]
     public DialogueManager dialogueManager;
     bool polGate;
-    [SerializeField]
     public float dialogueRange = 5f;
 
     [SerializeField]
@@ -1547,7 +1545,7 @@ public class Grab : MonoBehaviour
                 }
                 
                 // send a raycast
-                if (Physics.SphereCast(origin.transform.position, 1, (dummy.position - origin.transform.position), out hit, distance, mask))
+                if (Physics.SphereCast(origin.transform.position, .5f, (dummy.position - origin.transform.position), out hit, distance, mask))
                 { 
                     if(hit.transform.gameObject.tag == "HAT" && !hand.holdingHat){
                         hit.transform.gameObject.GetComponent<MeshRenderer>().enabled = false;
