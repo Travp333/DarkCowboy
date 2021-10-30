@@ -20,6 +20,7 @@ public class scorbappear : MonoBehaviour
 
     [SerializeField]
     float curtainsOffset;
+    [SerializeField]
     public GameObject player;
     PlayerStats stats;
     GameObject cowboy;
@@ -31,7 +32,7 @@ public class scorbappear : MonoBehaviour
         slideJam = GameObject.FindGameObjectsWithTag("slideJam")[0];
         curtains = GameObject.FindGameObjectsWithTag("Curtains")[0];
         swapManager = GameObject.FindGameObjectsWithTag("swapManager")[0];
-        stats = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerStats>();
+        stats = player.GetComponent<PlayerStats>();
     }
 
     void slideJamma(){
@@ -81,7 +82,7 @@ public class scorbappear : MonoBehaviour
                 GetComponent<Rigidbody>().isKinematic=(false);
                 this.gameObject.layer = 13;
                 gate2 = false;
-                Invoke("statsBlocker", .1f);
+                Invoke("statsBlocker", 1f);
                 Invoke("slideJamma", 10f);
                 
             }

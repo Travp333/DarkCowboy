@@ -15,7 +15,7 @@ public class slidingCowboyCatcher : MonoBehaviour
     }
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "walkin"){
-            Instantiate(finalCowboy, other.transform.position, Quaternion.identity);
+            finalCowboy.gameObject.SetActive(true);
             Destroy(other.gameObject);
             Invoke("spawnGun", .5f);
             

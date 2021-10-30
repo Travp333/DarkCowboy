@@ -109,7 +109,6 @@ GameObject:
   - component: {fileID: 5113703899614453698}
   - component: {fileID: 5113703899614453696}
   - component: {fileID: 5113703899614453697}
-  - component: {fileID: 5113703899614453702}
   - component: {fileID: -6310603483092995670}
   - component: {fileID: -7354694041042589291}
   m_Layer: 13
@@ -226,22 +225,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: 600edfcff5031aa4baaadcec4da37d07, type: 3}
---- !u!114 &5113703899614453702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5347724716344697586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f86a5e3c3f23645bae0f9e99a54e90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shatterPrefab: {fileID: 5649284301109738235, guid: 96a33fc3579663446901790ded7e4a8c, type: 3}
-  shatterSpawnPos: {fileID: 5113703899769361496}
-  hitPoints: 2
-  player: {fileID: 7197834583306505045, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
 --- !u!114 &-6310603483092995670
 MonoBehaviour:
   m_ObjectHideFlags: 0

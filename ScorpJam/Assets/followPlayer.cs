@@ -191,9 +191,9 @@ public class followPlayer : MonoBehaviour
             Invoke("killLite", .1f);
             if(Physics.Raycast(gunorigin.transform.position, this.transform.forward, out hit, range, mask)){
                 Instantiate(impact, hit.point, Quaternion.identity);
-                if(hit.transform.gameObject.tag == "Breakable" || hit.transform.gameObject.tag == "Explosive" ){
-                    hit.transform.gameObject.GetComponent<Shatter>().oneShot(0);
-                }
+                //if(hit.transform.gameObject.tag == "Breakable" || hit.transform.gameObject.tag == "Explosive" ){
+                //    hit.transform.gameObject.GetComponent<Shatter>().oneShot(0);
+               // }
                 if(hit.transform.gameObject.transform.root.gameObject.tag == "Player"){
                     player.GetComponent<PlayerStats>().takeDamage(10);
                 }
@@ -208,9 +208,9 @@ public class followPlayer : MonoBehaviour
             Invoke("killLite", .1f);
             if(Physics.Raycast(gunorigin.transform.position, (player.transform.GetChild(2).position - gunorigin.transform.position), out hit, range, mask)){
                 Instantiate(impact, hit.point, Quaternion.identity);
-                if(hit.transform.gameObject.tag == "Breakable" || hit.transform.gameObject.tag == "Explosive" ){
-                    hit.transform.gameObject.GetComponent<Shatter>().oneShot(0);
-                }
+                //if(hit.transform.gameObject.tag == "Breakable" || hit.transform.gameObject.tag == "Explosive" ){
+               //     hit.transform.gameObject.GetComponent<Shatter>().oneShot(0);
+               // }
                 if(hit.transform.gameObject.transform.root.gameObject.tag == "Player"){
                     player.GetComponent<PlayerStats>().takeDamage(10);
                 }
@@ -220,6 +220,7 @@ public class followPlayer : MonoBehaviour
         }
         }
     }
+
     
     // Start is called before the first frame update
     void Start()
@@ -229,7 +230,7 @@ public class followPlayer : MonoBehaviour
         path = new NavMeshPath();
         Invoke("openGate", 5f);
         anim = GetComponent<Animator>();
-        player = GameObject.FindGameObjectsWithTag("Player")[0];//GameObject.FindWithTag("Player");
+        //player = GameObject.FindGameObjectsWithTag("Player")[0];//GameObject.FindWithTag("Player");
         agent = this.GetComponent<NavMeshAgent>();
         tempSpeed = agent.speed;
         if(player != null){
@@ -254,7 +255,6 @@ public class followPlayer : MonoBehaviour
                     if(path.corners.Length - 1 > 1 ){
                         agent.SetDestination(path.corners[path.corners.Length - 1]);
                     } 
-                    else return;
                 }
                  
                 // path.corners[path.corners.Length - 1]
@@ -351,7 +351,7 @@ public class followPlayer : MonoBehaviour
                     }
                 }
             }
-
+            Debug.Log("SPEEEN");
             var lookPos = player.transform.position - transform.position;
             lookPos.y = 0;
             var rotation = Quaternion.LookRotation(lookPos);

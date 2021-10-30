@@ -1578,7 +1578,7 @@ public class Grab : MonoBehaviour
                     {
                         shopNPC = hit.transform.gameObject.GetComponent<ShopNPC>();
                         shopNPC.TriggerVendor();
-                        Debug.Log("foundshop");
+                        //Debug.Log("foundshop");
                         
                     }
                     if(hit.transform.gameObject.GetComponent<Bank>() != null){
@@ -1593,7 +1593,7 @@ public class Grab : MonoBehaviour
                         }
                         else if(hit.transform.gameObject.GetComponent<Shop>() != null && hit.transform.gameObject.GetComponent<Shop>().beenTreated == true){
 
-                            Debug.Log("This treater already gave you a treat!");
+                            //Debug.Log("This treater already gave you a treat!");
                         }
 
                         
@@ -1701,7 +1701,7 @@ public class Grab : MonoBehaviour
                 isgrabCharging = false;
                 highorLow = false;
                 if(prop.tag == "Pol"){
-                    Debug.Log("fully chraged pol");
+                    //Debug.Log("fully chraged pol");
                     if(!polGate){
                         prop.GetComponent<PolSounds>().playRandomPolSound();
                         polGate = true;

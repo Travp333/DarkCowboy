@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5580782798741498735}
   - component: {fileID: 5580782798741498732}
   - component: {fileID: 5580782798741498728}
-  - component: {fileID: 5580782798741498731}
   - component: {fileID: 362164042445131774}
   - component: {fileID: -1149643358417826349}
   m_Layer: 13
@@ -131,22 +130,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.13560562, y: 0.0680276, z: 0.07899561}
   m_Center: {x: 0.0000009542609, y: 0.0076975254, z: -0.002464813}
---- !u!114 &5580782798741498731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4734274636079867787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f86a5e3c3f23645bae0f9e99a54e90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shatterPrefab: {fileID: 8384142459413333977, guid: 3920ee56cdbdb8044a6934416cf9d4d5, type: 3}
-  shatterSpawnPos: {fileID: 5580782799703230387}
-  hitPoints: 3
-  player: {fileID: 7197834583306505045, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
 --- !u!114 &362164042445131774
 MonoBehaviour:
   m_ObjectHideFlags: 0
