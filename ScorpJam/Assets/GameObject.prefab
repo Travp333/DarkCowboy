@@ -2637,7 +2637,7 @@ MonoBehaviour:
   - {fileID: 7485321996230093197}
   gate: 1
   range: 90
-  impact: {fileID: 2751956294498618463, guid: 6b0e2de898be62741815e3751d542552, type: 3}
+  impact: {fileID: 2751956294498618463, guid: e707c090c928b3c4da445562d7d39ca0, type: 3}
   mask:
     serializedVersion: 2
     m_Bits: 3129143

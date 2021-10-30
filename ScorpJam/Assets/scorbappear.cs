@@ -24,14 +24,24 @@ public class scorbappear : MonoBehaviour
     PlayerStats stats;
     GameObject cowboy;
     GameObject gun;
+    GameObject swapManager;
 
 
     void Start() {
-        slideJam = GameObject.FindWithTag("slideJam");
-        curtains = GameObject.FindWithTag("Curtains");
-        stats = player.GetComponent<PlayerStats>();
-        cowboy = GameObject.FindWithTag("DARKCOWBOY").transform.GetChild(0).gameObject;
-        gun = GameObject.FindGameObjectsWithTag("thisonespecificgun")[0];
+        slideJam = GameObject.FindGameObjectsWithTag("slideJam")[0];
+        curtains = GameObject.FindGameObjectsWithTag("Curtains")[0];
+        swapManager = GameObject.FindGameObjectsWithTag("swapManager")[0];
+        stats = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerStats>();
+    }
+
+    void slideJamma(){
+        if(slideJam != null){
+            slideJam.GetComponent<jamSlide>().movespeedSet();
+        }
+        else{
+            slideJam = GameObject.FindGameObjectsWithTag("slideJam")[0];
+            slideJamma();
+        }
     }
     
     void statsBlocker(){
@@ -53,23 +63,27 @@ public class scorbappear : MonoBehaviour
 
             timer += Time.deltaTime;
             if(gate2){
-                
-                player.GetComponent<ZoneWarp>().forceWarp();
-                
-
-                cowboy.gameObject.GetComponent<ZoneWarp>().forceWarp();
-                
-                
-                if (gun.gameObject != null)
-                {
-                    gun.gameObject.GetComponent<ZoneWarp>().forceWarp();
-                }
-                this.gameObject.GetComponent<ZoneWarp>().forceWarp();
+                //player = GameObject.FindGameObjectsWithTag("Player")[0];
+                //if(player != null){
+                //    player.GetComponent<ZoneWarp>().forceWarp();
+                //}
+                //cowboy = GameObject.FindWithTag("DARKCOWBOY").gameObject;
+                //if(cowboy != null){
+                //    cowboy.gameObject.GetComponent<ZoneWarp>().forceWarp();
+               // }
+               // gun = GameObject.FindGameObjectsWithTag("thisonespecificgun")[0];
+               // if (gun.gameObject != null)
+               // {
+              //      gun.gameObject.GetComponent<ZoneWarp>().forceWarp();
+              //  }
+              //  this.gameObject.GetComponent<ZoneWarp>().forceWarp();
+                swapManager.GetComponent<worldSwapManager>().swap();
                 GetComponent<Rigidbody>().isKinematic=(false);
                 this.gameObject.layer = 13;
                 gate2 = false;
                 Invoke("statsBlocker", .1f);
-                slideJam.GetComponent<jamSlide>().movespeedSet();
+                Invoke("slideJamma", 10f);
+                
             }
         }
         if(timer > 65){

@@ -2123,20 +2123,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665a415770a7f4340aaebb0d8c6699a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scorb: {fileID: 0}
+  cowboydeath: {fileID: 0}
+  hp: 0
+  player: {fileID: 0}
   boostSpeed: 10
   clips:
   - {fileID: 8565218987597818833}
   - {fileID: 8565218987833135746}
   - {fileID: 8565218987568576328}
   - {fileID: 8565218986674647278}
+  gate: 0
   range: 90
-  impact: {fileID: 2751956294498618463, guid: 6b0e2de898be62741815e3751d542552, type: 3}
+  impact: {fileID: 2751956294498618463, guid: e707c090c928b3c4da445562d7d39ca0, type: 3}
   mask:
     serializedVersion: 2
     m_Bits: 3145527
   gunorigin: {fileID: 8565218987289128911}
   lite: {fileID: 8565218987150643025}
+  hipGun: {fileID: 0}
+  handGun: {fileID: 0}
+  isDead: 0
+  bossPhase: 0
   safeSpace: {fileID: 0}
+  phaseOverride: 0
 --- !u!195 &8799097541351449526
 NavMeshAgent:
   m_ObjectHideFlags: 0

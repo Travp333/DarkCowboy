@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class BBallHoop2 : MonoBehaviour
 {
+    [SerializeField]
+    GameObject player;
     GameObject[] balls;
     int ballLength;
     Animator anim;
@@ -34,9 +36,10 @@ public class BBallHoop2 : MonoBehaviour
                     anim.SetBool("isSwish", true);
                     if (!gate)
                     {
-                        if(FindObjectOfType<DialogueManager>()){
+                        if(FindObjectOfType<DialogueManager>() && player != null){
                             gate = true;
                             FindObjectOfType<DialogueManager>().Congrats();
+                            player.GetComponent<PlayerStats>().playJoined();
                         }
                     }
                     Invoke("reset", .1f);

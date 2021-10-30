@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {  
     [SerializeField]
+    AudioSource joined;
+    [SerializeField]
     AudioSource coinGet;
     [SerializeField]
     AudioSource wetFood;
@@ -44,6 +46,10 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     GameObject gun;
     [SerializeField]
+
+    public void playJoined(){
+        joined.Play();
+    }
     public bool crowdBlocker = true;
     //private void Update() {
         //Debug.Log(trickOrTreated);
