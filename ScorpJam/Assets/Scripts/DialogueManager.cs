@@ -48,7 +48,10 @@ public class DialogueManager : MonoBehaviour
         textLayer.SetActive(false);
         shopLayer.SetActive(false);
         errorLayer.SetActive(false);
-        congratsLayer.SetActive(false);
+        if (congratsLayer)
+        {
+            congratsLayer.SetActive(false);
+        }
         inventoryUI.SetActive(true);
         bankLayer.SetActive(false);
         timer = 0f;
