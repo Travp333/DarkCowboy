@@ -34,10 +34,10 @@ public class MainMenu : MonoBehaviour
         Debug.Log("boobaba");
         Invoke("QuitGame", 5f);
     }
-    public void Options() {
+    public void Options() {/*
         Menu.SetActive(false);
         OptionsMenu.SetActive(true);
-        slider.value = PlayerPrefs.GetFloat("Volume", 0.75f);
+        slider.value = PlayerPrefs.GetFloat("Volume", 0.75f);*/
     }
     public void BackToMainMenu() {
         Menu.SetActive(true);
