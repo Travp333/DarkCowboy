@@ -38,7 +38,7 @@ public class LevelController : MonoBehaviour
             {
                 //inventoryUI.SetActive(true);
                 pauseMenu.SetActive(true);
-                player.SetActive(false);
+                //player.SetActive(false);
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.Confined;
                 Time.timeScale = 0;
@@ -49,7 +49,7 @@ public class LevelController : MonoBehaviour
                 Time.timeScale = 1;
                 pauseMenu.SetActive(false);
                 //inventoryUI.SetActive(false);
-                player.SetActive(true);
+                //player.SetActive(true);
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
                 //Debug.Log("unpaused");
