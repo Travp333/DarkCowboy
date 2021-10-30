@@ -2062,7 +2062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossphaseUI: {fileID: 0}
-  distance: 5
+  distance: 8
   mask:
     serializedVersion: 2
     m_Bits: 73728
@@ -4688,7 +4688,7 @@ GameObject:
   - component: {fileID: 7197834583306505053}
   - component: {fileID: 8481454172899552393}
   - component: {fileID: 8997915682440978713}
-  - component: {fileID: 674471440555560629}
+  - component: {fileID: 131032557413465439}
   m_Layer: 8
   m_Name: First Person Player
   m_TagString: Player
@@ -4704,7 +4704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7197834583306505045}
   m_LocalRotation: {x: -0, y: 0.92627937, z: -0, w: 0.3768376}
-  m_LocalPosition: {x: 35.4, y: 3.22, z: -36.61}
+  m_LocalPosition: {x: 35.4, y: 3.22, z: -5206431}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7462822281776335614}
@@ -4859,7 +4859,7 @@ MonoBehaviour:
   - {fileID: 4920869955828194915}
   inSafeZone: 0
   gun: {fileID: 501095492311465651, guid: cf093fd4d2d49724d960120da9a6be3e, type: 3}
-  crowdBlocker: 1
+  crowdBlocker: 0
 --- !u!114 &8997915682440978713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4879,7 +4879,7 @@ MonoBehaviour:
   walkSpeed: 3
   currentSpeed: 0
   factor: 1
---- !u!114 &674471440555560629
+--- !u!114 &131032557413465439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4891,7 +4891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00876d0060967f741b452bf67248bee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpOffset: -1292.1
+  warpOffset: -1282.1
 --- !u!1 &7218666623554957600
 GameObject:
   m_ObjectHideFlags: 0
