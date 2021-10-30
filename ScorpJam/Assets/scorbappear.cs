@@ -29,7 +29,7 @@ public class scorbappear : MonoBehaviour
         slideJam = GameObject.FindWithTag("slideJam");
         curtains = GameObject.FindWithTag("Curtains");
         stats = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
-        cowboy = GameObject.FindWithTag("DARKCOWBOY");
+        cowboy = GameObject.FindWithTag("DARKCOWBOY").transform.GetChild(0).gameObject;
         gun = GameObject.FindWithTag("thisonespecificgun");
     }
     
@@ -51,9 +51,16 @@ public class scorbappear : MonoBehaviour
         if(timer > 17){
             timer += Time.deltaTime;
             if(gate2){
+                
                 stats.gameObject.GetComponent<ZoneWarp>().forceWarp();
+                
                 cowboy.gameObject.GetComponent<ZoneWarp>().forceWarp();
-                gun.gameObject.GetComponent<ZoneWarp>().forceWarp();
+                
+                
+                if (gun.gameObject != null)
+                {
+                    gun.gameObject.GetComponent<ZoneWarp>().forceWarp();
+                }
                 this.gameObject.GetComponent<ZoneWarp>().forceWarp();
                 GetComponent<Rigidbody>().isKinematic=(false);
                 this.gameObject.layer = 13;
@@ -66,7 +73,7 @@ public class scorbappear : MonoBehaviour
             if(gate){
                 foreach(Transform t in scorbSpawns){
                     Instantiate(scorbs, t.transform.position, Quaternion.identity);
-                } 
+                }
                 gate = false;
             }
         }
