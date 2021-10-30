@@ -29,8 +29,14 @@ public class jamSlide : MonoBehaviour
         {
             elapsed -= 1.0f;
             NavMesh.CalculatePath(transform.position, player.transform.position, NavMesh.AllAreas, path);
+            if(path.corners.Length > 1 ){
+            agent.SetDestination(path.corners[path.corners.Length - 1]);
+            }
+            else {
+                return;
+            }
         }
-        agent.SetDestination(path.corners[path.corners.Length - 1]); 
+         
         var lookPos = player.transform.position - transform.position;
         lookPos.y = 0;
         var rotation = Quaternion.LookRotation(lookPos);
