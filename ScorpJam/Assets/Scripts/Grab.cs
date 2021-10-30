@@ -1440,6 +1440,7 @@ public class Grab : MonoBehaviour
         stats.track3.Stop();
         transform.root.transform.position = MarketTPPoint.position;
         //pause cowboy
+        cowboy = GameObject.FindWithTag("DARKCOWBOY");
 
         cowboy.gameObject.GetComponent<followPlayer>().disableNavAgent();
         //move him to default postion
@@ -1476,6 +1477,7 @@ public class Grab : MonoBehaviour
         stats.coinG = 0;
         stats.coinH = 0;
         //unpausing the cowboy
+        cowboy = GameObject.FindWithTag("DARKCOWBOY");
         cowboy.transform.position = cowboy.GetComponent<followPlayer>().safeSpace.transform.position;
         cowboy.GetComponent<followPlayer>().enableNavAgent();
         
@@ -1531,7 +1533,7 @@ public class Grab : MonoBehaviour
                 // send a raycast
                 if (Physics.SphereCast(origin.transform.position, 1, (dummy.position - origin.transform.position), out hit, distance, mask))
                 {
-                    if(hit.transform.gameObject.tag == "gun"){
+                    if(hit.transform.gameObject.tag == "gun" || hit.transform.gameObject.tag == "thisonespecificgun"){
                         stats.getGun();
                         Destroy(hit.transform.gameObject);
                         return;

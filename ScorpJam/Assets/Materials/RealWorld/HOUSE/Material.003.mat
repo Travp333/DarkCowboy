@@ -1715,7 +1715,7 @@ Material:
     - m_start_specular1: 0
     - m_start_subsurface: 0
     - m_start_vertexManipulation: 0
-    - shader_is_using_thry_editor: 0
+    - shader_is_using_thry_editor: 69
     - shader_master_label: 0
     - shader_presets: 0
     - shader_properties_label_file: 0

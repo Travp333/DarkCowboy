@@ -137,7 +137,7 @@ public class HandAnim : MonoBehaviour
                 hit.transform.gameObject.GetComponent<Shatter>().oneShot(0);
             }
             if(hit.transform.gameObject.tag == "DARKCOWBOY"){
-                cowboy.GetComponent<followPlayer>().takeDamage(10);
+                hit.transform.gameObject.GetComponent<followPlayer>().takeDamage(10);
                 player.gameObject.GetComponent<PlayerStats>().dropGun();
             }
             else if(hit.transform.gameObject.GetComponent<Rigidbody>() != null){
