@@ -1988,7 +1988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88bc4a984987b604aadc6d74b1036b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audienceMember: 1
+  audienceMember: 0
   cheerSounds: []
   polSound:
   - {fileID: 1618806011138248854}

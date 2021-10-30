@@ -5212,6 +5212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bb13283de7dca45ae44834f2b50baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinss: []
   joined: {fileID: 0}
   coinGet: {fileID: 567183676}
   wetFood: {fileID: 2028094627}
@@ -5245,7 +5246,7 @@ MonoBehaviour:
   - {fileID: 4920869955828194915}
   inSafeZone: 0
   gun: {fileID: 501095492311465651, guid: cf093fd4d2d49724d960120da9a6be3e, type: 3}
-  crowdBlocker: 0
+  crowdBlocker: 1
 --- !u!114 &8997915682440978713
 MonoBehaviour:
   m_ObjectHideFlags: 0

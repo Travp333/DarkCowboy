@@ -42,7 +42,7 @@ public class LevelController : MonoBehaviour
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.Confined;
                 Time.timeScale = 0;
-                Debug.Log("paused");
+                //Debug.Log("paused");
             }
             if (pause)
             {
@@ -52,7 +52,7 @@ public class LevelController : MonoBehaviour
                 player.SetActive(true);
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
-                Debug.Log("unpaused");
+                //Debug.Log("unpaused");
             }
             pause = !pause;
         }
