@@ -30,7 +30,7 @@ public class PolSounds : MonoBehaviour
     }
     public void playRandomPolSound(){
         if(shouldPlayNoise){
-            range = Random.Range(1, 9);
+            range = Random.Range(1, polSound.Length-1);
             if(range != tempRange){
                 polSound[range].Play();
                 tempRange = range;
