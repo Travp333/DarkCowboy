@@ -15,16 +15,23 @@ public class DialogueManager : MonoBehaviour
     public SimpleCameraMovement camMovement;
     [SerializeField]
     public MovementSpeedController speedControl;
+    [SerializeField]
     public Text nameText;
+    [SerializeField]
     public Text dialogueText;
+    [SerializeField]
     public GameObject textLayer;
+    [SerializeField]
     public bool NPCisTalking, ShopisOpen, BankisOpen;
     [SerializeField]
     public string coldShoeName, jumpboostName;
+    [SerializeField]
 
     public GameObject itemSlotPrefab = default;
+    [SerializeField]
 
-    public GameObject shopLayer, shopMenu,errorLayer, inventoryUI, bankLayer, congratsLayer;
+    public GameObject shopLayer, shopMenu,errorLayer, inventoryUI, bankLayer, congratsLayer = default;
+    [SerializeField]
 
     public Texture[] coins;
 
@@ -35,6 +42,7 @@ public class DialogueManager : MonoBehaviour
     float errorTime = 2f;
     float congratsTime = 10f;
     float timer;
+    [SerializeField]
     public ShopNPC currentNPC;
 
     [SerializeField]
@@ -48,7 +56,7 @@ public class DialogueManager : MonoBehaviour
         textLayer.SetActive(false);
         shopLayer.SetActive(false);
         errorLayer.SetActive(false);
-        if (congratsLayer)
+        if (congratsLayer != null)
         {
             congratsLayer.SetActive(false);
         }
@@ -77,16 +85,19 @@ public class DialogueManager : MonoBehaviour
                 timer = 0f;
             }
         }
-        if (congratsLayer.activeSelf)
+        if (congratsLayer != null)
         {
-            timer += Time.deltaTime;
-
-            if (timer > congratsTime)
+            if (congratsLayer.activeSelf)
             {
-                Debug.Log(timer + " " + congratsTime);
-                Debug.Log("errorscreenfalse");
-                congratsLayer.SetActive(false);
-                timer = 0f;
+                timer += Time.deltaTime;
+
+                if (timer > congratsTime)
+                {
+                    Debug.Log(timer + " " + congratsTime);
+                    Debug.Log("errorscreenfalse");
+                    congratsLayer.SetActive(false);
+                    timer = 0f;
+                }
             }
         }
 
@@ -200,7 +211,9 @@ public class DialogueManager : MonoBehaviour
         else if(shop.lastCowboyEncounter){
             NPCisTalking = false;
             textLayer.SetActive(false);
-            Instantiate(walkinCowboyPrefab, shop.gameObject.transform.position, Quaternion.identity);
+            if(walkinCowboyPrefab != null){
+                Instantiate(walkinCowboyPrefab, shop.gameObject.transform.position, Quaternion.identity);
+            }
             Destroy(shop.gameObject);
             
         }

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ShopNPC : MonoBehaviour
 {
+    [SerializeField]
     
     public ShopItems shopItems= default;
 

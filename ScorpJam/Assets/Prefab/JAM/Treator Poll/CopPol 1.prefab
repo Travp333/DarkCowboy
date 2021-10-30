@@ -2939,6 +2939,7 @@ MonoBehaviour:
   - {fileID: 5990814913209424274}
   - {fileID: 2518755424261858159}
   shouldPlayNoise: 0
+  stats: {fileID: 8481454172899552393, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
 --- !u!114 &3654098309503221967
 MonoBehaviour:
   m_ObjectHideFlags: 0

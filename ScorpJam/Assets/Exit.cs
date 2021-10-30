@@ -5,7 +5,7 @@ using UnityEngine;
 public class Exit : MonoBehaviour
 {
     [SerializeField]
-    [Tooltip("true is going from street to market, false is vise versa")]
+    [Tooltip("true is going from market to street, false is vise versa")]
     public bool direction;
     // Start is called before the first frame update
     void Start()

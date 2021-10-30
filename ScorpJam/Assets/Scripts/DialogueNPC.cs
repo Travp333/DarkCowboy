@@ -8,6 +8,7 @@ public class DialogueNPC : MonoBehaviour
     bool involveCurrencies;
     Shop shop;
     // Start is called before the first frame update
+    [SerializeField]
     public Dialogue dialogue;
     Grab grab;
 

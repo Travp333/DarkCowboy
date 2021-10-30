@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BossPhaseUI : MonoBehaviour
 {
+    [SerializeField]
     public RawImage PhaseTexture;
     [SerializeField]
     public Texture[] phase;

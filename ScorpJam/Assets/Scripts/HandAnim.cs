@@ -10,6 +10,7 @@ public class HandAnim : MonoBehaviour
     AudioSource putOnHatNoise;
     [SerializeField]
     GameObject hat;
+    [SerializeField]
     public bool holdingHat;
     [SerializeField]
     AudioSource gunShot;
@@ -40,6 +41,7 @@ public class HandAnim : MonoBehaviour
     LayerMask mask;
     [SerializeField]
     GameObject impact;
+    [SerializeField]
 
     [HideInInspector]
     public bool isOnGroundADJ;

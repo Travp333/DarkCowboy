@@ -10,6 +10,7 @@ public class MovementSpeedController : MonoBehaviour
 	[Tooltip("speeds of the character, these states represent the speed when your character is jogging, sprinting, walking, swimming, and climbing")]
 	public float baseSpeed = 10f, sprintSpeed = 15f, maxClimbSpeed = 2f, maxSwimSpeed = 5f, walkSpeed = 7f;
     // Start is called before the first frame update
+    [SerializeField]
     public float currentSpeed;
     [SerializeField]
     float factor = 1f;

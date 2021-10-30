@@ -8,7 +8,7 @@ using System.Collections;
  
 // Makes objects float up & down while gently spinning.
 public class Floater : MonoBehaviour {
-    // User Inputs
+    [SerializeField]    // User Inputs
     public float degreesPerSecond = 15.0f;
     float amplitude = 0.35f;
     float frequency = .5f;

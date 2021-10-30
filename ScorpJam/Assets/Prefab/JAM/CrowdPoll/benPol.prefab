@@ -2291,6 +2291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88bc4a984987b604aadc6d74b1036b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audienceMember: 1
   cheerSounds:
   - {fileID: 1153784691376453188}
   - {fileID: 1153784690181686784}
@@ -2355,6 +2356,7 @@ MonoBehaviour:
   - {fileID: 1153784691365853115}
   - {fileID: 1153784691913244995}
   shouldPlayNoise: 0
+  stats: {fileID: 8481454172899552393, guid: 6bb6677300d607d488e6ee96dc019bb8, type: 3}
 --- !u!1 &1153784690368966264
 GameObject:
   m_ObjectHideFlags: 0

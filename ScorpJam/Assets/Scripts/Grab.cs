@@ -26,6 +26,7 @@ public class Grab : MonoBehaviour
     Rigidbody propRB;
     CustomGravityRigidbody body;
     Renderer renda;
+    [SerializeField]
     [HideInInspector]
     public bool isHolding = false;
     [SerializeField]
@@ -58,16 +59,19 @@ public class Grab : MonoBehaviour
     [SerializeField]
     [Tooltip("the rate at which the players throw charges")]
     float chargeRate;
+    [SerializeField]
     public bool isgrabCharging = false;
-    
+    [SerializeField]
     public string SmallMediumLarge = "NULL";
 
     PlayerStats stats;
 
     DialogueNPC NPC =null;
     ShopNPC shopNPC = null;
+    [SerializeField]
     public DialogueManager dialogueManager;
     bool polGate;
+    [SerializeField]
     public float dialogueRange = 5f;
 
     [SerializeField]
@@ -85,6 +89,9 @@ public class Grab : MonoBehaviour
     GameObject normalMarketCowboy;
     [SerializeField]
     GameObject cowboy;
+
+    bool justThrew;
+
     void Start() {
         stats = transform.root.GetComponent<PlayerStats>();
         throwingTemp = throwingforce;
@@ -164,7 +171,9 @@ public class Grab : MonoBehaviour
         isgrabCharging = false;
         bone.toggle(false);
         hand.setisHolding(false);
-        dummy.GetChild(5).SetParent(null);
+        if(dummy.GetChild(5).gameObject != null){
+            dummy.GetChild(5).SetParent(null);
+        }
         // body = prop.gameObject.GetComponent<CustomGravityRigidbody>();
         // body.enabled = true;
         propRB.isKinematic=(false);
@@ -1479,6 +1488,9 @@ public class Grab : MonoBehaviour
         
     }
 
+    void resetJustThrew(){
+        justThrew = false;
+    }
     //(Physics.Raycast(origin.transform.position, (dummy.position - origin.transform.position), out hit, distance, mask)
     void Update()
     {
@@ -1590,7 +1602,7 @@ public class Grab : MonoBehaviour
                     }
                     
 
-                    if (hit.transform.gameObject.GetComponent<Rigidbody>() != null && !stats.hasGun && !hand.getUIBlocked() && !hand.holdingHat){
+                    if (hit.transform.gameObject.GetComponent<Rigidbody>() != null && !stats.hasGun && !hand.getUIBlocked() && !hand.holdingHat && !justThrew){
                         if(hit.transform.gameObject.GetComponent<Rigidbody>().mass <= strength){
                             if(player.dancing == false && player.moveBlocked == false){
                                 if(hit.transform.gameObject.GetComponent<objectSize>().isLarge && !hit.transform.gameObject.GetComponent<objectSize>().isMedium && !hit.transform.gameObject.GetComponent<objectSize>().isSmall){
@@ -1656,7 +1668,7 @@ public class Grab : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyUp("mouse 0") && isHolding){
+        if (Input.GetKeyUp("mouse 0") && isHolding && !justThrew){
             
             detach();
             if (highorLow){
@@ -1675,12 +1687,16 @@ public class Grab : MonoBehaviour
             Invoke("setisThrowingFalse", .1f);
             throwingforce = throwingTemp;
             highorLow = true;
+            justThrew = true;
+            Invoke("resetJustThrew", .5f);
         }
         //throw
-        if (Input.GetKey("mouse 0") && isHolding){
+        if (Input.GetKey("mouse 0") && isHolding && !justThrew){
             if (throwingforce <= maxThrowingForce){
                 isgrabCharging = true;
                 throwingforce = throwingforce + (chargeRate * Time.deltaTime);
+
+
             }
             if (throwingforce > maxThrowingForce){
                 isgrabCharging = false;

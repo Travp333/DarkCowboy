@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class AccelerationZone : MonoBehaviour {
+	[SerializeField]
 	public bool Gate = false;
 
 	[SerializeField]

@@ -36,13 +36,16 @@ public class followPlayer : MonoBehaviour
     GameObject hipGun;
     [SerializeField]
     GameObject handGun;
+    [SerializeField]
     public bool isDead;
 
     //Phase1, default, low draw speed low accuracy
     //Phase 2, Higher draw speed, low accuracy
     //Phase 3, High Draw Speed High Accuracy
     //Phace 4, Highest DrawSpeed and fire rate, high accuracy. "FAN THE HAMMER"
+    [SerializeField]
     public enum PHASE{Phase1, Phase2, Phase3, Phase4};
+    [SerializeField]
 
     public PHASE bossPhase;
 
@@ -245,7 +248,7 @@ public class followPlayer : MonoBehaviour
                     NavMesh.CalculatePath(transform.position, player.transform.position, NavMesh.AllAreas, path);
                 }
                 // path.corners[path.corners.Length - 1]
-                agent.SetDestination(player.transform.position);
+                agent.SetDestination(path.corners[path.corners.Length - 1]);
             }
             else if(takingDamage){
                 //Debug.Log("Retreating!" + agent.hasPath);

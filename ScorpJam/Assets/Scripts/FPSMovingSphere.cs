@@ -7,14 +7,17 @@ public class FPSMovingSphere : MonoBehaviour {
 	[Tooltip("How strong the force pushing you into the wall is while climbing")]
 	float climbStickyness = 5f;
 	MovementSpeedController speedController;
+	[SerializeField]
 	public bool Diving;
 	Vector3 jumpDirection;
+	[SerializeField]
 	
 	[HideInInspector]
 	public bool isBarraging;
 
 	[SerializeField, Range(0.01f, 1f)]
 	public float swimThreshold = 0.5f;
+	[SerializeField]
 	public bool Swimming => submergence >= swimThreshold;
 
 	[SerializeField, Range(90, 180)]
@@ -25,9 +28,12 @@ public class FPSMovingSphere : MonoBehaviour {
 	// this is used to edit the light on the fly
 	Light lt;
 	// this is so i can get a refrence to the empty that is a child of the main game object
+	[SerializeField]
 	public GameObject parent;
+	[SerializeField]
 	//these are for the booms
 	public float radius = 20.0F;
+	[SerializeField]
     public float power = 100.0F;
 
 	[SerializeField]
@@ -59,12 +65,14 @@ public class FPSMovingSphere : MonoBehaviour {
 
 	[SerializeField]
 	LayerMask probeMask = -1, stairsMask = -1, climbMask = -1, waterMask = 0;
+	[SerializeField]
 	
 	[HideInInspector]
 	public Rigidbody body, connectedBody; 
 	Rigidbody previousConnectedBody;
 
 	bool desiredJump, desiresClimbing;
+	[SerializeField]
 
 	[HideInInspector]
 	public int groundContactCount, steepContactCount, climbContactCount;
@@ -72,23 +80,28 @@ public class FPSMovingSphere : MonoBehaviour {
 	bool gravSwap;
 
 	[HideInInspector]
+	[SerializeField]
 
 	public bool canClimb;
+	[SerializeField]
 
 	public bool OnGround {
 		get {
 			return groundContactCount > 0;
 		}
 	}
+	[SerializeField]
 
 	public bool OnSteep {
 		get {
 			return steepContactCount > 0;
 		}
 	}
+	[SerializeField]
 	public bool Climbing => climbContactCount > 0 && stepsSinceLastJump > 2;
 	int jumpPhase;
 	bool InWater => submergence > 0f;
+	[SerializeField]
 	public float submergence;
 	int stepsSinceLastGrounded, stepsSinceLastJump;
 
@@ -96,16 +109,20 @@ public class FPSMovingSphere : MonoBehaviour {
 	float waterDrag = 1f;
 
 	Vector3 contactNormal, steepNormal, lastClimbNormal;
+	[SerializeField]
 
 	[HideInInspector]
 	public Vector3 climbNormal;
 	Vector3 upAxis, rightAxis;
+	[SerializeField]
 	[HideInInspector]
 	public Vector3 forwardAxis;
 
 	Vector3 connectionWorldPosition, connectionLocalPosition;
+	[SerializeField]
 	[HideInInspector]
 	public Vector3 playerInput;
+	[SerializeField]
 	[HideInInspector]
 	public Vector3 velocity; 
 	Vector3 connectionVelocity;
@@ -121,8 +138,10 @@ public class FPSMovingSphere : MonoBehaviour {
 	Animator camanim;
 	
 	// this is so i can prevent the player from entering a climbing state while standing on the ground
+	[SerializeField]
 	[HideInInspector]
 	public bool ClimbingADJ;
+	[SerializeField]
 	[HideInInspector]
 	public bool divingPrep;
 
@@ -132,6 +151,7 @@ public class FPSMovingSphere : MonoBehaviour {
 	[SerializeField]
 	public bool dancing;
 	bool flipflop;
+	[SerializeField]
 	public bool moveBlocked;
 
 	public void setCanClimb(bool plug){

@@ -27,9 +27,13 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     [Tooltip("true for market, false for street")]
     public bool location;
+    [SerializeField]
     public int trickOrTreated;
+    [SerializeField]
     public float hunger = 100;
+    [SerializeField]
     public float maxHp = 100f;
+    [SerializeField]
     public float hp = 100;
     [SerializeField, Min(0)]
     public int coinA,coinB,coinC,coinD,coinE,coinF,coinG,coinH;

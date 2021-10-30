@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Shatter : MonoBehaviour
 {
+    [SerializeField]
     public GameObject shatterPrefab;
+    [SerializeField]
     [Tooltip("What shattered mesh spawns")]
     public GameObject shatterSpawnPos;
     [Tooltip("Where the shattered mesh spawns")]

@@ -8,7 +8,9 @@ using UnityEngine;
 
 public class DamageBox : MonoBehaviour
 {      
+    [SerializeField]
     public Animator animator;
+    [SerializeField]
     public AudioSource pain;
     
     //which direction is the object facing in?

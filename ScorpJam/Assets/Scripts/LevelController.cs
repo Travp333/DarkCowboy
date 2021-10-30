@@ -7,11 +7,16 @@ using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour
 {
+    [SerializeField]
     public GameObject inventoryUI;
+    [SerializeField]
     public GameObject pauseMenu;
+    [SerializeField]
     public GameObject player;
     bool pause = false;
+    [SerializeField]
     public AudioMixer mixer;
+    [SerializeField]
     public Slider slider;
     
     

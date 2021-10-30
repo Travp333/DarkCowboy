@@ -13,6 +13,7 @@ public class Bank : MonoBehaviour
     public RawImage coinIcon;
     [SerializeField]
     public GameObject[] values;//ui elements
+    [SerializeField]
     public Shop.coinType S;
     GameObject player;
     int coinA,coinB,coinC,coinD,coinE,coinF,coinG,coinH;

@@ -13,18 +13,21 @@ public class Shop : MonoBehaviour
     bool treateeOrTrader;
     [SerializeField]
     public enum coinType{coinA, coinB, coinC, coinD, coinE, coinF, coinG, coinH,ITEM};
-
+    [SerializeField]
     public coinType selling;
 
     [SerializeField]
     public enum tradeType{coinA, coinB, coinC, coinD, coinE, coinF, coinG, coinH};
+    [SerializeField]
     public coinType buying;
+    [SerializeField]
     [HideInInspector]
     public float cooldown;
     [SerializeField]
     [Tooltip("basically this traders going trade rate")]
     public int takeAmount, giveAmount;
     AudioSource textNoise=default;
+    [SerializeField]
     public bool beenTreated;
 
     public bool getTreatOrTrater(){

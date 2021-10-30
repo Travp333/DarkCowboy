@@ -4,6 +4,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     PlayerStats stats = default;
+    [SerializeField]
     public GameObject player = default;
 
     void Start() {

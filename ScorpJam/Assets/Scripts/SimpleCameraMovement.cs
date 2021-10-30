@@ -11,6 +11,7 @@ public class SimpleCameraMovement : MonoBehaviour
     Transform playerCamera = null;
     Vector2 currentMouseDelta = Vector2.zero;
     Vector2 currentMouseDeltaVelocity = Vector2.zero;
+    [SerializeField]
     public bool cameraRotLock;
 
     [SerializeField, Range(0f, .5f)]

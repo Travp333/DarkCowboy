@@ -8,7 +8,9 @@ public class stillShittin : MonoBehaviour
     AudioSource fart;
     [SerializeField]
     AudioSource shittin;
+    [SerializeField]
     public bool fartBlock;
+    [SerializeField]
     public bool shittinBlock = true;
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other) {

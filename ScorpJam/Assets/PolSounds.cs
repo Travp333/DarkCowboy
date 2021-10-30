@@ -21,11 +21,11 @@ public class PolSounds : MonoBehaviour
 
     [SerializeField]
     bool shouldPlayNoise;
-
+    [SerializeField]
     PlayerStats stats;
     // Start is called before the first frame update
     void Start() {
-        stats = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
+        //stats = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
         anim = transform.GetChild(0).GetComponent<Animator>();
     }
     public void playRandomPolSound(){
@@ -87,23 +87,25 @@ public class PolSounds : MonoBehaviour
 
 
     void Update(){
-        if(!stats.crowdBlocker && audienceMember){
-            timeRange = Random.Range(1,10);
-            if (timer > timeRange){
-                timer = 0;
-                playRandomCheerSound();
-                
-            }
-            else{
-                timer += Time.deltaTime;
-            }
-            timeRange2 = Random.Range(5,10);
-            if (timer2 > timeRange2){
-                whichAnim();
-                timer2 = 0;
-            }
-            else{
-                timer2 += Time.deltaTime;
+        if(stats != null ){
+            if(!stats.crowdBlocker && audienceMember){
+                timeRange = Random.Range(1,10);
+                if (timer > timeRange){
+                    timer = 0;
+                    playRandomCheerSound();
+                    
+                }
+                else{
+                    timer += Time.deltaTime;
+                }
+                timeRange2 = Random.Range(5,10);
+                if (timer2 > timeRange2){
+                    whichAnim();
+                    timer2 = 0;
+                }
+                else{
+                    timer2 += Time.deltaTime;
+                }
             }
         }
     }

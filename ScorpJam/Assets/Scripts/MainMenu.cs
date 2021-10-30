@@ -7,8 +7,11 @@ using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField]
     public GameObject Menu, OptionsMenu;
+    [SerializeField]
     public Slider slider;
+    [SerializeField]
     public AudioMixer mixer;
     
 
