@@ -7,7 +7,7 @@ public class fanbladeSpeedController : MonoBehaviour
     Animator anim;
     AccelerationZone zone;
     [SerializeField]
-    float bladeSpeed;
+    public float bladeSpeed;
     // Start is called before the first frame update
     void Start()
     {

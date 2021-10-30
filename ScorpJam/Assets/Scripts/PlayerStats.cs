@@ -73,7 +73,8 @@ public class PlayerStats : MonoBehaviour
     public void die(){
         gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).GetComponent<Grab>().teleportToMarket();
         hp = 45;
-        coinA -= coinA/2;
+        //this is making the player lose coins as a penalty for death, unecc
+        /*coinA -= coinA/2;
         coinB -= coinB/2;
         coinC -= coinC/2;
         coinD -= coinD/2;
@@ -89,7 +90,7 @@ public class PlayerStats : MonoBehaviour
         if(coinF < 0 ) coinF = 0;
         if(coinG < 0 ) coinG = 0;
         if(coinH < 0 ) coinH = 0;
-
+        */
         }
 
     }

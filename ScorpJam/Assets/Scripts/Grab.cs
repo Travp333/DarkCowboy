@@ -6,8 +6,6 @@ public class Grab : MonoBehaviour
 {
     [SerializeField]
     GameObject bossphaseUI;
-    [SerializeField]
-	GameObject wakeCowboy;
     MovementSpeedController speedController;
     //renda.material.Lerp(renda.material, shadow, .5f);
     Material mat;
@@ -1453,7 +1451,6 @@ public class Grab : MonoBehaviour
     public void teleportToStreet(){
         bossphaseUI.SetActive(true);
         stats.trickOrTreated = 0;
-        wakeCowboy.gameObject.GetComponent<wakeCowboy>().gate = true;
         stats.cowboyVolumes.gameObject.SetActive(true);
         stats.track2.Stop();
         stats.track3.Play();
@@ -1511,6 +1508,10 @@ public class Grab : MonoBehaviour
         RaycastHit hit;
         if (Input.GetKeyDown("e"))
         {
+            if(hand.holdingHat){
+                hand.setEndHatDialogue(true);
+                return;
+            }
             if(stats.hasGun){
                 stats.dropGun();
                 return;
@@ -1532,16 +1533,21 @@ public class Grab : MonoBehaviour
                 
                 // send a raycast
                 if (Physics.SphereCast(origin.transform.position, 1, (dummy.position - origin.transform.position), out hit, distance, mask))
-                {
+                { 
+                    if(hit.transform.gameObject.tag == "HAT"){
+                        Destroy(hit.transform.gameObject);
+                        hand.holdingHat = true;
+                        return;
+                    }
                     if(hit.transform.gameObject.tag == "gun" || hit.transform.gameObject.tag == "thisonespecificgun"){
                         stats.getGun();
                         Destroy(hit.transform.gameObject);
                         return;
                     }
-                    //if(hit.transform.gameObject.tag == "buttons"){
+                    if(hit.transform.gameObject.tag == "buttons"){
                     //    Debug.Log("PRESSY");
-                    //    hit.transform.gameObject.GetComponent<pressy>().interact();
-                    //}
+                        hit.transform.gameObject.GetComponent<switchy>().interact();
+                    }
                     if(hit.transform.gameObject.GetComponent<Exit>() != null){
                         if(hit.transform.gameObject.GetComponent<Exit>().direction){
                             teleportToMarket();
@@ -1581,7 +1587,7 @@ public class Grab : MonoBehaviour
                     }
                     
 
-                    if (hit.transform.gameObject.GetComponent<Rigidbody>() != null && !stats.hasGun){
+                    if (hit.transform.gameObject.GetComponent<Rigidbody>() != null && !stats.hasGun && !hand.getUIBlocked()){
                         if(hit.transform.gameObject.GetComponent<Rigidbody>().mass <= strength){
                             if(player.dancing == false && player.moveBlocked == false){
                                 if(hit.transform.gameObject.GetComponent<objectSize>().isLarge && !hit.transform.gameObject.GetComponent<objectSize>().isMedium && !hit.transform.gameObject.GetComponent<objectSize>().isSmall){

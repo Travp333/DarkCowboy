@@ -5,6 +5,11 @@ using UnityEngine;
 public class HandAnim : MonoBehaviour
 {
     [SerializeField]
+    AudioSource putOnHatNoise;
+    [SerializeField]
+    GameObject hat;
+    public bool holdingHat;
+    [SerializeField]
     AudioSource gunShot;
     [SerializeField]
     GameObject cowboy;
@@ -44,8 +49,15 @@ public class HandAnim : MonoBehaviour
     bool JumpPressed;
     Grab grab;
 
+    bool endHatDialogue;
     bool UIblocked;
     // Start is called before the first frame update
+    public void setEndHatDialogue(bool plug){
+        endHatDialogue = plug;
+    }
+    public bool getUIBlocked(){
+        return UIblocked;
+    }
     public void setUIblocked(bool plug){
         UIblocked = plug;
     }
@@ -62,6 +74,8 @@ public class HandAnim : MonoBehaviour
         animator.SetBool("grabCharge", !plug);
         animator.SetBool("isThrowing", plug);
     }
+
+
 
     void BoolAdjuster(){
         isOnGround = player.OnGround;
@@ -146,9 +160,45 @@ public class HandAnim : MonoBehaviour
         }
     }
 
+    void showCowboyHat(){
+        hat.gameObject.SetActive(true);
+    }
+
+    void hideCowboyHat(){
+        Debug.Log("REMOVED HAT");
+        hat.gameObject.GetComponent<MeshRenderer>().enabled = false;
+    }
+
+    void resetHoldingHat(){
+        animator.SetBool("holdingHat", true);
+    }
+
+    void putOnHat(){
+        hideCowboyHat();
+        setUIblocked(false);
+        putOnHatNoise.Play();
+    }
     // Update is called once per frame
+
+    void resetEndHatDialogue(){
+        animator.SetBool("endHatDialogue", false);
+    }
     void Update()
     {
+        if(endHatDialogue){
+            Debug.Log("Ended conversation with self");
+            animator.SetBool("endHatDialogue", true);
+            Invoke("resetEndHatDialogue", .1f);
+            endHatDialogue = false;
+            setUIblocked(false);
+        }
+        //REMEMEBR TO TURN OFF UI BLOCKED (imma try to do in in the anim)
+        if(holdingHat){
+            Invoke("showCowboyHat", .1f);
+            setUIblocked(true);
+            animator.SetBool("holdingHat", true);
+            Invoke("resetHoldingHat", .1f);
+        }
         if(player.gameObject.GetComponent<PlayerStats>().hasGun){
             animator.SetLayerWeight(1, .37f);
             gun.SetActive(true);

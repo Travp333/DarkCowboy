@@ -25,6 +25,7 @@ TagManager:
   - walkin
   - SceneSwapper
   - cowboySong
+  - HAT
   layers:
   - Default
   - TransparentFX
