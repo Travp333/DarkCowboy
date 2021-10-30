@@ -15,7 +15,7 @@ public class Shatter : MonoBehaviour
     float hitPoints = 2;
     int Damagestate = 0;
 
-    float breakSpeed = 40f;
+    //float breakSpeed = 40f;
     GameObject player;
 
    // void OnCollisionEnter(Collision other) {

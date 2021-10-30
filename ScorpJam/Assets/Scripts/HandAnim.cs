@@ -5,6 +5,8 @@ using UnityEngine;
 public class HandAnim : MonoBehaviour
 {
     [SerializeField]
+    GameObject door;
+    [SerializeField]
     AudioSource putOnHatNoise;
     [SerializeField]
     GameObject hat;
@@ -54,6 +56,9 @@ public class HandAnim : MonoBehaviour
     // Start is called before the first frame update
     public void setEndHatDialogue(bool plug){
         endHatDialogue = plug;
+    }
+    public void setAnimEndHatDialogue(){
+        animator.SetBool("endHatDialogue", true);
     }
     public bool getUIBlocked(){
         return UIblocked;
@@ -165,31 +170,35 @@ public class HandAnim : MonoBehaviour
     }
 
     void hideCowboyHat(){
-        Debug.Log("REMOVED HAT");
+        //Debug.Log("REMOVED HAT");
         hat.gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 
-    void putOnHat(){
+    public void putOnHat(){
+        endHatDialogue = true;
         hideCowboyHat();
         setUIblocked(false);
         putOnHatNoise.Play();
         animator.SetBool("holdingHat", false);
-        animator.SetBool("endHatDialogue", false);
+        holdingHat = false;
+        //animator.SetBool("endHatDialogue", true);
+        Destroy(door.gameObject);
+        //Invoke("resetEndHatDialogue", .1f);
     }
     // Update is called once per frame
 
     void resetEndHatDialogue(){
-        animator.SetBool("endHatDialogue", false);
+        //animator.SetBool("endHatDialogue", false);
     }
     void Update()
     {
-        if(endHatDialogue){
-            Debug.Log("Ended conversation with self");
-            animator.SetBool("endHatDialogue", true);
-            Invoke("resetEndHatDialogue", .1f);
-            endHatDialogue = false;
-            setUIblocked(false);
-        }
+        //if(endHatDialogue){
+            //Debug.Log("Ended conversation with self");
+        //    animator.SetBool("endHatDialogue", true);
+        //    Invoke("resetEndHatDialogue", .1f);
+       //     endHatDialogue = false;
+        //    setUIblocked(false);
+       // }
         //REMEMEBR TO TURN OFF UI BLOCKED (imma try to do in in the anim)
         if(holdingHat){
             Invoke("showCowboyHat", .1f);

@@ -189,7 +189,7 @@ public class DialogueManager : MonoBehaviour
         }
         NPCisTalking = false;
         textLayer.SetActive(false);
-        Debug.Log("dialogue set to true");
+        //Debug.Log("dialogue set to true");
 
     }
 

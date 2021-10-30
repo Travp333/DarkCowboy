@@ -244,7 +244,8 @@ public class followPlayer : MonoBehaviour
                     elapsed -= 1.0f;
                     NavMesh.CalculatePath(transform.position, player.transform.position, NavMesh.AllAreas, path);
                 }
-                agent.SetDestination(path.corners[path.corners.Length - 1]);
+                // path.corners[path.corners.Length - 1]
+                agent.SetDestination(player.transform.position);
             }
             else if(takingDamage){
                 //Debug.Log("Retreating!" + agent.hasPath);

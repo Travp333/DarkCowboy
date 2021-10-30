@@ -6,7 +6,7 @@ public class ZoneWarp : MonoBehaviour
 {
     [SerializeField]
     float warpOffset;
-    bool flipflop = true;
+    // bool flipflop = true;
 
     public void forceWarp(){
 

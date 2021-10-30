@@ -1451,7 +1451,6 @@ public class Grab : MonoBehaviour
     public void teleportToStreet(){
         bossphaseUI.SetActive(true);
         stats.trickOrTreated = 0;
-        stats.cowboyVolumes.gameObject.SetActive(true);
         stats.track2.Stop();
         stats.track3.Play();
         stats.blocker.gameObject.SetActive(false);
@@ -1483,6 +1482,10 @@ public class Grab : MonoBehaviour
     //(Physics.Raycast(origin.transform.position, (dummy.position - origin.transform.position), out hit, distance, mask)
     void Update()
     {
+        if (!dialogueManager.NPCisTalking && hand.holdingHat){
+            hand.setEndHatDialogue(true);
+            hand.setAnimEndHatDialogue();
+        }
         
         //if(Input.GetKeyDown("y")){
         //    range = Random.Range(0, 8);
@@ -1508,9 +1511,9 @@ public class Grab : MonoBehaviour
         RaycastHit hit;
         if (Input.GetKeyDown("e"))
         {
-            if(hand.holdingHat){
-                hand.setEndHatDialogue(true);
-                return;
+            if(!dialogueManager.NPCisTalking && hand.holdingHat){
+                //Debug.Log("put away hat");
+                //hand.setEndHatDialogue(true);
             }
             if(stats.hasGun){
                 stats.dropGun();
@@ -1534,10 +1537,10 @@ public class Grab : MonoBehaviour
                 // send a raycast
                 if (Physics.SphereCast(origin.transform.position, 1, (dummy.position - origin.transform.position), out hit, distance, mask))
                 { 
-                    if(hit.transform.gameObject.tag == "HAT"){
-                        Destroy(hit.transform.gameObject);
+                    if(hit.transform.gameObject.tag == "HAT" && !hand.holdingHat){
+                        hit.transform.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                        hit.transform.gameObject.GetComponent<MeshCollider>().enabled = false;
                         hand.holdingHat = true;
-                        return;
                     }
                     if(hit.transform.gameObject.tag == "gun" || hit.transform.gameObject.tag == "thisonespecificgun"){
                         stats.getGun();
@@ -1587,7 +1590,7 @@ public class Grab : MonoBehaviour
                     }
                     
 
-                    if (hit.transform.gameObject.GetComponent<Rigidbody>() != null && !stats.hasGun && !hand.getUIBlocked()){
+                    if (hit.transform.gameObject.GetComponent<Rigidbody>() != null && !stats.hasGun && !hand.getUIBlocked() && !hand.holdingHat){
                         if(hit.transform.gameObject.GetComponent<Rigidbody>().mass <= strength){
                             if(player.dancing == false && player.moveBlocked == false){
                                 if(hit.transform.gameObject.GetComponent<objectSize>().isLarge && !hit.transform.gameObject.GetComponent<objectSize>().isMedium && !hit.transform.gameObject.GetComponent<objectSize>().isSmall){
