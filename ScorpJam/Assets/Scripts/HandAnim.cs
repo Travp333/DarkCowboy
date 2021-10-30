@@ -169,14 +169,12 @@ public class HandAnim : MonoBehaviour
         hat.gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 
-    void resetHoldingHat(){
-        animator.SetBool("holdingHat", false);
-    }
-
     void putOnHat(){
         hideCowboyHat();
         setUIblocked(false);
         putOnHatNoise.Play();
+        animator.SetBool("holdingHat", false);
+        animator.SetBool("endHatDialogue", false);
     }
     // Update is called once per frame
 
@@ -197,7 +195,6 @@ public class HandAnim : MonoBehaviour
             Invoke("showCowboyHat", .1f);
             setUIblocked(true);
             animator.SetBool("holdingHat", true);
-            Invoke("resetHoldingHat", .1f);
         }
         if(player.gameObject.GetComponent<PlayerStats>().hasGun){
             animator.SetLayerWeight(1, .37f);

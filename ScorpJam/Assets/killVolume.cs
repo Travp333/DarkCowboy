@@ -6,7 +6,7 @@ public class killVolume : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Player"){
-            other.gameObject.transform.GetComponent<PlayerStats>().die();
+            other.gameObject.transform.root.transform.GetComponent<PlayerStats>().die();
         }
     }
 }
