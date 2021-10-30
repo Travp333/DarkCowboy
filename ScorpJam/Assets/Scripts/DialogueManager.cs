@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField]
+    GameObject walkinCowboyPrefab;
+    [SerializeField]
     public FPSMovingSphere player;
     [SerializeField]
     public PlayerStats stats;
@@ -33,9 +35,13 @@ public class DialogueManager : MonoBehaviour
     float errorTime = 2f;
     float timer;
     public ShopNPC currentNPC;
+
+    [SerializeField]
+    public GameObject sceneSwitcher;
     
     void Start()
     {
+        sceneSwitcher = GameObject.FindWithTag("SceneSwapper");
         sentences = new Queue<string>();
         shopInventory = new Queue<Item>();
         textLayer.SetActive(false);
@@ -173,6 +179,13 @@ public class DialogueManager : MonoBehaviour
             textLayer.SetActive(false);
             grab.teleportToMarket(true);
             Destroy(shop.gameObject);
+        }
+        else if(shop.lastCowboyEncounter){
+            NPCisTalking = false;
+            textLayer.SetActive(false);
+            Instantiate(walkinCowboyPrefab, shop.gameObject.transform.position, Quaternion.identity);
+            Destroy(shop.gameObject);
+            
         }
         NPCisTalking = false;
         textLayer.SetActive(false);
@@ -355,7 +368,8 @@ public class DialogueManager : MonoBehaviour
                 }
                 if (getItem.name == "GUN")
                 {
-                    stats.hasGun = true;
+                    sceneSwitcher.GetComponent<sceneswitch>().boughtGun();
+                    //stats.hasGun = true;
                 }
                 if (getItem.name == jumpboostName) {
                     stats.hasJumpBoost = true;

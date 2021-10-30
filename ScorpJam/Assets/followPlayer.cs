@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class followPlayer : MonoBehaviour
 {
+    AudioSource song;
     [SerializeField]
     GameObject scorb;
     [SerializeField]
@@ -19,6 +20,7 @@ public class followPlayer : MonoBehaviour
     Animator anim;
     [SerializeField]
     AudioSource[] clips;
+    [SerializeField]
     bool gate = false;
     [SerializeField]
     float range;
@@ -141,9 +143,11 @@ public class followPlayer : MonoBehaviour
 
     public void disableNavAgent(){
         isDead = true;
+        agent.isStopped = true;
     }
     public void enableNavAgent(){
         isDead = false;
+        agent.isStopped = false;
     }
 
     void InstantiateScorb(){
@@ -151,6 +155,7 @@ public class followPlayer : MonoBehaviour
     }
 
     void Die(){
+        song.Stop();
         cowboydeath.Play();
         anim.SetBool("isDead", true);
         isDead = true;
@@ -212,6 +217,7 @@ public class followPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
+        song = GameObject.FindWithTag("cowboySong").GetComponent<AudioSource>();
         elapsed = 0.0f;
         path = new NavMeshPath();
         Invoke("openGate", 5f);

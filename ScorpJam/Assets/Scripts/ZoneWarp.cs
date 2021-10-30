@@ -8,19 +8,10 @@ public class ZoneWarp : MonoBehaviour
     float warpOffset;
     bool flipflop = true;
 
+    public void forceWarp(){
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R)){
-            if (flipflop){
-                transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + warpOffset );
-                flipflop = false;
+        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + warpOffset );
+        //transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z - warpOffset );
             }
-            else if (!flipflop){
-                transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z - warpOffset );
-                flipflop = true;
-            }
-        }
-    }
+
 }

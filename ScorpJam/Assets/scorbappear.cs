@@ -5,7 +5,6 @@ using UnityEngine;
 public class scorbappear : MonoBehaviour
 {
     GameObject slideJam;
-    GameObject lightManager;
     GameObject curtains;
     [SerializeField]
     public GameObject scorbs;
@@ -22,14 +21,22 @@ public class scorbappear : MonoBehaviour
     [SerializeField]
     float curtainsOffset;
     PlayerStats stats;
+    GameObject cowboy;
+    GameObject gun;
+
 
     void Start() {
         slideJam = GameObject.FindWithTag("slideJam");
-        lightManager = GameObject.FindWithTag("lightmanager");
         curtains = GameObject.FindWithTag("Curtains");
         stats = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
+        cowboy = GameObject.FindWithTag("DARKCOWBOY");
+        gun = GameObject.FindWithTag("thisonespecificgun");
     }
     
+    void statsBlocker(){
+        stats.crowdBlocker = false;
+    }
+
     // Start is called before the first frame update
     // Update is called once per frame
     void Update()
@@ -44,12 +51,14 @@ public class scorbappear : MonoBehaviour
         if(timer > 17){
             timer += Time.deltaTime;
             if(gate2){
+                stats.gameObject.GetComponent<ZoneWarp>().forceWarp();
+                cowboy.gameObject.GetComponent<ZoneWarp>().forceWarp();
+                gun.gameObject.GetComponent<ZoneWarp>().forceWarp();
+                this.gameObject.GetComponent<ZoneWarp>().forceWarp();
                 GetComponent<Rigidbody>().isKinematic=(false);
                 this.gameObject.layer = 13;
                 gate2 = false;
-                Destroy(curtains);
-                stats.crowdBlocker = false;
-                lightManager.GetComponent<lightController>().lightSwap();
+                Invoke("statsBlocker", .1f);
                 slideJam.GetComponent<jamSlide>().movespeedSet();
             }
         }
