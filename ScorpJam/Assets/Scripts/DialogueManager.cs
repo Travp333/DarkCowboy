@@ -24,7 +24,7 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject itemSlotPrefab = default;
 
-    public GameObject shopLayer, shopMenu,errorLayer, inventoryUI, bankLayer;
+    public GameObject shopLayer, shopMenu,errorLayer, inventoryUI, bankLayer, congratsLayer;
 
     public Texture[] coins;
 
@@ -33,6 +33,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
     private Queue<Item> shopInventory;
     float errorTime = 2f;
+    float congratsTime = 10f;
     float timer;
     public ShopNPC currentNPC;
 
@@ -47,6 +48,10 @@ public class DialogueManager : MonoBehaviour
         textLayer.SetActive(false);
         shopLayer.SetActive(false);
         errorLayer.SetActive(false);
+        if (congratsLayer)
+        {
+            congratsLayer.SetActive(false);
+        }
         inventoryUI.SetActive(true);
         bankLayer.SetActive(false);
         timer = 0f;
@@ -72,7 +77,19 @@ public class DialogueManager : MonoBehaviour
                 timer = 0f;
             }
         }
-        
+        if (congratsLayer.activeSelf)
+        {
+            timer += Time.deltaTime;
+
+            if (timer > congratsTime)
+            {
+                Debug.Log(timer + " " + congratsTime);
+                Debug.Log("errorscreenfalse");
+                congratsLayer.SetActive(false);
+                timer = 0f;
+            }
+        }
+
         camMovement.cameraRotLock = NPCisTalking||ShopisOpen||BankisOpen;
         if (camMovement.cameraRotLock)
         {
@@ -405,6 +422,10 @@ public class DialogueManager : MonoBehaviour
         errorLayer.SetActive(true);
         Debug.Log("cantdothat");
     }
+    public void Congrats() {
+        congratsLayer.SetActive(true);
+    }
+
     public void ToggleBankMenu() {
         if (BankisOpen) {
             bankLayer.SetActive(false);

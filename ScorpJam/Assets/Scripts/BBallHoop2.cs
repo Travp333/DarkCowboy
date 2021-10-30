@@ -9,6 +9,7 @@ public class BBallHoop2 : MonoBehaviour
     GameObject[] balls;
     int ballLength;
     Animator anim;
+    bool gate = false;
     void Update() {
         //checks if the amount of balls in level has changed. if not, do nothing
         if (GameObject.FindGameObjectsWithTag("bball").Length != ballLength){
@@ -31,6 +32,11 @@ public class BBallHoop2 : MonoBehaviour
                 if(b.gameObject.GetComponent<BBall>().getThruHoop()){
                     b.gameObject.GetComponent<BBall>().setThruHoop(false);
                     anim.SetBool("isSwish", true);
+                    if (!gate)
+                    {
+                        gate = true;
+                        FindObjectOfType<DialogueManager>().Congrats();
+                    }
                     Invoke("reset", .1f);
                 }
             }
